@@ -1,4 +1,3 @@
-
 " Theme
 " -----
 
@@ -9,6 +8,7 @@ set t_Co=256
 if has('termguicolors')
 	set termguicolors
 endif
+
 
 function! s:theme_reload(name)
 	let theme_path = $VIMPATH.'/themes/'.a:name.'.vim'
@@ -30,5 +30,3 @@ if ! exists('g:colors_name')
 	execute 'colorscheme'
 		\ filereadable(s:cache) ? readfile(s:cache)[0] : 'hybrid'
 endif
-
-" vim: set ts=2 sw=2 tw=80 noet :
