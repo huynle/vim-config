@@ -393,7 +393,7 @@ endfunction
   vnoremap . :normal .<CR>
 
 " getting out of insert mode fast!
-  imap jj <Esc>l
+  imap jk <Esc>l
 
 " delete whole word in insert mode
   inoremap <c-h> <c-w>
