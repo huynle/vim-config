@@ -71,7 +71,7 @@ endif
 
 " KEY MAPPINGS
 let insert_mode_mappings = [
-	\  ['jj', '<denite:enter_mode:normal>', 'noremap'],
+	\  ['jk', '<denite:enter_mode:normal>', 'noremap'],
 	\  ['<Esc>', '<denite:enter_mode:normal>', 'noremap'],
 	\  ['<C-N>', '<denite:assign_next_matched_text>', 'noremap'],
 	\  ['<C-P>', '<denite:assign_previous_matched_text>', 'noremap'],
