@@ -44,15 +44,15 @@ endif
 " Wildmenu {{{
 " --------
 if has('wildmenu')
-	set nowildmenu
-	set wildmode=list:longest,full
-	set wildoptions=tagfile
-	set wildignorecase
-	set wildignore+=.git,.hg,.svn,.stversions,*.pyc,*.spl,*.o,*.out,*~,%*
-	set wildignore+=*.jpg,*.jpeg,*.png,*.gif,*.zip,**/tmp/**,*.DS_Store
-	set wildignore+=**/node_modules/**,**/bower_modules/**,*/.sass-cache/*
-	set wildignore+=application/vendor/**,**/vendor/ckeditor/**,media/vendor/**
-	set wildignore+=__pycache__,*.egg-info
+  set nowildmenu
+  set wildmode=list:longest,full
+  set wildoptions=tagfile
+  set wildignorecase
+  set wildignore+=.git,.hg,.svn,.stversions,*.pyc,*.spl,*.o,*.out,*~,%*
+  set wildignore+=*.jpg,*.jpeg,*.png,*.gif,*.zip,**/tmp/**,*.DS_Store
+  set wildignore+=**/node_modules/**,**/bower_modules/**,*/.sass-cache/*
+  set wildignore+=application/vendor/**,**/vendor/ckeditor/**,media/vendor/**
+  set wildignore+=__pycache__,*.egg-info
 
   set wildignore+=*.sw?                            " Vim swap files
   set wildignore+=*.bak,*.?~,*.??~,*.???~,*.~      " Backup files
@@ -294,7 +294,7 @@ endfunction
   vnoremap // y/<C-R>"<CR>
 
 " exit insert, dd line, enter insert
-  inoremap <c-d> <esc>ddi
+  " inoremap <c-d> <esc>ddi
   noremap H ^
   noremap L g_
 
