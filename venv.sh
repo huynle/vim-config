@@ -4,18 +4,17 @@
 venv="${XDG_CACHE_HOME:-$HOME/.cache}/vim/venv"
 
 # Try to detect virtualenv's executable names
-vrenv2=virtualenv
-hash virtualenv-2.7 2>/dev/null && vrenv2=virtualenv-2.7
-vrenv3=virtualenv
-hash virtualenv-3.5 2>/dev/null && vrenv3=virtualenv-3.5
+vrenv=virtualenv
 
 # Ensure python 2/3 virtual environments
 [ -d "$venv" ] || mkdir -p "$venv"
-[ -d "$venv/neovim2" ] || $vrenv2 "$venv/neovim2"
-[ -d "$venv/neovim3" ] || $vrenv3 "$venv/neovim3"
+[ -d "$venv/neovim2" ] || $vrenv -p python2 "$venv/neovim2"
+[ -d "$venv/neovim3" ] || $vrenv -p python3 "$venv/neovim3"
+
 
 # Install or upgrade dependencies
 echo 'PYTHON 2'
-"$venv/neovim2/bin/pip" install -U neovim PyYAML
+"$venv/neovim2/bin/pip" install -U neovim PyYAML pycodestyle pyflakes flake8 vim-vint proselint yamllint
 echo 'PYTHON 3'
-"$venv/neovim3/bin/pip" install -U neovim PyYAML
+"$venv/neovim3/bin/pip" install -U neovim PyYAML pycodestyle pyflakes flake8 vim-vint proselint yamllint
+
