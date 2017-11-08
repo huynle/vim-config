@@ -52,7 +52,6 @@ xmap <BS> %
 nmap <Tab>  <C-w>w
 nmap <S-Tab>  <C-w>W
 
-
 "}}}
 " Global niceties {{{
 " ---------------

@@ -19,22 +19,20 @@ nnoremap m        <Nop>
 xnoremap m        <Nop>
 
 " }}}
-
 " Ensure cache directory "{{{
 if ! isdirectory(expand($VARPATH))
 	" Create missing dirs i.e. cache/{undo,backup}
 	call mkdir(expand('$VARPATH/undo'), 'p')
 	call mkdir(expand('$VARPATH/backup'))
 endif
-" }}}
 
+" }}}
 " Load vault settings "{{{
 if filereadable(expand('$VIMPATH/.vault.vim'))
 	execute 'source' expand('$VIMPATH/.vault.vim')
 endif
 
 " }}}
-
 " Setup dein {{{
 if &runtimepath !~# '/dein.vim'
 	let s:dein_dir = expand('$VARPATH/dein').'/repos/github.com/Shougo/dein.vim'
@@ -45,8 +43,8 @@ if &runtimepath !~# '/dein.vim'
 	execute 'set runtimepath+='.substitute(
 		\ fnamemodify(s:dein_dir, ':p') , '/$', '', '')
 endif
-" }}}
 
+" }}}
 " Load less plugins while SSHing to remote machines {{{
 if len($SSH_CLIENT)
 	let $VIM_MINIMAL = 1
@@ -84,3 +82,5 @@ let g:loaded_vimballPlugin = 1
 let g:loaded_zip = 1
 let g:loaded_zipPlugin = 1
 " }}}
+
+" vim: set foldmethod=marker ts=2 sw=2 tw=80 noet :

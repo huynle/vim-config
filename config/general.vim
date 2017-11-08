@@ -69,7 +69,6 @@ if has('wildmenu')
   set wildignore+=*.rbc,*.scssc,*.sassc
   set wildignore+=*/spec/dummy/*
   set wildignore+=*/tmp/*
-
 endif
 
 " }}}
