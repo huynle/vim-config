@@ -257,369 +257,57 @@ endfunction
 
 
 
+"" Editor Settings  ----------------------------------------------------------{{{
+"  " Fold, gets it's own section  ----------------------------------------------{{{
 
+"    call dein#add('nelstrom/vim-markdown-folding', {'on_ft': 'markdown'})
 
 
+"  " Saving spot for folding
+"    autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
+"    autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
 
 
+"  " Working with vim file
+"    autocmd FileType vim setlocal foldmethod=marker
+"    autocmd FileType vim setlocal fdc=1
+"    autocmd FileType vim setlocal foldlevel=0
 
+"  " Setting automatic folder per file type
+"    autocmd FileType python setlocal foldmethod=syntax
+"  "}}}
 
+"  " SuperTab like snippets behavior --------------------------------------------{{{
+"    imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+"    \ "\<Plug>(neosnippet_expand_or_jump)"
+"    \: pumvisible() ? "\<C-n>" : "\<TAB>"
+"    smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+"    \ "\<Plug>(neosnippet_expand_or_jump)"
+"    \: "\<TAB>"
 
+"    let g:neosnippet#snippets_directory='~/.vim/snippets'
+"  "}}}
 
+""}}}
 
+"" Code formatting -----------------------------------------------------------{{{
+"  " automatic pairing of bracket, quotes, etc...
 
 
+"" Language Specifics---------------------------------------------------------{{{
 
+"  " GoLang-------------------------------------------------------------------{{{
+"    let g:go_highlight_functions = 1
+"    let g:go_highlight_methods = 1
+"    let g:go_highlight_structs = 1
+"    let g:go_highlight_operators = 1
+"    let g:go_highlight_build_constraints = 1
+"    let g:go_fmt_command = "goimports"
 
+"    " deoplete-go
+"    let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+"    let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+"    let g:deoplete#sources#go#use_cache = 1
+"    let g:go_fmt_command = 'goimports'
+"    let g:deoplete#sources#go = 'vim-go'
 
-" System Settings  ----------------------------------------------------------{{{
-
-" Reduce the wait time for vim to switch from insert to normal to visual
-  " set timeoutlen=1000 ttimeoutlen=10
-
-" Setting up the directories
-  set undolevels=1000         " Maximum number of changes that can be undone
-  set undoreload=10000        " Maximum number lines to save for undo on a buffer reload
-
-" When the type of shell script is /bin/sh, assume a POSIX-compatible
-" shell for syntax highlighting purposes.
-  let g:is_posix = 1
-
-"}}}"
-
-" System Mappings  ----------------------------------------------------------{{{
-
-" No need for ex mode
-  nnoremap Q <nop>
-  vnoremap // y/<C-R>"<CR>
-
-" exit insert, dd line, enter insert
-  " inoremap <c-d> <esc>ddi
-  noremap H ^
-  noremap L g_
-
-" Quicker window movement
-  nnoremap <C-j> <C-w>j
-  nnoremap <C-k> <C-w>k
-  nnoremap <C-h> <C-w>h
-  nnoremap <C-l> <C-w>l
-
-" Wrapped lines goes down/up to next row, rather than next line in file.
-" provide hjkl movements in Insert mode via the <Alt> modifier key
-  inoremap <A-h> <C-o>h
-  inoremap <A-j> <C-o>j
-  inoremap <A-k> <C-o>k
-  inoremap <A-l> <C-o>l
-
-" Visual shifting (does not exit Visual mode)
-  vnoremap < <gv
-  vnoremap > >gv
-
-" fast save
-  nmap <leader>w :w!<cr>
-
-" search highlighting
-  " map <space>
-  " map <c-space> /
-  nnoremap <silent> <esc> :noh<cr>                " clear search highlighting
-
-
-" Allow using the repeat operator with a visual selection (!)
-" http://stackoverflow.com/a/8064607/127816
-  vnoremap . :normal .<CR>
-
-" getting out of insert mode fast!
-  imap jk <Esc>l
-
-" delete whole word in insert mode
-  inoremap <c-h> <c-w>
-
-
-" These create newlines like o and O but stay in normal mode
-  nnoremap zj o<Esc>k
-  nnoremap zk O<Esc>j
-
-  nnoremap <F5> :source ~/.vim/init.vim<CR> " reload vimrc file
-
-" Open new split panes to right and bottom, which feels more natural
-  set splitbelow
-  set splitright
-
-"}}}"
-
-" Editor Settings  ----------------------------------------------------------{{{
-
-
-  " Fold, gets it's own section  ----------------------------------------------{{{
-
-    call dein#add('nelstrom/vim-markdown-folding', {'on_ft': 'markdown'})
-
-
-  " Saving spot for folding
-    autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
-    autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
-
-
-  " Working with vim file
-    autocmd FileType vim setlocal foldmethod=marker
-    autocmd FileType vim setlocal fdc=1
-    autocmd FileType vim setlocal foldlevel=0
-
-  " Setting automatic folder per file type
-    autocmd FileType python setlocal foldmethod=syntax
-  "}}}
-
-  " SuperTab like snippets behavior --------------------------------------------{{{
-    imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-    \ "\<Plug>(neosnippet_expand_or_jump)"
-    \: pumvisible() ? "\<C-n>" : "\<TAB>"
-    smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-    \ "\<Plug>(neosnippet_expand_or_jump)"
-    \: "\<TAB>"
-
-    let g:neosnippet#snippets_directory='~/.vim/snippets'
-  "}}}
-
-"}}}
-
-" Extra Tools Settings ------------------------------------------------------{{{
-
-  " Vim-test ---------------------------------------------------------____---{{{
-
-    " let test#strategy = "neoterm"
-
-"     nmap <silent> <leader>t :TestNearest<CR>
-"     nmap <silent> <leader>T :TestFile<CR>
-"     nmap <silent> <leader>a :TestSuite<CR>
-"     nmap <silent> <leader>l :TestLast<CR>
-"     nmap <silent> <leader>g :TestVisit<CR>
-  " }}}
-
-  " Nvim terminal -------------------------------------------------------------{{{
-
-
-    " Neovim terminal mapping
-    " tnoremap <Esc> <C-\><C-n>
-
-    " au BufEnter * if &buftype == 'terminal' | :startinsert | endif
-    " autocmd BufEnter term://* startinsert
-    " autocmd TermOpen * set bufhidden=hide
-
-    " setting buffer for fzf to use
-    " au BufEnter * if &buftype == 'terminal' | :startinsert | endif
-
-    " change cursor to bar in insert mode
-    let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-
-    nnoremap <A-\> :Ttoggle<CR>
-    let g:neoterm_autoinsert = 1
-    let g:neoterm_size=10
-
-
-    " useful (re)-maps
-    nnoremap <silent> ,th :call neoterm#close()<cr>  "hide/close terminal
-    nnoremap <silent> ,tl :call neoterm#clear()<cr>  "clear terminal
-    nnoremap <silent> ,tc :call neoterm#kill()<cr>   "kill current job <Ctrl-c>
-
-    " Neoterm
-    " nnoremap <silent> <C-c> :T/
-    " hide/close terminal
-    " nnoremap <silent> <C-l> :call neoterm#clear()<cr>
-
-    " nnoremap <silent> <leader>tc :call neoterm#kill()<cr>
-
-
-  " }}}
-  "
-" }}}
-
-
-" Code formatting -----------------------------------------------------------{{{
-  " automatic pairing of bracket, quotes, etc...
-
-
-" Language Specifics---------------------------------------------------------{{{
-
-
-  " GoLang-------------------------------------------------------------------{{{
-    let g:go_highlight_functions = 1
-    let g:go_highlight_methods = 1
-    let g:go_highlight_structs = 1
-    let g:go_highlight_operators = 1
-    let g:go_highlight_build_constraints = 1
-    let g:go_fmt_command = "goimports"
-
-"     " autocommand for golang specifics
-"     au FileType go nmap <Leader>] <Plug>(go-implements)
-"     au FileType go nmap <Leader>i <Plug>(go-info)
-"     au FileType go nmap <Leader>h <Plug>(go-rename)
-"     au FileType go nmap <leader>r <Plug>(go-run)
-"     au FileType go nmap <leader>b <Plug>(go-build)
-"     au FileType go nmap <leader>t <Plug>(go-test)
-"     au FileType go nmap <Leader>gd <Plug>(go-doc)
-"     au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-"     au FileType go nmap <leader>co <Plug>(go-coverage)
-
-    " deoplete-go
-    let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
-    let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-    let g:deoplete#sources#go#use_cache = 1
-    let g:go_fmt_command = 'goimports'
-    let g:deoplete#sources#go = 'vim-go'
-
-
-  " }}}
-
-  " Python ------------------------------------------------------------------{{{
-
-"     let g:pymode_rope_rename_bind = '<C-c>rr'
-
-    " PythonMode {{{ -------------------------------------------------------------
-"       nmap <silent><Leader>n :PymodeLint<CR>
-
-"       let g:pymode_python = 'python3'
-"       let g:pymode_breakpoint_bind = '<Leader>B'
-"       let g:pymode_lint = 1
-"       let g:pymode_lint_on_write = 0
-"       let g:pymode_lint_checkers = ['pylint', 'pep8', 'mccabe', 'pep257']
-"       let g:pymode_lint_ignore = ''
-"       let g:pymode_virtualenv = 0
-"       " Code assist op, completion, refactoring
-"       let g:pymode_rope = 1
-"
-"
-"       let g:pymode_rope_completion = 0
-"       let g:pymode_rope_complete_on_dot = 1
-"
-"       " }}}
-"
-"       let g:jedi#auto_vim_configuration = 0
-"
-"       " settin the test runner for vim-test
-"       let test#python#runner = 'pytest'
-"
-  " }}}
-
-"  }}}
-
-" Search --------------------------------------------------------------------{{{
-
-
-  " let g:fzf_tags_command = 'ctags -R'
-  " let g:fzf_buffers_jump = 1
-  " let g:fzf_nvim_statusline = 0 " disable statusline overwriting
-  " let g:fzf_layout = { 'down': '~15%' }
-
-  " Mapping selecting mappings
-  " nmap <leader><tab> <plug>(fzf-maps-n)
-  " xmap <leader><tab> <plug>(fzf-maps-x)
-  " omap <leader><tab> <plug>(fzf-maps-o)
-
-  " Insert mode completion
-  " Useful for completing hard to spell words
-  " imap <c-x><c-k> <plug>(fzf-complete-word)
-  " inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'options': '-q '.shellescape(expand('<cword>')),'left': '13%'})
-
-  " Useful to add folder path
-  " imap <c-x><c-f> <plug>(fzf-complete-path)
-  " Useful to FILE path
-  " imap <c-x><c-j> <plug>(fzf-complete-file-ag)
-  " Useful to add line that has been written before
-  " imap <c-x><c-l> <plug>(fzf-complete-line)
-
-
-"  function! SearchWordWithAg()
-"     execute 'Ag' expand('<cword>')
-"   endfunction
-"
-"   function! SearchVisualSelectionWithAg() range
-"     let old_reg = getreg('"')
-"     let old_regtype = getregtype('"')
-"     let old_clipboard = &clipboard
-"     set clipboard&
-"     normal! ""gvy
-"     let selection = getreg('"')
-"     call setreg('"', old_reg, old_regtype)
-"     let &clipboard = old_clipboard
-"     execute 'Ag' selection
-"   endfunction
-" "
-  " function! SearchWithAgInDirectory(...)
-  "   call fzf#vim#ag(join(a:000[1:], ' '), extend({'dir': a:1}, g:fzf#vim#default_layout))
-  " endfunction
-  " command! -nargs=+ -complete=dir AgIn call SearchWithAgInDirectory(<f-args)
-
-  " Special mapping for fzf
-  " nnoremap <silent> <C-p> :Files<CR>
-  " nnoremap <silent> <leader>b :Buffers<CR>
-  " nnoremap <silent> <leader>A :Windows<CR>
-  " nnoremap <silent> <leader>; :BLines<CR>
-  " nnoremap <silent> <leader>o :BTags<CR>
-  " nnoremap <silent> <leader>e :Tags<CR>
-  " nnoremap <silent> <leader>? :History<CR>
-  " nnoremap <silent> <leader>/ :execute 'Ag ' . input('Ag/')<CR>
-  " nnoremap <silent> <leader>. :AgIn
-
-  " nnoremap <silent> <leader>K :call SearchWordWithAg()<CR>
-  " vnoremap <silent> <leader>K :call SearchVisualSelectionWithAg()<CR>
-  " nnoremap <silent> <leader>gl :Commits<CR>
-  " nnoremap <silent> <leader>ga :BCommits<CR>
-  " nnoremap <silent> <leader>ft :Filetypes<CR>
-
-  " use to look for the same words under, this should be switched over to fzf
-  " nmap <leader>ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
-
-  " }
-"}}}
-
-" Extra
-  if get(g:, 'elite_mode')
-      nnoremap <Up>    :resize -2<CR>
-      nnoremap <Down>  :resize +2<CR>
-      nnoremap <Left>  :vertical resize -2<CR>
-      nnoremap <Right> :vertical resize +2<CR>
-  endif
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-" Need Fixing --------------- ------------------------------------------------{{{
-" Workspace Setup
-" ----------------
-function! DefaultWorkspace()
-    " Rough num columns to decide between laptop and big monitor screens
-    let numcol = 2
-    if winwidth(0) >= 220
-        let numcol = 3
-    endif
-
-    if numcol == 3
-        e term://zsh
-        file Shell\ Two
-        vnew
-    endif
-
-    vsp term://~/Programs/golang/context
-    file Context
-    sp term://zsh
-    file Shell\ One
-    wincmd k
-    resize 4
-    wincmd h
-endfunction
-command! -register DefaultWorkspace call DefaultWorkspace()
-
-" ######################### Normal mode mapping

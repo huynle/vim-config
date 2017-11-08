@@ -52,6 +52,7 @@ xmap <BS> %
 nmap <Tab>  <C-w>w
 nmap <S-Tab>  <C-w>W
 
+
 "}}}
 " Global niceties {{{
 " ---------------
@@ -145,9 +146,50 @@ cmap W!! w !sudo tee % >/dev/null
 nnoremap <silent> q :<C-u>:quit<CR>
 autocmd MyAutoCmd FileType man nnoremap <silent><buffer> q :<C-u>:quit<CR>
 
+" Fast Save
+nmap <leader>w :w!<cr>
+
 " Macros
 nnoremap Q q
 nnoremap gQ @q
+
+" exit insert, dd line, enter insert
+" inoremap <c-d> <esc>ddi
+noremap H ^
+noremap L g_
+
+" getting out of insert mode fast!
+imap jk <Esc>
+
+" delete whole word in insert mode
+inoremap <c-h> <c-w>
+
+" Quicker window movement
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+
+" Wrapped lines goes down/up to next row, rather than next line in file.
+" provide hjkl movements in Insert mode via the <Alt> modifier key
+inoremap <A-h> <C-o>h
+inoremap <A-j> <C-o>j
+inoremap <A-k> <C-o>k
+inoremap <A-l> <C-o>l
+
+" Allow using the repeat operator with a visual selection (!)
+" http://stackoverflow.com/a/8064607/127816
+vnoremap . :normal .<CR>
+
+" These create newlines like o and O but stay in normal mode
+nnoremap zj o<Esc>k
+nnoremap zk O<Esc>j
+
+nnoremap <F5> :source ~/.vim/init.vim<CR> " reload vimrc file
+
+" Visual shifting (does not exit Visual mode)
+vnoremap < <gv
+vnoremap > >gv
 
 " Show highlight names under cursor
 nmap <silent> gh :echo 'hi<'.synIDattr(synID(line('.'), col('.'), 1), 'name')

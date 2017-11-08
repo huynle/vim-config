@@ -187,7 +187,7 @@ endif
 if dein#tap('jedi-vim')
 	let g:jedi#completions_command = ''
 	let g:jedi#documentation_command = 'K'
-	" let g:jedi#goto_command = '<C-]>'
+	let g:jedi#goto_command = '<C-]>'
 	let g:jedi#goto_assignments_command = '<leader>g'
 	let g:jedi#rename_command = '<Leader>r'
 	let g:jedi#usages_command = '<Leader>n'
