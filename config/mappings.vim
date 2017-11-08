@@ -152,10 +152,10 @@ nmap <leader>w :w!<cr>
 nnoremap Q q
 nnoremap gQ @q
 
-" exit insert, dd line, enter insert
-" inoremap <c-d> <esc>ddi
-noremap H ^
-noremap L g_
+" " exit insert, dd line, enter insert
+" " inoremap <c-d> <esc>ddi
+" noremap H ^
+" noremap L g_
 
 " getting out of insert mode fast!
 imap jk <Esc>
@@ -179,10 +179,6 @@ inoremap <A-l> <C-o>l
 " Allow using the repeat operator with a visual selection (!)
 " http://stackoverflow.com/a/8064607/127816
 vnoremap . :normal .<CR>
-
-" These create newlines like o and O but stay in normal mode
-nnoremap zj o<Esc>k
-nnoremap zk O<Esc>j
 
 nnoremap <F5> :source ~/.vim/init.vim<CR> " reload vimrc file
 
