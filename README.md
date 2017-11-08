@@ -309,6 +309,7 @@ Name           | Description
 [moll/vim-node]: https://github.com/moll/vim-node
 [elzr/vim-json]: https://github.com/elzr/vim-json
 [fatih/vim-go]: https://github.com/fatih/vim-go
+[janko-m/vim-test]: https://github.com/janko-m/vim-test
 [tbastos/vim-lua]: https://github.com/tbastos/vim-lua
 [vim-python/python-syntax]: https://github.com/vim-python/python-syntax
 [Vimjas/vim-python-pep8-indent]: https://github.com/Vimjas/vim-python-pep8-indent
@@ -594,7 +595,15 @@ Key   | Mode | Action
 Key   | Mode | Action
 ----- |:----:| ------------------
 `<leader>`+`v` | Normal/visual | Toggle single-line comments
-`<leader>`+`V` | Normal/visual | Toggle comment block
+
+### Plugin: Unit-Test
+
+Key   | Mode | Action
+----- |:----:| ------------------
+`<leader>`+`tn` | Normal | Test nearest to the cursor
+`<leader>`+`tl` | Normal | Test the last ran item
+`<leader>`+`ta` | Normal | Test suite
+`<leader>`+`tf` | Normal | Test current file
 
 ### Plugin: Edge Motion
 

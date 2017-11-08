@@ -224,6 +224,15 @@ if dein#tap('vim-go')
 		\ | nmap <Leader>gov  <Plug>(go-vet)
 endif
 
+
+if dein#tap('vim-test')
+	autocmd MyAutoCmd FileType go,python
+		\   nmap <Leader>tn :TestNearest<CR>
+		\ | nmap <Leader>tl :TestLast<CR>
+		\ | nmap <Leader>ta :TestSuite<CR>
+	  \ | nmap <Leader>tf :TestFile<CR>
+endif
+
 if dein#tap('phpcomplete-extended')
 	autocmd MyAutoCmd FileType php
 		\   nmap <silent> <unique> K <Plug>(phpcomplete-extended-doc)

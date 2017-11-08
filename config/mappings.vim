@@ -52,6 +52,11 @@ xmap <BS> %
 nmap <Tab>  <C-w>w
 nmap <S-Tab>  <C-w>W
 
+" Use to exit insert mode for Neovim terminal and get into normal mode
+if has('nvim')
+  tmap <C-o> <C-\><C-n>
+end
+
 "}}}
 " Global niceties {{{
 " ---------------
@@ -143,6 +148,7 @@ cmap W!! w !sudo tee % >/dev/null
 
 " I like to :quit with 'q', shrug.
 nnoremap <silent> q :<C-u>:quit<CR>
+" nnoremap <silent> <A-q> :execute 'SessionSave' expand('%:p:h')<CR>
 autocmd MyAutoCmd FileType man nnoremap <silent><buffer> q :<C-u>:quit<CR>
 
 " Fast Save
