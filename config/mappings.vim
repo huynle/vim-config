@@ -148,11 +148,11 @@ cmap W!! w !sudo tee % >/dev/null
 
 " I like to :quit with 'q', shrug.
 nnoremap <silent> q :<C-u>:quit<CR>
-" nnoremap <silent> <A-q> :execute 'SessionSave' expand('%:p:h')<CR>
-autocmd MyAutoCmd FileType man nnoremap <silent><buffer> q :<C-u>:quit<CR>
 
-" Fast Save
-nmap <leader>w :w!<cr>
+" adding saving session by using current working directory of the project
+nnoremap <silent> <A-q> :execute 'SessionSave' fnamemodify(resolve(getcwd()), ':p:gs?/?_?')<CR>:wqa!<CR>
+
+autocmd MyAutoCmd FileType man nnoremap <silent><buffer> q :<C-u>:quit<CR>
 
 " Macros
 nnoremap Q q
@@ -300,8 +300,9 @@ noremap  mk :m-2<CR>
 noremap  mj :m+<CR>
 
 " Last session management shortcuts
-nmap <Leader>se :<C-u>SessionSave last<CR>
-nmap <Leader>os :<C-u>execute 'source '.g:session_directory.'/last.vim'<CR>
+" nmap <Leader>se :<C-u>SessionSave last<CR>
+nmap <silent> <Leader>se :<C-u>execute 'SessionSave' fnamemodify(resolve(getcwd()), ':p:gs?/?_?')<CR>
+nmap <silent> <Leader>os :<C-u>execute 'source '.g:session_directory.'/'.fnamemodify(resolve(getcwd()), ':p:gs?/?_?').'.vim'<CR>
 
 if has('mac')
 	" Open the macOS dictionary on current word
