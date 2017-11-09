@@ -26,7 +26,9 @@ nnoremap <Left> :vertical resize -5<CR>
 
 " Double leader key for toggling visual-line mode
 nmap <silent> <Leader><Leader> V
-vmap <Leader><Leader> " Change current word in a repeatable manner
+vmap <Leader><Leader> <Esc>
+
+" Change current word in a repeatable manner
 nnoremap cn *``cgn
 nnoremap cN *``cgN
 
