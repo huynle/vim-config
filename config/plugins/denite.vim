@@ -23,7 +23,7 @@ call denite#custom#option('mpc', {
 
 " MATCHERS
 " Default is 'matcher_fuzzy'
-call denite#custom#source('tag', 'matchers', ['matcher_substring'])
+call denite#custom#source('tag', 'matchers', ['matcher_fuzzy'])
 if has('nvim') && &runtimepath =~# '\/cpsm'
 	call denite#custom#source(
 		\ 'buffer,file_mru,file_old,file_rec,grep,mpc,line',
