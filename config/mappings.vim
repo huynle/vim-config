@@ -23,9 +23,7 @@ endif
 
 " Double leader key for toggling visual-line mode
 nmap <silent> <Leader><Leader> V
-vmap <Leader><Leader> <Esc>
-
-" Change current word in a repeatable manner
+vmap <Leader><Leader> " Change current word in a repeatable manner
 nnoremap cn *``cgn
 nnoremap cN *``cgN
 
@@ -81,7 +79,7 @@ xnoremap s :s//g<Left><Left>
 nnoremap zl z5l
 nnoremap zh z5h
 
-" Improve scroll, credits: https://github.com/Shougo
+" Improve scroll, credits: https://gijhub.com/Shougo
 nnoremap <expr> zz (winline() == (winheight(0)+1) / 2) ?
 	\ 'zt' : (winline() == 1) ? 'zb' : 'zz'
 noremap <expr> <C-f> max([winheight(0) - 2, 1])

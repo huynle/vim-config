@@ -188,9 +188,16 @@ if dein#tap('jedi-vim')
 	let g:jedi#completions_command = ''
 	let g:jedi#documentation_command = 'K'
 	let g:jedi#goto_command = '<C-]>'
-	let g:jedi#goto_assignments_command = '<leader>g'
-	let g:jedi#rename_command = '<Leader>r'
+	let g:jedi#goto_assignments_command = '<Leader>g'
+	let g:jedi#rename_command = '<Nop>'
 	let g:jedi#usages_command = '<Leader>n'
+endif
+
+if dein#tap('python-mode')
+	let g:pymode_breakpoint_bind = "<F9>"
+	let g:pymode_rope_autoimport_bind = "<F2>"
+	let g:pymode_rope_rename_bind = "<Leader>r"
+	nnoremap <Leader>u :PymodeRopeUndo<CR>
 endif
 
 if dein#tap('tern_for_vim')
@@ -202,6 +209,7 @@ if dein#tap('tern_for_vim')
 		\| nnoremap <silent><buffer> <leader>r  :<C-u>TernRename<CR>
 endif
 
+
 if dein#tap('vim-gitgutter')
 	nmap <Leader>hj <Plug>GitGutterNextHunk
 	nmap <Leader>hk <Plug>GitGutterPrevHunk
@@ -209,6 +217,7 @@ if dein#tap('vim-gitgutter')
 	nmap <Leader>hr <Plug>GitGutterUndoHunk
 	nmap <Leader>hp <Plug>GitGutterPreviewHunk
 endif
+
 
 if dein#tap('vim-go')
 	autocmd MyAutoCmd FileType go
@@ -232,6 +241,7 @@ if dein#tap('vim-test')
 		\ | nmap <Leader>ta :TestSuite<CR>
 	  \ | nmap <Leader>tf :TestFile<CR>
 endif
+
 
 if dein#tap('phpcomplete-extended')
 	autocmd MyAutoCmd FileType php
