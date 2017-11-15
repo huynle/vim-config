@@ -13,6 +13,9 @@ nmap      s [Window]
 map <Nul> <C-Space>
 map! <Nul> <C-Space>
 
+" refresh vimrc
+nnoremap <F2> :source $VIMRC<CR>
+
 " Disable arrow movement, resize splits instead.
 if get(g:, 'elite_mode')
 	nnoremap <Up>    :resize +2<CR>
@@ -175,16 +178,15 @@ nnoremap <C-l> <C-w>l
 
 " Wrapped lines goes down/up to next row, rather than next line in file.
 " provide hjkl movements in Insert mode via the <Alt> modifier key
-inoremap <A-h> <C-o>h
-inoremap <A-j> <C-o>j
-inoremap <A-k> <C-o>k
-inoremap <A-l> <C-o>l
+inoremap <A-j> <C-o>b
+inoremap <A-h> <C-o><Left>
+inoremap <A-l> <C-o><Right>
+inoremap <A-k> <C-o>w
 
 " Allow using the repeat operator with a visual selection (!)
 " http://stackoverflow.com/a/8064607/127816
 vnoremap . :normal .<CR>
 
-nnoremap <F5> :source ~/.vim/init.vim<CR> " reload vimrc file
 
 " Visual shifting (does not exit Visual mode)
 vnoremap < <gv
@@ -196,18 +198,18 @@ nmap <silent> gh :echo 'hi<'.synIDattr(synID(line('.'), col('.'), 1), 'name')
 	\.synIDattr(synIDtrans(synID(line('.'), col('.'), 1)), 'name').'>'<CR>
 
 " Toggle editor visuals
-nmap <silent> <Leader>ts :setlocal spell!<cr>
-nmap <silent> <Leader>tn :setlocal nonumber!<CR>
-nmap <silent> <Leader>tl :setlocal nolist!<CR>
-nmap <silent> <Leader>th :nohlsearch<CR>
-nmap <silent> <Leader>tw :setlocal wrap! breakindent!<CR>
+nmap <silent> <Leader>tos :setlocal spell!<cr>
+nmap <silent> <Leader>ton :setlocal nonumber!<CR>
+nmap <silent> <Leader>tol :setlocal nolist!<CR>
+nmap <silent> <Leader>toh :nohlsearch<CR>
+nmap <silent> <Leader>tow :setlocal wrap! breakindent!<CR>
 
 " Tabs
 nnoremap <silent> g0 :<C-u>tabfirst<CR>
 nnoremap <silent> g$ :<C-u>tablast<CR>
 nnoremap <silent> gr :<C-u>tabprevious<CR>
-nnoremap <silent> <A-j> :<C-U>tabnext<CR>
-nnoremap <silent> <A-k> :<C-U>tabprevious<CR>
+nnoremap <silent> <A-l> :<C-U>tabnext<CR>
+nnoremap <silent> <A-h> :<C-U>tabprevious<CR>
 nnoremap <silent> <C-Tab> :<C-U>tabnext<CR>
 nnoremap <silent> <C-S-Tab> :<C-U>tabprevious<CR>
 " Uses g:lasttab set on TabLeave in MyAutoCmd
@@ -234,7 +236,7 @@ function! s:get_selection(cmdtype) "{{{
 endfunction "}}}
 
 " Background dark/light toggle and contrasts
-nnoremap <silent><Leader>b :<C-u>call <SID>toggle_background()<CR>
+nnoremap <silent><Leader>bg :<C-u>call <SID>toggle_background()<CR>
 nmap <silent> s- :<c-u>call <SID>toggle_contrast(-v:count1)<cr>
 nmap <silent> s= :<c-u>call <SID>toggle_contrast(+v:count1)<cr>
 

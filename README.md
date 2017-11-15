@@ -422,6 +422,7 @@ Key   | Mode | Action
 ----- |:----:| ------------------
 `Space` | _All_ | **Leader**
 `;` | _All_ | **Local Leader**
+`F2` | Normal | Reload vim configuration
 Arrows | Normal | Resize splits (* Enable `g:elite_mode` in `.vault.vim`)
 `Backspace` | Normal | Match bracket (%)
 `K` | Normal | Open Zeal or Dash on some file types (except Python+Vim script)
@@ -447,8 +448,8 @@ Arrows | Normal | Resize splits (* Enable `g:elite_mode` in `.vault.vim`)
 `Q` | Normal | Start/stop macro recording
 `gQ` | Normal | Play macro 'q'
 `mj`/`mk` | Normal/Visual | Move lines down/up
-`cp` | Normal | Duplicate paragraph
 `cn`/`cN` | Normal/Visual | Change current word in a repeatable manner
+`cp` | Normal | Duplicate paragraph
 `s` | Visual | Replace within selected area
 `Ctrl`+`a` | Command | Navigation in command line
 `Ctrl`+`b` | Command | Move cursor backward in command line
@@ -477,15 +478,17 @@ Key   | Mode | Action
 
 Key   | Mode | Action
 ----- |:----:| ------------------
-`<leader>`+`ti` | Normal | Toggle indentation lines
-`<leader>`+`ts` | Normal | Toggle spell-checker (:setlocal spell!)
-`<leader>`+`tn` | Normal | Toggle line numbers (:setlocal nonumber!)
-`<leader>`+`tl` | Normal | Toggle hidden characters (:setlocal nolist!)
-`<leader>`+`th` | Normal | Toggle highlighted search (:set hlsearch!)
-`<leader>`+`tw` | Normal | Toggle wrap (:setlocal wrap! breakindent!)
+`<leader>`+`toi` | Normal | Toggle indentation lines
+`<leader>`+`tos` | Normal | Toggle spell-checker (:setlocal spell!)
+`<leader>`+`ton` | Normal | Toggle line numbers (:setlocal nonumber!)
+`<leader>`+`tol` | Normal | Toggle hidden characters (:setlocal nolist!)
+`<leader>`+`toh` | Normal | Toggle highlighted search (:set hlsearch!)
+`<leader>`+`tow` | Normal | Toggle wrap (:setlocal wrap! breakindent!)
 `g0` | Normal | Go to first tab (:tabfirst)
 `g$` | Normal | Go to last tab (:tablast)
 `gr` | Normal | Go to previous tab (:tabprevious)
+`Alt-h` | Normal | Go to previous tab (:tabprevious)
+`Alt-l` | Normal | Go to next tab (:tabnext)
 `Ctrl`+`j` | Normal | Move to split below (\<C-w>j)
 `Ctrl`+`k` | Normal | Move to upper split (\<C-w>k)
 `Ctrl`+`h` | Normal | Move to left split (\<C-w>h)
@@ -494,9 +497,12 @@ Key   | Mode | Action
 `#` | Visual | Search selection backwards
 `<leader>`+`j` | Normal | Next on location list
 `<leader>`+`k` | Normal | Previous on location list
-`<leader>`+`b` | Normal | Toggle colorscheme background dark/light
+`<leader>`+`bg` | Normal | Toggle colorscheme background dark/light
 `s`+`-` | Normal | Lower colorscheme contrast (Support solarized8)
 `s`+`=` | Normal | Raise colorscheme contrast (Support solarized8)
+`Alt-h` | Insert | Move cursor one character to the left
+`alt-l` | insert | move cursor one character to the right
+
 
 ### Window Management
 

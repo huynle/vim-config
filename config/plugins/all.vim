@@ -35,10 +35,11 @@ if dein#tap('denite.nvim')
 
 	" Open Denite with word under cursor or selection
 	nnoremap <silent> <Leader>gf :DeniteCursorWord file_rec<CR>
-	nnoremap <silent> <Leader>gg :DeniteCursorWord grep<CR>
+	nnoremap <silent> <Leader>gg :DeniteCursorWord grep<jR>
 	vnoremap <silent> <Leader>gg
 		\ :<C-u>call <SID>get_selection('/')<CR>
 		\ :execute 'Denite grep:::'.@/<CR><CR>
+	nnoremap <silent> <S-e> :<C-u>Denite tag file_rec<CR>
 
 	function! s:get_selection(cmdtype)
 		let temp = @s
@@ -135,7 +136,7 @@ if dein#tap('vim-sidemenu')
 endif
 
 if dein#tap('vim-indent-guides')
-	nmap <silent><Leader>ti :<C-u>IndentGuidesToggle<CR>
+	nmap <silent><Leader>toi :<C-u>IndentGuidesToggle<CR>
 endif
 
 if dein#tap('vim-bookmarks')
@@ -194,9 +195,10 @@ if dein#tap('jedi-vim')
 endif
 
 if dein#tap('python-mode')
-	let g:pymode_breakpoint_bind = "<F9>"
-	let g:pymode_rope_autoimport_bind = "<F2>"
+	let g:pymode_breakpoint_bind = "<Leader>b"
 	let g:pymode_rope_rename_bind = "<Leader>r"
+	nnoremap <Leader>im :PymodeRopeAutoImport<CR>
+	nnoremap <Leader>rm :PymodeRopeRenameModule<CR>
 	nnoremap <Leader>u :PymodeRopeUndo<CR>
 endif
 
