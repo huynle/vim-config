@@ -99,7 +99,7 @@
 - repo: janko-m/vim-test
   on_ft: [ python, go]
   hook_source: |
-    let g:test#strategy = 'neomake'
+    let g:test#strategy = 'neovim'
     let g:test#preserve_screen = 1
 
 - { repo: vim-python/python-syntax, on_ft: python }
@@ -232,7 +232,7 @@
   on_path: COMMIT_EDITMSG
   hook_source: let g:committia_min_window_width = 70
 
-- repo: benekastah/neomake
+- repo: neomake/neomake
   if: has('nvim') && empty($VIM_MINIMAL)
   on_cmd: Neomake
   hook_source: source $VIMPATH/config/plugins/neomake.vim
