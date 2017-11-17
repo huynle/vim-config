@@ -44,7 +44,7 @@ nnoremap <leader>a =ip
 nnoremap <CR> za
 
 " Focus the current fold by closing all others
-nnoremap <S-Return> zMza
+nnoremap <S-z> zMza
 
 " Use backspace key for matchit.vim
 nmap <BS> %
@@ -137,7 +137,7 @@ nnoremap <silent><Leader>w :write<CR>
 vnoremap <silent><Leader>w <Esc>:write<CR>
 nnoremap <silent><C-s> :<C-u>write<CR>
 vnoremap <silent><C-s> :<C-u>write<CR>
-cnoremap <silent><C-s> <C-u>write<CR>
+cnoremap <silent><C-s> :<C-u>write<CR>
 
 " Save a file with sudo
 " http://forrst.com/posts/Use_w_to_sudo_write_a_file_with_Vim-uAN
@@ -151,7 +151,7 @@ cmap W!! w !sudo tee % >/dev/null
 nnoremap <silent> q :<C-u>:quit<CR>
 
 " adding saving session by using current working directory of the project
-nnoremap <silent> <A-q> :execute 'SessionSave' fnamemodify(resolve(getcwd()), ':p:gs?/?_?')<CR>:wqa!<CR>
+nnoremap <silent> <C-q> :execute 'SessionSave' fnamemodify(resolve(getcwd()), ':p:gs?/?_?')<CR>:wqa!<CR>
 
 autocmd MyAutoCmd FileType man nnoremap <silent><buffer> q :<C-u>:quit<CR>
 
@@ -208,8 +208,8 @@ nmap <silent> <Leader>tow :setlocal wrap! breakindent!<CR>
 nnoremap <silent> g0 :<C-u>tabfirst<CR>
 nnoremap <silent> g$ :<C-u>tablast<CR>
 nnoremap <silent> gr :<C-u>tabprevious<CR>
-nnoremap <silent> <A-l> :<C-U>tabnext<CR>
-nnoremap <silent> <A-h> :<C-U>tabprevious<CR>
+nnoremap <silent> <S-l> :<C-U>tabnext<CR>
+nnoremap <silent> <S-h> :<C-U>tabprevious<CR>
 nnoremap <silent> <C-Tab> :<C-U>tabnext<CR>
 nnoremap <silent> <C-S-Tab> :<C-U>tabprevious<CR>
 " Uses g:lasttab set on TabLeave in MyAutoCmd
@@ -331,11 +331,9 @@ elseif executable('zeal')
 endif
 
 " }}}
-
 " Display diff from last save {{{
 command! DiffOrig vert new | setlocal bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
 " }}}
-
 " Append modeline to EOF {{{
 nnoremap <silent> <Leader>ml :call <SID>append_modeline()<CR>
 
@@ -348,7 +346,6 @@ function! s:append_modeline() "{{{
 	call append(line('$'), l:modeline)
 endfunction "}}}
 " }}}
-
 " s: Windows and buffers {{{
 
 nnoremap <silent> [Window]v  :<C-u>split<CR>
@@ -387,5 +384,4 @@ function! s:SweepBuffers() " {{{
 	endif
 endfunction " }}}
 " }}}
-
 " vim: set foldmethod=marker ts=2 sw=2 tw=80 noet :

@@ -487,8 +487,8 @@ Key   | Mode | Action
 `g0` | Normal | Go to first tab (:tabfirst)
 `g$` | Normal | Go to last tab (:tablast)
 `gr` | Normal | Go to previous tab (:tabprevious)
-`Alt-h` | Normal | Go to previous tab (:tabprevious)
-`Alt-l` | Normal | Go to next tab (:tabnext)
+`Shift-h` | Normal | Go to previous tab (:tabprevious)
+`Shift-l` | Normal | Go to next tab (:tabnext)
 `Ctrl`+`j` | Normal | Move to split below (\<C-w>j)
 `Ctrl`+`k` | Normal | Move to upper split (\<C-w>k)
 `Ctrl`+`h` | Normal | Move to left split (\<C-w>h)
@@ -509,6 +509,7 @@ Key   | Mode | Action
 Key   | Mode | Action
 ----- |:----:| ------------------
 `q` | Normal | Quit window (and Vim, if last window)
+`Ctrl + q` | Normal | Save session, save all buffers, quit all and close Vim
 `Tab` | Normal | Next window in tab
 `Shift`+`Tab` | Normal | Previous window in tab
 `Ctrl`+`Tab` | Normal | Next tab
