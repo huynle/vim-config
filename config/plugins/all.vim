@@ -35,7 +35,7 @@ if dein#tap('denite.nvim')
 
 	" Open Denite with word under cursor or selection
 	nnoremap <silent> <Leader>gf :DeniteCursorWord file_rec<CR>
-	nnoremap <silent> <Leader>gg :DeniteCursorWord grep<jR>
+	nnoremap <silent> <Leader>gg :DeniteCursorWord grep<CR>
 	vnoremap <silent> <Leader>gg
 		\ :<C-u>call <SID>get_selection('/')<CR>
 		\ :execute 'Denite grep:::'.@/<CR><CR>
@@ -185,18 +185,19 @@ if dein#tap('vim-choosewin')
 	nmap <Leader>- :<C-u>ChooseWinSwapStay<CR>
 endif
 
+
 if dein#tap('jedi-vim')
 	let g:jedi#completions_command = ''
 	let g:jedi#documentation_command = 'K'
 	let g:jedi#goto_command = '<C-]>'
 	let g:jedi#goto_assignments_command = '<Leader>g'
-	let g:jedi#rename_command = '<Nop>'
+	let g:jedi#rename_command = '<Leader>r'
 	let g:jedi#usages_command = '<Leader>n'
 endif
 
 if dein#tap('python-mode')
-	let g:pymode_breakpoint_bind = "<Leader>b"
-	let g:pymode_rope_rename_bind = "<Leader>r"
+	let g:pymode_breakpoint_bind = '<Leader>b'
+	let g:pymode_rope_rename_bind = '<Leader>r'
 	nnoremap <Leader>im :PymodeRopeAutoImport<CR>
 	nnoremap <Leader>rm :PymodeRopeRenameModule<CR>
 	nnoremap <Leader>u :PymodeRopeUndo<CR>
@@ -210,7 +211,6 @@ if dein#tap('tern_for_vim')
 		\| nnoremap <silent><buffer> <leader>n  :<C-u>TernRefs<CR>
 		\| nnoremap <silent><buffer> <leader>r  :<C-u>TernRename<CR>
 endif
-
 
 if dein#tap('vim-gitgutter')
 	nmap <Leader>hj <Plug>GitGutterNextHunk

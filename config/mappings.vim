@@ -216,6 +216,8 @@ nnoremap <silent> <C-S-Tab> :<C-U>tabprevious<CR>
 let g:lasttab = 1
 nmap <silent> \\ :execute 'tabn '.g:lasttab<CR>
 
+" Go to definition using cTags
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 " }}}
 " Totally Custom {{{
