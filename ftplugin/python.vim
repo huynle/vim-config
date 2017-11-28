@@ -19,14 +19,14 @@ function! SetPythonEnv()
     let l:venv_local = fnamemodify(getcwd(), ':p').'venv'
 
     if isdirectory(l:venv_local)
-				echomsg 'Setting local python: ' . l:venv_local
-				let g:virtualenv_directory = getcwd()
+	echomsg 'Setting local python: ' . l:venv_local
+	let g:virtualenv_directory = getcwd()
         call virtualenv#activate('venv')
-				echomsg 'success setting virtualenv'
-				" let l:run_cmd = 'source ' . 'l:venv_local' . 'bin/activate'
-				" echomsg l:run_cmd
-		elseif isdirectory(l:venv_path)
-				echomsg 'Setting python from .virtualenv'
+	echomsg 'success setting virtualenv'
+	" let l:run_cmd = 'source ' . 'l:venv_local' . 'bin/activate'
+	" echomsg l:run_cmd
+    elseif isdirectory(l:venv_path)
+	echomsg 'Setting python from .virtualenv'
         call virtualenv#activate(l:venv)
     endif
 
