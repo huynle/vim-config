@@ -5,13 +5,14 @@
 " INTERFACE
 call denite#custom#option('_', {
 	\ 'prompt': 'λ:',
-	\ 'empty': 0,
 	\ 'winheight': 16,
 	\ 'source_names': 'short',
 	\ 'vertical_preview': 1,
 	\ 'auto-accel': 1,
 	\ 'auto-resume': 1,
 	\ })
+
+
 
 call denite#custom#option('list', {})
 
@@ -24,15 +25,23 @@ call denite#custom#option('mpc', {
 " MATCHERS
 " Default is 'matcher_fuzzy'
 call denite#custom#source('tag', 'matchers', ['matcher_fuzzy'])
+
 if has('nvim') && &runtimepath =~# '\/cpsm'
 	call denite#custom#source(
-		\ 'buffer,file_mru,file_old,file_rec,grep,mpc,line',
+		\ 'buffer,file_mru,file_old,file_rec,mpc,line',
 		\ 'matchers', ['matcher_cpsm', 'matcher_fuzzy'])
 endif
+
+call denite#custom#source(
+  \ 'grep', 'matchers', ['matcher_regexp'])
 
 " SORTERS
 " Default is 'sorter_rank'
 call denite#custom#source('z', 'sorters', ['sorter_z'])
+
+" GREPPING
+" make grep interactive
+call denite#custom#source('grep', 'args', ['', '', '!'])
 
 " CONVERTERS
 " Default is none
@@ -43,11 +52,15 @@ call denite#custom#source(
 " FIND and GREP COMMANDS
 if executable('ag')
 	" The Silver Searcher
+
+	" call denite#custom#var('file_rec', 'command',
+		" \ ['ag', '-U', '--hidden', '--follow', '--nocolor', '--nogroup', '-g', ''])
 	call denite#custom#var('file_rec', 'command',
-		\ ['ag', '-U', '--hidden', '--follow', '--nocolor', '--nogroup', '-g', ''])
+		\ ['ag', '--follow', '--nocolor', '--nogroup', '-u', '-g', ''])
 
 	" Setup ignore patterns in your .agignore file!
 	" https://github.com/ggreer/the_silver_searcher/wiki/Advanced-Usage
+
 
 	call denite#custom#var('grep', 'command', ['ag'])
 	call denite#custom#var('grep', 'recursive_opts', [])
@@ -55,7 +68,7 @@ if executable('ag')
 	call denite#custom#var('grep', 'separator', ['--'])
 	call denite#custom#var('grep', 'final_opts', [])
 	call denite#custom#var('grep', 'default_opts',
-		\ [ '--skip-vcs-ignores', '--vimgrep', '--smart-case', '--hidden' ])
+		\ [ '-i', '--vimgrep' ])
 
 elseif executable('ack')
 	" Ack command

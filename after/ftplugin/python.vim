@@ -1,6 +1,3 @@
-" echomsg "got here to after"
-
-
 python << EOF
 import os
 import sys
