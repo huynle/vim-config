@@ -218,6 +218,10 @@ nmap <silent> \\ :execute 'tabn '.g:lasttab<CR>
 
 " Go to definition using cTags
 " map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+" nnoremap <C-|> :<C-U>vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+" nnoremap <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+nnoremap <silent> g\ :vsplit <CR>:exec("tag ".expand("<cword>"))<CR>
+nnoremap <silent> g- :split <CR>:exec("tag ".expand("<cword>"))<CR>
 
 " }}}
 " Totally Custom {{{
