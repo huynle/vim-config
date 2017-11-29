@@ -97,7 +97,7 @@
     let g:go_highlight_operators = 1
 
 - repo: janko-m/vim-test
-  on_ft: [python, go]
+  on_ft: [ python, go]
   hook_source: |
     let g:test#strategy = {
       \ 'nearest': 'neovim',
