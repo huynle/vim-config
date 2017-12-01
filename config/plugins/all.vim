@@ -37,10 +37,12 @@ if dein#tap('denite.nvim')
 
 	" Open Denite with word under cursor or selection
 	nnoremap <silent> <Leader>gf :DeniteCursorWord file_rec<CR>
-	nnoremap <silent> <Leader>gg :DeniteCursorWord grep<CR>
+	nnoremap <silent> <Leader>gg :DeniteCursorWord grep:::<CR>
 	vnoremap <silent> <Leader>gg
 		\ :<C-u>call <SID>get_selection('/')<CR>
 		\ :execute 'Denite grep:::'.@/<CR><CR>
+	nnoremap <silent> <Leader>tt
+		\ :<C-u>DeniteCursorWord -buffer-name=tag tag:include\<CR>
 
 	nnoremap <silent> <S-e> :<C-u>Denite tag file_rec -auto-preview=true<CR>
 
