@@ -20,7 +20,7 @@ if dein#tap('denite.nvim')
 	nnoremap <silent><LocalLeader>o :<C-u>Denite outline -auto-preview=true<CR>
 	nnoremap <silent><LocalLeader>s :<C-u>Denite session -buffer-name=list<CR>
 	nnoremap <silent><expr> <LocalLeader>t &filetype == 'help' ? "g\<C-]>" :
-		\ ":\<C-u>DeniteCursorWord -buffer-name=tag tag:include\<CR>"
+		\ ":\<C-u>Denite -buffer-name=tag tag:include\<CR>"
 	nnoremap <silent><expr> <LocalLeader>p  &filetype == 'help' ?
 		\ ":\<C-u>pop\<CR>" : ":\<C-u>Denite -mode=normal jump\<CR>"
 	nnoremap <silent><LocalLeader>h :<C-u>Denite help<CR>
@@ -66,8 +66,8 @@ endif
 
 
 if dein#tap('nerdtree')
-	let g:NERDTreeMapOpenSplit = 'sv'
-	let g:NERDTreeMapOpenVSplit = 'sg'
+	let g:NERDTreeMapOpenSplit = 's-'
+	let g:NERDTreeMapOpenVSplit = 's\'
 	let g:NERDTreeMapOpenInTab = 'st'
 	let g:NERDTreeMapOpenInTabSilent = 'sT'
 	let g:NERDTreeMapUpdirKeepOpen = '<BS>'

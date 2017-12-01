@@ -522,8 +522,8 @@ Key   | Mode | Action
 `s`+`x` | Normal | Remove buffer, leave blank window
 `s`+`q` | Normal | Closes current buffer (:close)
 `s`+`Q` | Normal | Removes current buffer (:bdelete)
-`<leader>`+`sv` | Normal | Split with previous buffer
-`<leader>`+`sg` | Normal | Vertical split with previous buffer
+`<leader>`+`s-` | Normal | Split with previous buffer
+`<leader>`+`s\\` | Normal | Vertical split with previous buffer
 
 ### Plugin: Denite
 
@@ -575,8 +575,8 @@ Key   | Mode | Action
 `N` | Normal | Create new file or directory
 `yy` | Normal | Yank selected item to clipboard
 `st` | Normal | Open file in new tab
-`sv` | Normal | Open file in a horizontal split
-`sg` | Normal | Open file in a vertical split
+`s-` | Normal | Open file in a horizontal split
+`s\\` | Normal | Open file in a vertical split
 `&` | Normal | Jump to project root
 `gh` | Normal | Jump to user's home directory
 `gd` | Normal | Open split diff on selected file
