@@ -17,12 +17,12 @@ map! <Nul> <C-Space>
 nnoremap <F2> :source $VIMRC<CR>
 
 " Disable arrow movement, resize splits instead.
-if get(g:, 'elite_mode')
-	nnoremap <Up>    :resize +2<CR>
-	nnoremap <Down>  :resize -2<CR>
-	nnoremap <Left>  :vertical resize +2<CR>
-	nnoremap <Right> :vertical resize -2<CR>
-endif
+" if get(g:, 'elite_mode')
+nnoremap <Down>    :resize +2<CR>
+nnoremap <Up>  :resize -2<CR>
+nnoremap <Right>  :vertical resize +2<CR>
+nnoremap <Left> :vertical resize -2<CR>
+" endif
 
 " Double leader key for toggling visual-line mode
 nmap <silent> <Leader><Leader> V
@@ -95,6 +95,7 @@ noremap <expr> <C-y> (line("w0") <= 1         ? "k" : "3\<C-y>")
 " Window control
 nnoremap <C-q> <C-w>
 nnoremap <C-x> <C-w>x
+" Collaspe all other windows
 nnoremap <silent><C-w>z :vert resize<CR>:resize<CR>:normal! ze<CR>
 
 " Select blocks after indenting
