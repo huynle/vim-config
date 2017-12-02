@@ -99,8 +99,8 @@ let normal_mode_mappings = [
 	\   ['<C-p>', '<denite:jump_to_previous_source>', 'noremap'],
 	\   ['gg', '<denite:move_to_first_line>', 'noremap'],
 	\   ['st', '<denite:do_action:tabopen>', 'noremap'],
-	\   ['s\', '<denite:do_action:vsplit>', 'noremap'],
-	\   ["s-", '<denite:do_action:split>', 'noremap'],
+	\   ['sv', '<denite:do_action:vsplit>', 'noremap'],
+	\   ['sg', '<denite:do_action:split>', 'noremap'],
 	\   ['sc', '<denite:quit>', 'noremap'],
 	\   ['r', '<denite:redraw>', 'noremap'],
 	\ ]

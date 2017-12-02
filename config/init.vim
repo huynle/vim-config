@@ -24,6 +24,7 @@ if ! isdirectory(expand($VARPATH))
 	" Create missing dirs i.e. cache/{undo,backup}
 	call mkdir(expand('$VARPATH/undo'), 'p')
 	call mkdir(expand('$VARPATH/backup'))
+	call mkdir(expand('$VARPATH/bookmarks'), 'p')
 endif
 
 " }}}

@@ -12,7 +12,7 @@ if dein#tap('denite.nvim')
 	xnoremap <silent><LocalLeader>v :<C-u>Denite register -buffer-name=register -default-action=replace<CR>
 	nnoremap <silent><LocalLeader>l :<C-u>Denite location_list -buffer-name=list<CR>
 	nnoremap <silent><LocalLeader>q :<C-u>Denite quickfix -buffer-name=list -auto-preview=true<CR>
-	nnoremap <silent><LocalLeader>n :<C-u>Denite dein<CR>
+	" nnoremap <silent><LocalLeader>n :<C-u>Denite dein<CR>
 	" nnoremap <silent><LocalLeader>g :<C-u>Denite grep<CR>
   nnoremap <silent><LocalLeader>g :<C-u>DeniteProjectDir -buffer-name=grep -default-action=quickfix grep:::!<CR>
   " nnoremap <silent><LocalLeader>g :<C-u>DeniteProjectDir -buffer-name=grep grep:::!<CR>
@@ -44,7 +44,7 @@ if dein#tap('denite.nvim')
 	nnoremap <silent> <Leader>tt
 		\ :<C-u>DeniteCursorWord -buffer-name=tag tag:include\<CR>
 
-	nnoremap <silent> <S-e> :<C-u>Denite tag file_rec -auto-preview=true<CR>
+	nnoremap <silent> <LocalLeader>e :<C-u>Denite tag file_old<CR>
 
 	function! s:get_selection(cmdtype)
 		let temp = @s
@@ -68,8 +68,8 @@ endif
 
 
 if dein#tap('nerdtree')
-	let g:NERDTreeMapOpenSplit = 's-'
-	let g:NERDTreeMapOpenVSplit = 's\'
+	let g:NERDTreeMapOpenSplit = 'sg'
+	let g:NERDTreeMapOpenVSplit = 'sv'
 	let g:NERDTreeMapOpenInTab = 'st'
 	let g:NERDTreeMapOpenInTabSilent = 'sT'
 	let g:NERDTreeMapUpdirKeepOpen = '<BS>'
@@ -77,7 +77,7 @@ if dein#tap('nerdtree')
 	let g:NERDTreeMapCloseChildren = 'T'
 	let g:NERDTreeMapToggleHidden = '.'
 
-	nnoremap <silent> <LocalLeader>e :<C-u>NERDTreeToggle<CR>
+	nnoremap <silent> <LocalLeader>n :<C-u>NERDTreeToggle<CR>
 	nnoremap <silent> <LocalLeader>a :<C-u>NERDTreeFind<CR>
 endif
 
@@ -145,6 +145,8 @@ if dein#tap('vim-indent-guides')
 endif
 
 if dein#tap('vim-bookmarks')
+	nmap <silent> <Leader>be :<C-u>execute 'BookmarkSave'.g:bookmark_path.'/'.fnamemodify(resolve(getcwd()), ':p:gs?/?_?')<CR>
+	nmap <silent> <Leader>ob :<C-u>execute 'BookmarkLoad'.g:bookmark_path.'/'.fnamemodify(resolve(getcwd()), ':p:gs?/?_?')<CR>
 	nmap ma :<C-u>cgetexpr bm#location_list()<CR>
 		\ :<C-u>Denite quickfix -buffer-name=list<CR>
 	nmap mn <Plug>BookmarkNext

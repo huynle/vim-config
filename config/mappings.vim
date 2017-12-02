@@ -243,8 +243,8 @@ endfunction "}}}
 
 " Background dark/light toggle and contrasts
 nnoremap <silent><Leader>bg :<C-u>call <SID>toggle_background()<CR>
-nmap <silent> s- :<c-u>call <SID>toggle_contrast(-v:count1)<cr>
-nmap <silent> s= :<c-u>call <SID>toggle_contrast(+v:count1)<cr>
+nmap <silent> b- :<c-u>call <SID>toggle_contrast(-v:count1)<cr>
+nmap <silent> b= :<c-u>call <SID>toggle_contrast(+v:count1)<cr>
 
 function! s:toggle_background()
 	if ! exists('g:colors_name')
@@ -310,6 +310,7 @@ noremap  mj :m+<CR>
 nmap <silent> <Leader>se :<C-u>execute 'SessionSave' fnamemodify(resolve(getcwd()), ':p:gs?/?_?')<CR>
 nmap <silent> <Leader>os :<C-u>execute 'source '.g:session_directory.'/'.fnamemodify(resolve(getcwd()), ':p:gs?/?_?').'.vim'<CR>
 
+
 if has('mac')
 	" Open the macOS dictionary on current word
 	nmap <Leader>? :!open dict://<cword><CR><CR>
@@ -354,8 +355,8 @@ endfunction "}}}
 " }}}
 " s: Windows and buffers {{{
 
-nnoremap <silent> [Window]v  :<C-u>split<CR>
-nnoremap <silent> [Window]g  :<C-u>vsplit<CR>
+nnoremap <silent> [Window]g  :<C-u>split<CR>
+nnoremap <silent> [Window]v  :<C-u>vsplit<CR>
 nnoremap <silent> [Window]t  :tabnew<CR>
 nnoremap <silent> [Window]o  :<C-u>only<CR>
 nnoremap <silent> [Window]b  :b#<CR>
@@ -363,8 +364,10 @@ nnoremap <silent> [Window]c  :close<CR>
 nnoremap <silent> [Window]x  :<C-u>call <SID>BufferEmpty()<CR>
 
 " Split current buffer, go to previous window and previous buffer
-nnoremap <silent> [Window]sv :split<CR>:wincmd p<CR>:e#<CR>
-nnoremap <silent> [Window]sg :vsplit<CR>:wincmd p<CR>:e#<CR>
+nnoremap <silent> [Window]sg :split<CR>:wincmd p<CR>:e#<CR>
+nnoremap <silent> [Window]sv :vsplit<CR>:wincmd p<CR>:e#<CR>
+" nnoremap <silent> [Window]st :vsplit<CR>:wincmd p<CR>:e#<CR>
+
 
 function! WipeHiddenBuffers()
 	let tpbl=[]

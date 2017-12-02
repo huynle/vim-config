@@ -559,8 +559,8 @@ Key   | Mode | Action
 `Ctrl`+`y` | Insert | Redraw
 `r` | Normal | Redraw
 `st` | Normal | Open in a new tab
-`sg` | Normal | Open in a vertical split
-`sv` | Normal | Open in a split
+`s\\` | Normal | Open in a vertical split
+`s-` | Normal | Open in a split
 `'` | Normal | Toggle mark current candidate
 
 ### Plugin: NERDTree

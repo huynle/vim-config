@@ -109,7 +109,6 @@
       \ 'nearest': '-x --pdb',
     \}
 
-
 - repo: benmills/vimux
   depends: vim-test
 
@@ -235,9 +234,10 @@
 - repo: MattesGroeger/vim-bookmarks
   on_path: .*
   hook_source: |
-    let g:bookmark_auto_save_file = $VARPATH.'/bookmarks'
+    let g:bookmark_path = $VARPATH.'/bookmarks'
     let g:bookmark_no_default_key_mappings = 1
     let g:bookmark_disable_ctrlp = 1
+    let g:bookmark_auto_save = 1
 
 - repo: rhysd/committia.vim
   on_path: COMMIT_EDITMSG
@@ -451,6 +451,9 @@
     let g:tern_show_signature_in_pum = 0
   hook_post_source: |
     autocmd MyAutoCmd FileType javascript setlocal omnifunc=tern#Complete
+
+- repo: nixprime/cpsm
+  if: has('nvim') && empty($VIM_MINIMAL)
 
 # ==========================================
 # Denite
