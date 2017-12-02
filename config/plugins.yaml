@@ -235,9 +235,11 @@
   on_path: .*
   hook_source: |
     let g:bookmark_path = $VARPATH.'/bookmarks'
+    let g:bookmark_save_per_working_dir = 1
     let g:bookmark_no_default_key_mappings = 1
     let g:bookmark_disable_ctrlp = 1
     let g:bookmark_auto_save = 1
+    let g:bookmark_center = 1
 
 - repo: rhysd/committia.vim
   on_path: COMMIT_EDITMSG

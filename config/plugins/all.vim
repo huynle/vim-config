@@ -44,7 +44,7 @@ if dein#tap('denite.nvim')
 	nnoremap <silent> <Leader>tt
 		\ :<C-u>DeniteCursorWord -buffer-name=tag tag:include\<CR>
 
-	nnoremap <silent> <LocalLeader>e :<C-u>Denite tag file_old<CR>
+	" nnoremap <silent> <LocalLeader>e :<C-u>Denite tag file_old<CR>
 
 	function! s:get_selection(cmdtype)
 		let temp = @s
@@ -77,7 +77,7 @@ if dein#tap('nerdtree')
 	let g:NERDTreeMapCloseChildren = 'T'
 	let g:NERDTreeMapToggleHidden = '.'
 
-	nnoremap <silent> <LocalLeader>n :<C-u>NERDTreeToggle<CR>
+	nnoremap <silent> <LocalLeader>e :<C-u>NERDTreeToggle<CR>
 	nnoremap <silent> <LocalLeader>a :<C-u>NERDTreeFind<CR>
 endif
 
@@ -145,8 +145,8 @@ if dein#tap('vim-indent-guides')
 endif
 
 if dein#tap('vim-bookmarks')
-	nmap <silent> <Leader>be :<C-u>execute 'BookmarkSave'.g:bookmark_path.'/'.fnamemodify(resolve(getcwd()), ':p:gs?/?_?')<CR>
-	nmap <silent> <Leader>ob :<C-u>execute 'BookmarkLoad'.g:bookmark_path.'/'.fnamemodify(resolve(getcwd()), ':p:gs?/?_?')<CR>
+	nmap <silent><Leader>be :<C-u>execute 'BookmarkSave'.g:bookmark_path.'/'.fnamemodify(resolve(getcwd()), ':p:gs?/?_?')<CR>
+	nmap <silent><Leader>ob :<C-u>execute 'BookmarkLoad'.g:bookmark_path.'/'.fnamemodify(resolve(getcwd()), ':p:gs?/?_?')<CR>
 	nmap ma :<C-u>cgetexpr bm#location_list()<CR>
 		\ :<C-u>Denite quickfix -buffer-name=list<CR>
 	nmap mn <Plug>BookmarkNext
