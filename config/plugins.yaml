@@ -99,6 +99,7 @@
 - repo: janko-m/vim-test
   on_ft: [ python, go]
   hook_source: |
+    let g:test#runner_commands = ["pytest"]
     let g:test#strategy = {
       \ 'nearest': 'vimux',
       \ 'file': 'neomake',
@@ -106,7 +107,7 @@
     \}
     let test#python#runner = 'pytest'
     let test#python#pytest#options = {
-      \ 'nearest': '-x --pdb',
+      \ 'nearest': '-x --ipdb',
     \}
 
 - repo: benmills/vimux

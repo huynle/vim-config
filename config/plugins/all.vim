@@ -198,13 +198,13 @@ if dein#tap('jedi-vim')
 	let g:jedi#documentation_command = 'K'
 	let g:jedi#goto_command = '<A-]>'
 	let g:jedi#goto_assignments_command = '<Leader>g'
-	let g:jedi#rename_command = '<Leader>r'
+	let g:jedi#rename_command = '<Leader>R'
 	let g:jedi#usages_command = '<Leader>n'
 endif
 
 if dein#tap('python-mode')
 	let g:pymode_breakpoint_bind = '<Leader>b'
-	let g:pymode_rope_rename_bind = '<Leader>r'
+	let g:pymode_rope_rename_bind = '<Leader>R'
 	nnoremap <Leader>im :PymodeRopeAutoImport<CR>
 	nnoremap <Leader>rm :PymodeRopeRenameModule<CR>
 	nnoremap <Leader>u :PymodeRopeUndo<CR>
@@ -216,7 +216,7 @@ if dein#tap('tern_for_vim')
 		\| nnoremap <silent><buffer> <C-]>      :<C-u>TernDef<CR>
 		\| nnoremap <silent><buffer> <leader>g  :<C-u>TernType<CR>
 		\| nnoremap <silent><buffer> <leader>n  :<C-u>TernRefs<CR>
-		\| nnoremap <silent><buffer> <leader>r  :<C-u>TernRename<CR>
+		\| nnoremap <silent><buffer> <leader>R  :<C-u>TernRename<CR>
 endif
 
 if dein#tap('vim-gitgutter')

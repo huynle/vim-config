@@ -93,9 +93,8 @@ noremap <expr> <C-e> (line("w$") >= line('$') ? "j" : "3\<C-e>")
 noremap <expr> <C-y> (line("w0") <= 1         ? "k" : "3\<C-y>")
 
 " Window control
-nnoremap <C-q> <C-w>
+" nnoremap <C-q> <C-w>
 nnoremap <C-x> <C-w>x
-" Collaspe all other windows
 nnoremap <silent><C-w>z :vert resize<CR>:resize<CR>:normal! ze<CR>
 
 " Select blocks after indenting
@@ -151,8 +150,6 @@ cmap W!! w !sudo tee % >/dev/null
 " I like to :quit with 'q', shrug.
 nnoremap <silent> q :<C-u>:quit<CR>
 
-" adding saving session by using current working directory of the project
-nnoremap <silent> <C-q> :execute 'SessionSave' fnamemodify(resolve(getcwd()), ':p:gs?/?_?')<CR>:wqa!<CR>
 
 autocmd MyAutoCmd FileType man nnoremap <silent><buffer> q :<C-u>:quit<CR>
 
@@ -168,8 +165,6 @@ nnoremap gQ @q
 " getting out of insert mode fast!
 imap jk <Esc>
 
-" delete whole word in insert mode
-inoremap <c-h> <c-w>
 
 " Quicker window movement
 nnoremap <C-j> <C-w>j
@@ -183,6 +178,12 @@ inoremap <A-j> <C-o>b
 inoremap <A-h> <C-o><Left>
 inoremap <A-l> <C-o><Right>
 inoremap <A-k> <C-o>w
+
+" delete whole word in insert mode
+inoremap <c-h> <c-w>
+
+" move to the end of line. This helps get out of parenthesis
+inoremap <C-e> <C-o>A
 
 " Allow using the repeat operator with a visual selection (!)
 " http://stackoverflow.com/a/8064607/127816
@@ -213,26 +214,35 @@ nnoremap <silent> <S-l> :<C-U>tabnext<CR>
 nnoremap <silent> <S-h> :<C-U>tabprevious<CR>
 nnoremap <silent> <C-Tab> :<C-U>tabnext<CR>
 nnoremap <silent> <C-S-Tab> :<C-U>tabprevious<CR>
-" Uses g:lasttab set on TabLeave in MyAutoCmd
-let g:lasttab = 1
-nmap <silent> \\ :execute 'tabn '.g:lasttab<CR>
 
-" Go to definition using cTags
-" map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
-" nnoremap <C-|> :<C-U>vsp <CR>:exec("tag ".expand("<cword>"))<CR>
-" nnoremap <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-nnoremap <silent> g\ :vsplit <CR>:exec("tag ".expand("<cword>"))<CR>
-nnoremap <silent> g- :split <CR>:exec("tag ".expand("<cword>"))<CR>
 
 " }}}
 " Totally Custom {{{
 " --------------
 
+" goto definition with splits
+nnoremap <silent> g\  :vsplit <CR>:exec("tag ".expand("<cword>"))<CR>:wincmd p<CR>:e#<CR>
+nnoremap <silent> g-  :split <CR>:exec("tag ".expand("<cword>"))<CR>:wincmd p<CR>:e#<CR>
+
 " Remove spaces at the end of lines
 nnoremap <silent> ,<Space> :<C-u>silent! keeppatterns %substitute/\s\+$//e<CR>
 
-" C-r: Easier search and replace
+" C-r: Easier search and replace, replace with confirmation
 xnoremap <C-r> :<C-u>call <SID>get_selection('/')<CR>:%s/\V<C-R>=@/<CR>//gc<Left><Left><Left>
+
+" Search for current word and replace with given text for files in arglist.
+function! Replace(bang, replace)
+  let flag = 'ge'
+  if !a:bang
+    let flag .= 'c'
+  endif
+  let search = '\<' . escape(expand('<cword>'), '/\.*$^~[') . '\>'
+  let replace = escape(a:replace, '/\&~')
+  execute 'argdo %s/' . search . '/' . replace . '/' . flag
+endfunction
+command! -nargs=1 -bang Replace :call Replace(<bang>0, <q-args>)
+nnoremap <Leader>r :call Replace(0, input('Replace '.expand('<cword>').' with: '))<CR>
+
 
 " Returns visually selected text
 function! s:get_selection(cmdtype) "{{{
@@ -306,11 +316,18 @@ vnoremap mj :m'>+<CR>gv=gv
 noremap  mk :m-2<CR>
 noremap  mj :m+<CR>
 
+" Adding empty lines above and below current line, can also use `5[<space>` to
+" get 5 lines added
+nnoremap [<space>  :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[
+nnoremap ]<space>  :<c-u>put =repeat(nr2char(10), v:count1)<cr>
+
 " Last session management shortcuts
 " nmap <Leader>se :<C-u>SessionSave last<CR>
 nmap <silent> <Leader>se :<C-u>execute 'SessionSave' fnamemodify(resolve(getcwd()), ':p:gs?/?_?')<CR>
 nmap <silent> <Leader>os :<C-u>execute 'source '.g:session_directory.'/'.fnamemodify(resolve(getcwd()), ':p:gs?/?_?').'.vim'<CR>
 
+" adding saving session by using current working directory of the project
+nnoremap <silent> <C-A-q> :execute 'SessionSave' fnamemodify(resolve(getcwd()), ':p:gs?/?_?')<CR>:wqa!<CR>
 
 if has('mac')
 	" Open the macOS dictionary on current word
@@ -354,19 +371,27 @@ function! s:append_modeline() "{{{
 	call append(line('$'), l:modeline)
 endfunction "}}}
 " }}}
+
+" Uses g:lasttab set on TabLeave in MyAutoCmd
+let g:lasttab = 1
+nmap <silent> \\ :execute 'tabn '.g:lasttab<CR>
+
 " s: Windows and buffers {{{
 
-nnoremap <silent> [Window]g  :<C-u>split<CR>
-nnoremap <silent> [Window]v  :<C-u>vsplit<CR>
-nnoremap <silent> [Window]t  :tabnew<CR>
+nnoremap <silent> [Window]g  :<C-u>split<CR>:wincmd p<CR>:e#<CR>
+nnoremap <silent> [Window]v  :<C-u>vsplit<CR>:wincmd p<CR>:e#<CR>
+nnoremap <silent> [Window]t  :<C-u>tab split<CR>:execute 'tabn '.g:lasttab<CR>
 nnoremap <silent> [Window]o  :<C-u>only<CR>
 nnoremap <silent> [Window]b  :b#<CR>
 nnoremap <silent> [Window]c  :close<CR>
 nnoremap <silent> [Window]x  :<C-u>call <SID>BufferEmpty()<CR>
+nnoremap <silent> [Window]}  :execute "ptjump " . expand("<cword>")<CR>
+nnoremap <silent> [Window]=  :<C-w><CR>=
+
 
 " Split current buffer, go to previous window and previous buffer
-nnoremap <silent> [Window]sg :split<CR>:wincmd p<CR>:e#<CR>
-nnoremap <silent> [Window]sv :vsplit<CR>:wincmd p<CR>:e#<CR>
+" nnoremap <silent> [Window]sg :split<CR>:wincmd p<CR>:e#<CR>
+" nnoremap <silent> [Window]sv :vsplit<CR>:wincmd p<CR>:e#<CR>
 " nnoremap <silent> [Window]st :vsplit<CR>:wincmd p<CR>:e#<CR>
 
 
