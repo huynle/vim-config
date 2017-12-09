@@ -18,10 +18,10 @@ nnoremap <F2> :source $VIMRC<CR>
 
 " Disable arrow movement, resize splits instead.
 " if get(g:, 'elite_mode')
-nnoremap <Down>    :resize +2<CR>
-nnoremap <Up>  :resize -2<CR>
-nnoremap <Right>  :vertical resize +2<CR>
-nnoremap <Left> :vertical resize -2<CR>
+nnoremap <Down>    :resize +5<CR>
+nnoremap <Up>  :resize -5<CR>
+nnoremap <Right>  :vertical resize +5<CR>
+nnoremap <Left> :vertical resize -5<CR>
 " endif
 
 " Double leader key for toggling visual-line mode
@@ -44,14 +44,16 @@ nnoremap <leader>a =ip
 nnoremap <CR> za
 
 " Focus the current fold by closing all others
-nnoremap <S-z> zMza
+nnoremap <S-z> zMzvzz
+" Go to line and fold everything else, nice for debugging
+" nnoremap gg GzMzvzz
 
 " Use backspace key for matchit.vim
 nmap <BS> %
 xmap <BS> %
 
-nmap <Tab>  <C-w>w
-nmap <S-Tab>  <C-w>W
+" nmap <Tab>  <C-w>w
+" nmap <S-Tab>  <C-w>W
 
 " Use to exit insert mode for Neovim terminal and get into normal mode
 if has('nvim')
@@ -79,8 +81,8 @@ inoremap <S-Return> <C-o>o
 " Quick substitute within selected area
 xnoremap s :s//g<Left><Left>
 
-nnoremap zl z5l
-nnoremap zh z5h
+" nnoremap zl z5l
+" nnoremap zh z5h
 
 " Improve scroll, credits: https://gijhub.com/Shougo
 nnoremap <expr> zz (winline() == (winheight(0)+1) / 2) ?
@@ -221,8 +223,8 @@ nnoremap <silent> <C-S-Tab> :<C-U>tabprevious<CR>
 " --------------
 
 " goto definition with splits
-nnoremap <silent> g\  :vsplit <CR>:exec("tag ".expand("<cword>"))<CR>:wincmd p<CR>:e#<CR>
-nnoremap <silent> g-  :split <CR>:exec("tag ".expand("<cword>"))<CR>:wincmd p<CR>:e#<CR>
+nnoremap <silent> g\  :vsplit <CR>:exec("tag ".expand("<cword>"))<CR>
+nnoremap <silent> g-  :split <CR>:exec("tag ".expand("<cword>"))<CR>
 
 " Remove spaces at the end of lines
 nnoremap <silent> ,<Space> :<C-u>silent! keeppatterns %substitute/\s\+$//e<CR>
@@ -310,16 +312,16 @@ nnoremap <Leader>S ^vg_y:execute @@<CR>:echo 'Sourced line.'<CR>
 nnoremap <Leader>y :let @+=expand("%")<CR>:echo 'Relative path copied to clipboard.'<CR>
 nnoremap <Leader>Y :let @+=expand("%:p")<CR>:echo 'Absolute path copied to clipboard.'<CR>
 
-" Drag current line/s vertically and auto-indent
-vnoremap mk :m-2<CR>gv=gv
-vnoremap mj :m'>+<CR>gv=gv
-noremap  mk :m-2<CR>
-noremap  mj :m+<CR>
+" " Drag current line/s vertically and auto-indent
+" vnoremap mk :m-2<CR>gv=gv
+" vnoremap mj :m'>+<CR>gv=gv
+" noremap  mk :m-2<CR>
+" noremap  mj :m+<CR>
 
-" Adding empty lines above and below current line, can also use `5[<space>` to
-" get 5 lines added
-nnoremap [<space>  :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[
-nnoremap ]<space>  :<c-u>put =repeat(nr2char(10), v:count1)<cr>
+" " Adding empty lines above and below current line, can also use `5[<space>` to
+" " get 5 lines added
+" nnoremap [<space>  :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[
+" nnoremap ]<space>  :<c-u>put =repeat(nr2char(10), v:count1)<cr>
 
 " Last session management shortcuts
 " nmap <Leader>se :<C-u>SessionSave last<CR>
@@ -327,7 +329,7 @@ nmap <silent> <Leader>se :<C-u>execute 'SessionSave' fnamemodify(resolve(getcwd(
 nmap <silent> <Leader>os :<C-u>execute 'source '.g:session_directory.'/'.fnamemodify(resolve(getcwd()), ':p:gs?/?_?').'.vim'<CR>
 
 " adding saving session by using current working directory of the project
-nnoremap <silent> <C-A-q> :execute 'SessionSave' fnamemodify(resolve(getcwd()), ':p:gs?/?_?')<CR>:wqa!<CR>
+nnoremap <silent> <C-q> :execute 'SessionSave' fnamemodify(resolve(getcwd()), ':p:gs?/?_?')<CR>:wqa!<CR>
 
 if has('mac')
 	" Open the macOS dictionary on current word
@@ -371,20 +373,21 @@ function! s:append_modeline() "{{{
 	call append(line('$'), l:modeline)
 endfunction "}}}
 " }}}
+" s: Windows and buffers {{{
 
 " Uses g:lasttab set on TabLeave in MyAutoCmd
 let g:lasttab = 1
 nmap <silent> \\ :execute 'tabn '.g:lasttab<CR>
 
-" s: Windows and buffers {{{
-
 nnoremap <silent> [Window]g  :<C-u>split<CR>:wincmd p<CR>:e#<CR>
 nnoremap <silent> [Window]v  :<C-u>vsplit<CR>:wincmd p<CR>:e#<CR>
 nnoremap <silent> [Window]t  :<C-u>tab split<CR>:execute 'tabn '.g:lasttab<CR>
+nnoremap <silent> [Window]T  :tabnew<CR>
 nnoremap <silent> [Window]o  :<C-u>only<CR>
 nnoremap <silent> [Window]b  :b#<CR>
 nnoremap <silent> [Window]c  :close<CR>
 nnoremap <silent> [Window]x  :<C-u>call <SID>BufferEmpty()<CR>
+" View tag in vim preview window. This is short for <c-w>}
 nnoremap <silent> [Window]}  :execute "ptjump " . expand("<cword>")<CR>
 nnoremap <silent> [Window]=  :<C-w><CR>=
 

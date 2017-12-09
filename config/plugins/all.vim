@@ -14,6 +14,7 @@ if dein#tap('denite.nvim')
 	nnoremap <silent><LocalLeader>q :<C-u>Denite quickfix -buffer-name=list -auto-preview=true<CR>
 	" nnoremap <silent><LocalLeader>n :<C-u>Denite dein<CR>
 	" nnoremap <silent><LocalLeader>g :<C-u>Denite grep<CR>
+  " nnoremap <silent><LocalLeader>g :<C-u>DeniteProjectDir -buffer-name=grep -default-action=quickfix grep:::!<CR>
   nnoremap <silent><LocalLeader>g :<C-u>DeniteProjectDir -buffer-name=grep -default-action=quickfix grep:::!<CR>
   " nnoremap <silent><LocalLeader>g :<C-u>DeniteProjectDir -buffer-name=grep grep:::!<CR>
 	nnoremap <silent><LocalLeader>j :<C-u>Denite jump change file_point -auto-preview=true<CR>

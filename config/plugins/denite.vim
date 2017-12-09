@@ -55,6 +55,7 @@ if executable('ag')
 
 	" call denite#custom#var('file_rec', 'command',
 		" \ ['ag', '-U', '--hidden', '--follow', '--nocolor', '--nogroup', '-g', ''])
+
 	call denite#custom#var('file_rec', 'command',
 		\ ['ag', '--follow', '--nocolor', '--nogroup', '-u', '-g', ''])
 
