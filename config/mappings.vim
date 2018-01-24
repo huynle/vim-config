@@ -36,7 +36,10 @@ nnoremap cN *``cgN
 vnoremap <expr> cn "y/\\V\<C-r>=escape(@\", '/')\<CR>\<CR>" . "``cgn"
 vnoremap <expr> cN "y/\\V\<C-r>=escape(@\", '/')\<CR>\<CR>" . "``cgN"
 
+" do a copy of the paragraph
 nnoremap cp yap<S-}>p
+
+" fix indents
 nnoremap <leader>a =ip
 
 " xnoremap p  "0p
@@ -167,6 +170,9 @@ nnoremap gQ @q
 " getting out of insert mode fast!
 imap jk <Esc>
 
+" Binding to record j/k to the jumplist
+nnoremap <expr> k (v:count >1 ? "m'" . v:count : '') . 'gk'
+nnoremap <expr> j (v:count >1 ? "m'" . v:count : '') . 'gj'
 
 " Quicker window movement
 nnoremap <C-j> <C-w>j
@@ -174,18 +180,18 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
-" Wrapped lines goes down/up to next row, rather than next line in file.
-" provide hjkl movements in Insert mode via the <Alt> modifier key
-inoremap <A-j> <C-o>b
-inoremap <A-h> <C-o><Left>
-inoremap <A-l> <C-o><Right>
-inoremap <A-k> <C-o>w
+" " Wrapped lines goes down/up to next row, rather than next line in file.
+" " provide hjkl movements in Insert mode via the <Alt> modifier key
+" inoremap <A-j> <C-o>b
+" inoremap <A-h> <C-o><Left>
+" inoremap <A-l> <C-o><Right>
+" inoremap <A-k> <C-o>w
 
 " delete whole word in insert mode
 inoremap <c-h> <c-w>
 
-" move to the end of line. This helps get out of parenthesis
-inoremap <C-e> <C-o>A
+" " move to the end of line. This helps get out of parenthesis
+" inoremap <C-e> <C-o>A
 
 " Allow using the repeat operator with a visual selection (!)
 " http://stackoverflow.com/a/8064607/127816
@@ -193,8 +199,8 @@ vnoremap . :normal .<CR>
 
 
 " Visual shifting (does not exit Visual mode)
-vnoremap < <gv
-vnoremap > >gv
+vnoremap <C-d> <gv
+vnoremap <C-t> >gv
 
 " Show highlight names under cursor
 nmap <silent> gh :echo 'hi<'.synIDattr(synID(line('.'), col('.'), 1), 'name')
@@ -209,22 +215,22 @@ nmap <silent> <Leader>toh :nohlsearch<CR>
 nmap <silent> <Leader>tow :setlocal wrap! breakindent!<CR>
 
 " Tabs
-nnoremap <silent> g0 :<C-u>tabfirst<CR>
-nnoremap <silent> g$ :<C-u>tablast<CR>
-nnoremap <silent> gr :<C-u>tabprevious<CR>
+" nnoremap <silent> g0 :<C-u>tabfirst<CR>
+" nnoremap <silent> g$ :<C-u>tablast<CR>
+" nnoremap <silent> gr :<C-u>tabprevious<CR>
 nnoremap <silent> <S-l> :<C-U>tabnext<CR>
 nnoremap <silent> <S-h> :<C-U>tabprevious<CR>
-nnoremap <silent> <C-Tab> :<C-U>tabnext<CR>
-nnoremap <silent> <C-S-Tab> :<C-U>tabprevious<CR>
+" nnoremap <silent> <C-Tab> :<C-U>tabnext<CR>
+" nnoremap <silent> <C-S-Tab> :<C-U>tabprevious<CR>
 
 
 " }}}
 " Totally Custom {{{
 " --------------
 
-" goto definition with splits
-nnoremap <silent> g\  :vsplit <CR>:exec("tag ".expand("<cword>"))<CR>
-nnoremap <silent> g-  :split <CR>:exec("tag ".expand("<cword>"))<CR>
+" " goto definition with splits
+" nnoremap <silent> g\  :vsplit <CR>:exec("tag ".expand("<cword>"))<CR>
+" nnoremap <silent> g-  :split <CR>:exec("tag ".expand("<cword>"))<CR>
 
 " Remove spaces at the end of lines
 nnoremap <silent> ,<Space> :<C-u>silent! keeppatterns %substitute/\s\+$//e<CR>
@@ -312,16 +318,16 @@ nnoremap <Leader>S ^vg_y:execute @@<CR>:echo 'Sourced line.'<CR>
 nnoremap <Leader>y :let @+=expand("%")<CR>:echo 'Relative path copied to clipboard.'<CR>
 nnoremap <Leader>Y :let @+=expand("%:p")<CR>:echo 'Absolute path copied to clipboard.'<CR>
 
-" " Drag current line/s vertically and auto-indent
-" vnoremap mk :m-2<CR>gv=gv
-" vnoremap mj :m'>+<CR>gv=gv
-" noremap  mk :m-2<CR>
-" noremap  mj :m+<CR>
+" Drag current line/s vertically and auto-indent
+vnoremap mk :m-2<CR>gv=gv
+vnoremap mj :m'>+<CR>gv=gv
+noremap  mk :m-2<CR>
+noremap  mj :m+<CR>
 
-" " Adding empty lines above and below current line, can also use `5[<space>` to
-" " get 5 lines added
-" nnoremap [<space>  :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[
-" nnoremap ]<space>  :<c-u>put =repeat(nr2char(10), v:count1)<cr>
+" Adding empty lines above and below current line, can also use `5[<space>` to
+" get 5 lines added. for normal mode this is taken care by unimpaired vim
+vnoremap [<space>  :<c-u>put! =repeat(nr2char(10), v:count1)<cr>
+vnoremap ]<space>  :<c-u>put =repeat(nr2char(10), v:count1)<cr>
 
 " Session management shortcuts
 nmap <silent> <Leader>se :<C-u>execute 'SessionSave' fnamemodify(resolve(getcwd()), ':p:gs?/?_?')<CR>
@@ -356,6 +362,21 @@ elseif executable('zeal')
 		\ nmap <silent><buffer> K :!zeal --query "<cword>"&<CR><CR>
 endif
 
+" Toggle Verbose for vim debugging
+nnoremap <silent><Leader>vb :<C-u>call <SID>toggle_verbose()<CR>
+let g:verbose_level = 9
+function! s:toggle_verbose()
+	if !&verbose
+		execute "set verbosefile=".$VARPATH.'/vim.log'
+		execute "set verbose=".g:verbose_level
+		echomsg "vim verbose is on, and set to ".g:verbose_level
+	else
+		set verbose=0
+		set verbosefile=
+		echomsg "vim verbose is off"
+	endif
+
+endfunction
 " }}}
 " Display diff from last save {{{
 command! DiffOrig vert new | setlocal bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
@@ -378,6 +399,7 @@ endfunction "}}}
 let g:lasttab = 1
 nmap <silent> \\ :execute 'tabn '.g:lasttab<CR>
 
+" Custom window movement
 nnoremap <silent> [Window]g  :<C-u>split<CR>:wincmd p<CR>:e#<CR>
 nnoremap <silent> [Window]v  :<C-u>vsplit<CR>:wincmd p<CR>:e#<CR>
 nnoremap <silent> [Window]t  :<C-u>tab split<CR>:execute 'tabn '.g:lasttab<CR>
@@ -387,8 +409,14 @@ nnoremap <silent> [Window]b  :b#<CR>
 nnoremap <silent> [Window]c  :close<CR>
 nnoremap <silent> [Window]x  :<C-u>call <SID>BufferEmpty()<CR>
 " View tag in vim preview window. This is short for <c-w>}
-nnoremap <silent> [Window]}  :execute "ptjump " . expand("<cword>")<CR>
-nnoremap <silent> [Window]=  :<C-w><CR>=
+" nnoremap <silent> [Window]}  :execute "ptjump " . expand("<cword>")<CR>
+nnoremap <silent> [Window]]  <C-w>]
+nnoremap <silent> [Window]=  <C-w>=
+nnoremap <silent> [Window]H  <C-w>H
+nnoremap <silent> [Window]J  <C-w>J
+nnoremap <silent> [Window]K  <C-w>K
+nnoremap <silent> [Window]L  <C-w>L
+nnoremap <silent> [Window]z  <C-w>z
 
 
 " Split current buffer, go to previous window and previous buffer

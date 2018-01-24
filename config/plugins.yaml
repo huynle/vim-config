@@ -103,9 +103,9 @@
   on_ft: [ python, go]
   hook_source: |
     let g:test#strategy = {
-      \ 'nearest': 'vimux',
+      \ 'nearest': '',
       \ 'file': 'neomake',
-      \ 'suit': 'neomake'
+      \ 'suit': 'neomake',
     \}
     let g:test#python#runner = 'pytest'
     let g:test#python#pytest#options = {
