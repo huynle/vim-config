@@ -503,6 +503,7 @@ Key   | Mode | Action
 `Alt-h` | Insert | Move cursor one character to the left
 `alt-l` | insert | move cursor one character to the right
 
+### ChromeOS
 
 ### Window Management
 
