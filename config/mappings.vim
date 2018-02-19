@@ -315,8 +315,8 @@ vnoremap <Leader>S y:execute @@<CR>:echo 'Sourced selection.'<CR>
 nnoremap <Leader>S ^vg_y:execute @@<CR>:echo 'Sourced line.'<CR>
 
 " Yank buffer's absolute path to X11 clipboard
-nnoremap <Leader>y :let @+=expand("%")<CR>:echo 'Relative path copied to clipboard.'<CR>
-nnoremap <Leader>Y :let @+=expand("%:p")<CR>:echo 'Absolute path copied to clipboard.'<CR>
+" nnoremap <Leader>y :let @+=expand("%")<CR>:echo 'Relative path copied to clipboard.'<CR>
+" nnoremap <Leader>Y :let @+=expand("%:p")<CR>:echo 'Absolute path copied to clipboard.'<CR>
 
 " Drag current line/s vertically and auto-indent
 vnoremap mk :m-2<CR>gv=gv
@@ -328,6 +328,13 @@ noremap  mj :m+<CR>
 " get 5 lines added. for normal mode this is taken care by unimpaired vim
 vnoremap [<space>  :<c-u>put! =repeat(nr2char(10), v:count1)<cr>
 vnoremap ]<space>  :<c-u>put =repeat(nr2char(10), v:count1)<cr>
+
+" Copying and Pasting on ChromeOS
+"
+if !empty(glob("$HOME/.crouton-clipboard/data.txt"))
+	nnoremap <Leader>p :r !cat $HOME/.crouton-clipboard/data.txt<CR>
+	vnoremap <Leader>y :'<,'>w! $HOME/.crouton-clipboard/data.txt<CR>
+endif
 
 " Session management shortcuts
 nmap <silent> <Leader>se :<C-u>execute 'SessionSave' fnamemodify(resolve(getcwd()), ':p:gs?/?_?')<CR>
