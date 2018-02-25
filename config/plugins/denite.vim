@@ -5,6 +5,7 @@
 " INTERFACE
 call denite#custom#option('_', {
 	\ 'prompt': 'λ:',
+	\ 'empty': 0,
 	\ 'winheight': 16,
 	\ 'source_names': 'short',
 	\ 'vertical_preview': 1,
@@ -69,7 +70,7 @@ if executable('ag')
 	call denite#custom#var('grep', 'separator', ['--'])
 	call denite#custom#var('grep', 'final_opts', [])
 	call denite#custom#var('grep', 'default_opts',
-		\ [ '-i', '--vimgrep' ])
+		\ [ '--skip-vcs-ignores', '--vimgrep', '--smart-case', '--hidden' ])
 
 elseif executable('ack')
 	" Ack command
@@ -100,8 +101,8 @@ let normal_mode_mappings = [
 	\   ['<C-p>', '<denite:jump_to_previous_source>', 'noremap'],
 	\   ['gg', '<denite:move_to_first_line>', 'noremap'],
 	\   ['st', '<denite:do_action:tabopen>', 'noremap'],
-	\   ['sv', '<denite:do_action:vsplit>', 'noremap'],
-	\   ['sg', '<denite:do_action:split>', 'noremap'],
+	\   ['sg', '<denite:do_action:vsplit>', 'noremap'],
+	\   ['sv', '<denite:do_action:split>', 'noremap'],
 	\   ['sc', '<denite:quit>', 'noremap'],
 	\   ['r', '<denite:redraw>', 'noremap'],
 	\ ]
