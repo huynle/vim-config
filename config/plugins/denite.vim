@@ -5,7 +5,6 @@
 " INTERFACE
 call denite#custom#option('_', {
 	\ 'prompt': 'λ:',
-	\ 'empty': 0,
 	\ 'winheight': 16,
 	\ 'source_names': 'short',
 	\ 'vertical_preview': 1,
@@ -25,11 +24,10 @@ call denite#custom#option('mpc', {
 
 " MATCHERS
 " Default is 'matcher_fuzzy'
-call denite#custom#source('tag', 'matchers', ['matcher_fuzzy'])
-
+call denite#custom#source('tag', 'matchers', ['matcher_substring'])
 if has('nvim') && &runtimepath =~# '\/cpsm'
 	call denite#custom#source(
-		\ 'buffer,file_mru,file_old,file_rec,mpc,line',
+		\ 'buffer,file_mru,file_old,file_rec,grep,mpc,line',
 		\ 'matchers', ['matcher_cpsm', 'matcher_fuzzy'])
 endif
 
@@ -58,7 +56,7 @@ if executable('ag')
 		" \ ['ag', '-U', '--hidden', '--follow', '--nocolor', '--nogroup', '-g', ''])
 
 	call denite#custom#var('file_rec', 'command',
-		\ ['ag', '--follow', '--nocolor', '--nogroup', '-u', '-g', ''])
+		\ ['ag', '-U', '--hidden', '--follow', '--nocolor', '--nogroup', '-g', ''])
 
 	" Setup ignore patterns in your .agignore file!
 	" https://github.com/ggreer/the_silver_searcher/wiki/Advanced-Usage
@@ -101,8 +99,8 @@ let normal_mode_mappings = [
 	\   ['<C-p>', '<denite:jump_to_previous_source>', 'noremap'],
 	\   ['gg', '<denite:move_to_first_line>', 'noremap'],
 	\   ['st', '<denite:do_action:tabopen>', 'noremap'],
-	\   ['sg', '<denite:do_action:vsplit>', 'noremap'],
-	\   ['sv', '<denite:do_action:split>', 'noremap'],
+	\   ['sv', '<denite:do_action:vsplit>', 'noremap'],
+	\   ['sg', '<denite:do_action:split>', 'noremap'],
 	\   ['sc', '<denite:quit>', 'noremap'],
 	\   ['r', '<denite:redraw>', 'noremap'],
 	\ ]
