@@ -215,16 +215,13 @@ nmap <silent> <Leader>toh :nohlsearch<CR>
 nmap <silent> <Leader>tow :setlocal wrap! breakindent!<CR>
 
 " Tabs
-nnoremap <silent> g0 :<C-u>tabfirst<CR>
-nnoremap <silent> g$ :<C-u>tablast<CR>
-nnoremap <silent> gr :<C-u>tabprevious<CR>
-nnoremap <silent> <A-j> :<C-U>tabnext<CR>
-nnoremap <silent> <A-k> :<C-U>tabprevious<CR>
-nnoremap <silent> <C-Tab> :<C-U>tabnext<CR>
-nnoremap <silent> <C-S-Tab> :<C-U>tabprevious<CR>
-" Uses g:lasttab set on TabLeave in MyAutoCmd
-let g:lasttab = 1
-nmap <silent> \\ :execute 'tabn '.g:lasttab<CR>
+" nnoremap <silent> g0 :<C-u>tabfirst<CR>
+" nnoremap <silent> g$ :<C-u>tablast<CR>
+" nnoremap <silent> gr :<C-u>tabprevious<CR>
+nnoremap <silent> <S-l> :<C-U>tabnext<CR>
+nnoremap <silent> <S-h> :<C-U>tabprevious<CR>
+" nnoremap <silent> <C-Tab> :<C-U>tabnext<CR>
+" nnoremap <silent> <C-S-Tab> :<C-U>tabprevious<CR>
 
 
 " }}}
@@ -264,7 +261,8 @@ function! s:get_selection(cmdtype) "{{{
 endfunction "}}}
 
 " Background dark/light toggle and contrasts
-nnoremap <silent><Leader>bg :<C-u>call <SID>toggle_background()<CR>
+" nnoremap <silent><Leader>bg :<C-u>call <SID>toggle_background()<CR>
+nnoremap <silent><Leader>bg :<C-u>call Solar_swap()<CR>
 nmap <silent> b- :<c-u>call <SID>toggle_contrast(-v:count1)<cr>
 nmap <silent> b= :<c-u>call <SID>toggle_contrast(+v:count1)<cr>
 

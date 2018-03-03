@@ -37,4 +37,17 @@ if ! exists('g:colors_name')
 		\ filereadable(s:cache) ? readfile(s:cache)[0] : 'hybrid'
 endif
 
+function! Solar_swap()
+    if &background ==? 'dark'
+        set background=light
+        execute "silent !tmux source-file " . shellescape(expand('~/.tmux/themes/huy-light.sh'))
+    else
+        set background=dark
+        execute "silent !tmux source-file " . shellescape(expand('~/.tmux/themes/huy-dark.sh'))
+    endif
+    " silent !osascript -e 'tell app "System Events" to keystroke "s" using {shift down, option down, control down}'
+endfunction
+
+command! SolarSwap call Solar_swap()
+
 " vim: set ts=2 sw=2 tw=80 noet :
