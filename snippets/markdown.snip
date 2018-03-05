@@ -6,12 +6,12 @@ options word
 snippet linkid
 abbr [link][id]
 options word
-    [${1:#:link}][${2:id}]${3}
+    [${1:#:link}][${2:#:id}]${3}
 
 snippet linkurl
 abbr [link](url)
 options word
-    [${1:#:link}](http://${2:#:url})${3}
+    [${1:#:link}](${2:#:http://url})${3}
 
 snippet linkemail
 abbr [link](email)

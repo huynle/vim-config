@@ -336,6 +336,9 @@
     let g:neosnippet#enable_snipmate_compatibility = 1
     let g:neosnippet#enable_completed_snippet = 1
     let g:neosnippet#expand_word_boundary = 1
+    let g:neosnippet#disable_runtime_snippets = {
+      \ 'c': 1,
+      \ }
     autocmd MyAutoCmd InsertLeave * NeoSnippetClearMarkers
 
 - repo: ludovicchabant/vim-gutentags
@@ -373,7 +376,14 @@
     let g:delimitMate_expand_cr = 1
     let g:delimitMate_excluded_ft = 'html'
 
-- { repo: Shougo/neosnippet-snippets, if: empty($VIM_MINIMAL) }
+- repo: honza/vim-snippets
+  depends: neosnippet
+  if: empty($VIM_MINIMAL)
+  hook_add: let g:neosnippet#snippets_directory=$VARPATH.'/dein/repos/github.com/honza/vim-snippets/snippets'
+
+- repo: Shougo/neosnippet-snippets
+  if: empty($VIM_MINIMAL)
+
 - { repo: Shougo/context_filetype.vim, lazy: 1, if: empty($VIM_MINIMAL) }
 - { repo: Shougo/neco-vim, on_ft: vim, if: empty($VIM_MINIMAL) }
 - { repo: Shougo/neco-syntax, on_source: [ neocomplete.vim, deoplete.nvim ]}

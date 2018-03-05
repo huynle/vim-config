@@ -1,22 +1,13 @@
-# Rafael Bodill's Neo/vim Config
+# Huy's Neo/vim Config
 
-Lean mean Neo/vim machine, 30-45ms startup time.
+Credit goes to Rafi and his Vim Configuration. Please check out his Github here https://github.com/rafi/vim-config.
 
-Best with Neovim or Vim 8 with +python3 extensions enabled.
+In addition to Rafi's configs, this Vim config have been modified to my needs with Markdown, Go, and Python.
 
 ## Features
 
-- Fast startup time
-- Robust, yet light-weight
-- Lazy-load 95% of plugins with [Shougo/dein.vim]
-- Custom side-menu (try it out! <kbd>Leader</kbd>+<kbd>l</kbd>)
-- Modular configuration
-- Denite (Unite's successor) centric work-flow
-- Extensive Deoplete and Neocomplete setup
-- Lightweight simple status/tabline
-- Easy customizable theme
-- Premium color-schemes
-- Central location for tags
+In addition to Rafi's configuration, there are features that I have also implemented to help with my Vim experience.
+- Theme sync with Tmux
 
 ## Screenshot
 

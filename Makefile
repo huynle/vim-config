@@ -5,7 +5,11 @@ XDG_CACHE_HOME ?= $(HOME)/.cache
 default: install
 
 install:
-	@mkdir -vp "$(XDG_CACHE_HOME)/vim/"{backup,session,swap,tags,undo}; \
+	@mkdir -vp "$(XDG_CACHE_HOME)/vim/backup"; \
+	mkdir -vp "$(XDG_CACHE_HOME)/vim/session"; \
+	mkdir -vp "$(XDG_CACHE_HOME)/vim/swap"; \
+	mkdir -vp "$(XDG_CACHE_HOME)/vim/tags"; \
+	mkdir -vp "$(XDG_CACHE_HOME)/vim/undo"; \
 	$(vim) --cmd 'set t_ti= t_te= nomore' -N -U NONE -i NONE \
 		-c "try | call dein#update() | finally | call confirm('') | qall! | endtry"
 
