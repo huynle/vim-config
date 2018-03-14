@@ -263,7 +263,7 @@ endfunction "}}}
 " Background dark/light toggle and contrasts
 nnoremap <silent><Leader>bg :<C-u>call ToggleBg()<CR>
 " nmap <silent> b- :<c-u>call <SID>toggle_contrast(-v:count1)<cr>
-" nmap <silent> b= :<c-u>call <SID>toggle_contrast(+v:count1)<cr>
+" nmap <silent> b= :<c-u>call <SID>toggle_contrast(+v:count2)<cr>
 
 " function! s:toggle_background()
 " 	if ! exists('g:colors_name')
