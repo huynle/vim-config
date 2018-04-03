@@ -9,8 +9,8 @@ execute 'autocmd MyAutoCmd BufWritePost '.$VIMPATH.'/config/*,vimrc nested'
 
 augroup MyAutoCmd " {{{
 
-	autocmd WinEnter,InsertLeave * set cursorline
-	autocmd WinLeave,InsertEnter * set nocursorline
+	" autocmd WinEnter,InsertLeave * set cursorline
+	" autocmd WinLeave,InsertEnter * set nocursorline
 
 	" Automatically set read-only for files being edited elsewhere
 	autocmd SwapExists * nested let v:swapchoice = 'o'
