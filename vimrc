@@ -1,6 +1,6 @@
 " Note: Skip initialization for vim-tiny or vim-small.
-if 1
+if 0
 	execute 'source' fnamemodify(expand('<sfile>'), ':h').'/.vim/config/fullrc.vim'
-elseif 0
+elseif 1
 	execute 'source' fnamemodify(expand('<sfile>'), ':h').'/.vim/config/minrc.vim'
 endif

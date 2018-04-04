@@ -1,0 +1,22 @@
+---
+# PLUGINS
+# ==========================================
+
+# Startup
+# -------
+- repo: Shougo/dein.vim
+- repo: rafi/awesome-vim-colorschemes
+- repo: rafi/vim-badge
+- repo: thinca/vim-localrc
+- repo: christoomey/vim-tmux-navigator
+- repo: junegunn/vim-peekaboo
+- repo: tpope/vim-sleuth
+- repo: itchyny/vim-gitbranch
+- repo: itchyny/vim-parenmatch
+- repo: itchyny/vim-cursorword
+  hook_add: |
+    autocmd MyAutoCmd FileType denite,qf,nerdtree let b:cursorword=0
+    autocmd MyAutoCmd InsertEnter * let b:cursorword=0
+    autocmd MyAutoCmd InsertLeave * let b:cursorword=1
+
+#  vim: set ts=2 sw=2 tw=80 et :
