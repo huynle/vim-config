@@ -115,162 +115,163 @@ _Note_ that 95% of the plugins are **[lazy-loaded]**.
 
 ## Non Lazy-Loaded Plugins
 
-Name           | Description
--------------- | ----------------------
-[Shougo/dein.vim] | Dark powered Vim/Neovim plugin manager
-[rafi/awesome-colorschemes] | Awesome color-schemes
-[rafi/vim-badge] | Bite-size badges for the tab & status lines
-[itchyny/vim-gitbranch] | Lightweight git branch detection
-[itchyny/vim-parenmatch] | Efficient alternative to the standard matchparen plugin
-[thinca/vim-localrc] | Enable configuration file of each directory
-[christoomey/tmux-navigator] | Seamless navigation between tmux panes and vim splits
-[junegunn/vim-peekaboo] | See the contents of registers
-[tpope/vim-sleuth] | Heuristically set buffer indent options
-[itchyny/cursorword] | Underlines word under cursor
+| Name                         | Description                                             |
+|------------------------------|---------------------------------------------------------|
+| [Shougo/dein.vim]            | Dark powered Vim/Neovim plugin manager                  |
+| [rafi/awesome-colorschemes]  | Awesome color-schemes                                   |
+| [rafi/vim-badge]             | Bite-size badges for the tab & status lines             |
+| [itchyny/vim-gitbranch]      | Lightweight git branch detection                        |
+| [itchyny/vim-parenmatch]     | Efficient alternative to the standard matchparen plugin |
+| [thinca/vim-localrc]         | Enable configuration file of each directory             |
+| [christoomey/tmux-navigator] | Seamless navigation between tmux panes and vim splits   |
+| [junegunn/vim-peekaboo]      | See the contents of registers                           |
+| [tpope/vim-sleuth]           | Heuristically set buffer indent options                 |
+| [itchyny/cursorword]         | Underlines word under cursor                            |
 
 ## Lazy-Loaded Plugins
 
 ### Language
 
-Name           | Description
--------------- | ----------------------
-[othree/html5.vim] | HTML5 omnicomplete and syntax
-[mustache/vim-mustache-handlebars] | Mustache and handlebars syntax
-[pearofducks/ansible-vim] | Improved YAML support for Ansible
-[mitsuhiko/vim-jinja] | Jinja support in vim
-[groenewege/vim-less] | Syntax for LESS
-[hail2u/vim-css3-syntax] | CSS3 syntax support to vim's built-in `syntax/css.vim`
-[othree/csscomplete.vim] | Updated built-in CSS complete with latest standards
-[cakebaker/scss-syntax.vim] | Syntax file for scss (Sassy CSS)
-[ap/vim-css-color] | Preview colors in source-code while editing
-[plasticboy/vim-markdown] | Markdown syntax highlighting
-[rhysd/vim-gfm-syntax] | GitHub Flavored Markdown syntax highlight extension
-[pangloss/vim-javascript] | Enhanced Javascript syntax
-[othree/jspc.vim] | JavaScript Parameter Complete
-[MaxMEllon/vim-jsx-pretty] | React JSX syntax pretty highlighting
-[heavenshell/vim-jsdoc] | Generate JSDoc to your JavaScript code
-[moll/vim-node] | Superb development with Node.js
-[elzr/vim-json] | Better JSON support
-[fatih/vim-go] | Go development
-[tbastos/vim-lua] | Improved Lua 5.3 syntax and indentation support
-[vim-python/python-syntax] | Enhanced version of the original Python syntax
-[Vimjas/vim-python-pep8-indent] | A nicer Python indentation style
-[python_match.vim] | Extend the % motion for Python files
-[tmhedberg/SimpylFold] | No-BS Python code folding
-[raimon49/requirements.txt.vim] | Python requirements file format
-[StanAngeloff/php.vim] | Up-to-date PHP syntax file (5.3 – 7.1 support)
-[shawncplus/phpcomplete.vim] | PHP completion
-[osyo-manga/vim-monster] | Ruby code completion
-[toyamarinyon/vim-swift] | Swift support
-[vim-jp/syntax-vim-ex] | Improved Vim syntax highlighting
-[chrisbra/csv.vim] | Handling column separated data
-[tmux-plugins/vim-tmux] | vim plugin for tmux.conf
-[cespare/vim-toml] | Syntax for TOML
-[PotatoesMaster/i3-vim-syntax] | i3 window manager config syntax
-[dag/vim-fish] | Fish shell edit support
-[ekalinin/Dockerfile.vim] | syntax and snippets for Dockerfile
-[jstrater/mpvim] | Macports portfile configuration files
-[tpope/vim-git] | Git runtime files
-[robbles/logstash.vim] | Highlights logstash configuration files
-[andreshazard/vim-logreview] | Bueatify log viewing
-[exu/pgsql.vim] | PostgreSQL syntax
-[othree/nginx-contrib-vim] | Fork official vim nginx
-[IN3D/vim-raml] | Syntax and language settings for RAML
+| Name                               | Description                                            |
+|------------------------------------|--------------------------------------------------------|
+| [othree/html5.vim]                 | HTML5 omnicomplete and syntax                          |
+| [mustache/vim-mustache-handlebars] | Mustache and handlebars syntax                         |
+| [pearofducks/ansible-vim]          | Improved YAML support for Ansible                      |
+| [mitsuhiko/vim-jinja]              | Jinja support in vim                                   |
+| [groenewege/vim-less]              | Syntax for LESS                                        |
+| [hail2u/vim-css3-syntax]           | CSS3 syntax support to vim's built-in `syntax/css.vim` |
+| [othree/csscomplete.vim]           | Updated built-in CSS complete with latest standards    |
+| [cakebaker/scss-syntax.vim]        | Syntax file for scss (Sassy CSS)                       |
+| [ap/vim-css-color]                 | Preview colors in source-code while editing            |
+| [plasticboy/vim-markdown]          | Markdown syntax highlighting                           |
+| [rhysd/vim-gfm-syntax]             | GitHub Flavored Markdown syntax highlight extension    |
+| [pangloss/vim-javascript]          | Enhanced Javascript syntax                             |
+| [othree/jspc.vim]                  | JavaScript Parameter Complete                          |
+| [MaxMEllon/vim-jsx-pretty]         | React JSX syntax pretty highlighting                   |
+| [heavenshell/vim-jsdoc]            | Generate JSDoc to your JavaScript code                 |
+| [moll/vim-node]                    | Superb development with Node.js                        |
+| [elzr/vim-json]                    | Better JSON support                                    |
+| [fatih/vim-go]                     | Go development                                         |
+| [tbastos/vim-lua]                  | Improved Lua 5.3 syntax and indentation support        |
+| [vim-python/python-syntax]         | Enhanced version of the original Python syntax         |
+| [Vimjas/vim-python-pep8-indent]    | A nicer Python indentation style                       |
+| [python_match.vim]                 | Extend the % motion for Python files                   |
+| [tmhedberg/SimpylFold]             | No-BS Python code folding                              |
+| [raimon49/requirements.txt.vim]    | Python requirements file format                        |
+| [StanAngeloff/php.vim]             | Up-to-date PHP syntax file (5.3 – 7.1 support)         |
+| [shawncplus/phpcomplete.vim]       | PHP completion                                         |
+| [osyo-manga/vim-monster]           | Ruby code completion                                   |
+| [toyamarinyon/vim-swift]           | Swift support                                          |
+| [vim-jp/syntax-vim-ex]             | Improved Vim syntax highlighting                       |
+| [chrisbra/csv.vim]                 | Handling column separated data                         |
+| [tmux-plugins/vim-tmux]            | vim plugin for tmux.conf                               |
+| [cespare/vim-toml]                 | Syntax for TOML                                        |
+| [PotatoesMaster/i3-vim-syntax]     | i3 window manager config syntax                        |
+| [dag/vim-fish]                     | Fish shell edit support                                |
+| [ekalinin/Dockerfile.vim]          | syntax and snippets for Dockerfile                     |
+| [jstrater/mpvim]                   | Macports portfile configuration files                  |
+| [tpope/vim-git]                    | Git runtime files                                      |
+| [robbles/logstash.vim]             | Highlights logstash configuration files                |
+| [andreshazard/vim-logreview]       | Bueatify log viewing                                   |
+| [exu/pgsql.vim]                    | PostgreSQL syntax                                      |
+| [othree/nginx-contrib-vim]         | Fork official vim nginx                                |
+| [IN3D/vim-raml]                    | Syntax and language settings for RAML                  |
 
 ### Commands
 
-Name           | Description
--------------- | ----------------------
-[scrooloose/nerdtree] | Tree explorer plugin
-[Xuyuanp/nerdtree-git-plugin] | NERDTree plugin for showing git status
-[chemzqm/vim-easygit] | Git wrapper focus on simplity and usability
-[tpope/vim-commentary] | Code commenting helper
-[t9md/vim-choosewin] | Choose window to use, like tmux's 'display-pane'
-[Shougo/vinarise.vim] | Hex editor
-[kana/vim-niceblock] | Make blockwise Visual mode more useful
-[guns/xterm-color-table.vim] | Display 256 xterm colors with their RGB equivalents
-[mbbill/undotree] | Ultimate undo history visualizer
-[metakirby5/codi.vim] | The interactive scratchpad for hackers
-[Shougo/vimproc.vim] | Interactive command execution
-[reedes/vim-wordy] | Uncover usage problems in your writing
-[brooth/far.vim] | Fast find and replace plugin
-[jreybert/vimagit] | Ease your git work-flow within Vim
-[tweekmonster/helpful.vim] | Display vim version numbers in docs
-[lambdalisue/gina.vim] | Asynchronously control git repositories
-[mzlogin/vim-markdown-toc] | Generate table of contents for Markdown files
-[easymotion/vim-easymotion] | Vim motions on speed
-[majutsushi/tagbar] | Displays tags in a window, ordered by scope
-[beloglazov/vim-online-thesaurus] | Look up words in an online thesaurus
+| Name                              | Description                                         |
+|-----------------------------------|-----------------------------------------------------|
+| [scrooloose/nerdtree]             | Tree explorer plugin                                |
+| [Xuyuanp/nerdtree-git-plugin]     | NERDTree plugin for showing git status              |
+| [chemzqm/vim-easygit]             | Git wrapper focus on simplity and usability         |
+| [tpope/vim-commentary]            | Code commenting helper                              |
+| [t9md/vim-choosewin]              | Choose window to use, like tmux's 'display-pane'    |
+| [Shougo/vinarise.vim]             | Hex editor                                          |
+| [kana/vim-niceblock]              | Make blockwise Visual mode more useful              |
+| [guns/xterm-color-table.vim]      | Display 256 xterm colors with their RGB equivalents |
+| [mbbill/undotree]                 | Ultimate undo history visualizer                    |
+| [metakirby5/codi.vim]             | The interactive scratchpad for hackers              |
+| [Shougo/vimproc.vim]              | Interactive command execution                       |
+| [reedes/vim-wordy]                | Uncover usage problems in your writing              |
+| [brooth/far.vim]                  | Fast find and replace plugin                        |
+| [jreybert/vimagit]                | Ease your git work-flow within Vim                  |
+| [tweekmonster/helpful.vim]        | Display vim version numbers in docs                 |
+| [lambdalisue/gina.vim]            | Asynchronously control git repositories             |
+| [mzlogin/vim-markdown-toc]        | Generate table of contents for Markdown files       |
+| [dhruvasagar/vim-table-mode       | Format markdown table                               |
+| [easymotion/vim-easymotion]       | Vim motions on speed                                |
+| [majutsushi/tagbar]               | Displays tags in a window, ordered by scope         |
+| [beloglazov/vim-online-thesaurus] | Look up words in an online thesaurus                |
 
 ### Interface
 
-Name           | Description
--------------- | ----------------------
-[haya14busa/vim-asterisk] | Improved * motions
-[rhysd/accelerated-jk] | Up/down movement acceleration
-[haya14busa/vim-edgemotion] | Jump to the edge of block
-[t9md/vim-quickhl] | Quickly highlight words
-[rafi/vim-sidemenu] | Small side-menu useful for terminal users
-[Shougo/tabpagebuffer.vim] | Tabpage buffer interface
-[airblade/vim-gitgutter] | Show git changes at Vim gutter and un/stages hunks
-[nathanaelkane/vim-indent-guides] | Visually display indent levels in code
-[MattesGroeger/vim-bookmarks] | Bookmarks, works independently from vim marks
-[rhysd/committia.vim] | Pleasant editing on Git commit messages
-[benekastah/neomake] | Asynchronous linting and make framework
-[junegunn/goyo] | Distraction-free writing
-[junegunn/limelight] | Hyperfocus-writing
-[itchyny/calendar.vim] | Calendar application
-[vimwiki/vimwiki] | Personal Wiki for Vim
+| Name                              | Description                                        |
+|-----------------------------------|----------------------------------------------------|
+| [haya14busa/vim-asterisk]         | Improved * motions                                 |
+| [rhysd/accelerated-jk]            | Up/down movement acceleration                      |
+| [haya14busa/vim-edgemotion]       | Jump to the edge of block                          |
+| [t9md/vim-quickhl]                | Quickly highlight words                            |
+| [rafi/vim-sidemenu]               | Small side-menu useful for terminal users          |
+| [Shougo/tabpagebuffer.vim]        | Tabpage buffer interface                           |
+| [airblade/vim-gitgutter]          | Show git changes at Vim gutter and un/stages hunks |
+| [nathanaelkane/vim-indent-guides] | Visually display indent levels in code             |
+| [MattesGroeger/vim-bookmarks]     | Bookmarks, works independently from vim marks       |
+| [rhysd/committia.vim]             | Pleasant editing on Git commit messages            |
+| [benekastah/neomake]              | Asynchronous linting and make framework            |
+| [junegunn/goyo]                   | Distraction-free writing                           |
+| [junegunn/limelight]              | Hyperfocus-writing                                 |
+| [itchyny/calendar.vim]            | Calendar application                               |
+| [vimwiki/vimwiki]                 | Personal Wiki for Vim                              |
 
 ### Completion
 
-Name           | Description
--------------- | ----------------------
-[Shougo/deoplete.nvim] | Neovim: Dark powered asynchronous completion framework
-[Shougo/neocomplete] | Next generation completion framework
-[Shougo/neosnippet.vim] | Contains neocomplete snippets source
-[Raimondi/delimitMate] | Auto-completion for quotes, parens, brackets
-[ludovicchabant/vim-gutentags] | Manages your tag files
-[mattn/emmet-vim] | Provides support for expanding abbreviations alá emmet
-[Shougo/echodoc.vim] | Print objects' documentation in echo area
-[Shougo/neosnippet-snippets] | Standard snippets repository for neosnippet
-[davidhalter/jedi-vim] | Python jedi autocompletion library
-[zchee/deoplete-go] | deoplete.nvim source for Go
-[zchee/deoplete-jedi] | deoplete.nvim source for Python
-[carlitux/deoplete-ternjs] | deoplete.nvim source for javascript
-[wellle/tmux-complete.vim] | Completion of words in adjacent tmux panes
-[ternjs/tern_for_vim] | Provides Tern-based JavaScript editing support
+| Name                           | Description                                            |
+|--------------------------------|--------------------------------------------------------|
+| [Shougo/deoplete.nvim]         | Neovim: Dark powered asynchronous completion framework |
+| [Shougo/neocomplete]           | Next generation completion framework                   |
+| [Shougo/neosnippet.vim]        | Contains neocomplete snippets source                   |
+| [Raimondi/delimitMate]         | Auto-completion for quotes, parens, brackets           |
+| [ludovicchabant/vim-gutentags] | Manages your tag files                                 |
+| [mattn/emmet-vim]              | Provides support for expanding abbreviations alá emmet |
+| [Shougo/echodoc.vim]           | Print objects' documentation in echo area              |
+| [Shougo/neosnippet-snippets]   | Standard snippets repository for neosnippet            |
+| [davidhalter/jedi-vim]         | Python jedi autocompletion library                     |
+| [zchee/deoplete-go]            | deoplete.nvim source for Go                            |
+| [zchee/deoplete-jedi]          | deoplete.nvim source for Python                        |
+| [carlitux/deoplete-ternjs]     | deoplete.nvim source for javascript                    |
+| [wellle/tmux-complete.vim]     | Completion of words in adjacent tmux panes             |
+| [ternjs/tern_for_vim]          | Provides Tern-based JavaScript editing support         |
 
 ### Denite
 
-Name           | Description
--------------- | ----------------------
-[Shougo/denite.nvim] | Dark powered asynchronous unite all interfaces
-[nixprime/cpsm] | File matcher, specialized for paths
-[chemzqm/unite-location] | Denite location & quickfix lists
-[chemzqm/denite-git] | gitlog, gitstatus and gitchanged sources
-[rafi/vim-denite-z] | Filter and browse Z (jump around) data file
-[rafi/vim-denite-session] | Browse and open sessions
-[rafi/vim-denite-mpc] | Denite source for browsing your MPD music library
+| Name                      | Description                                       |
+|---------------------------|---------------------------------------------------|
+| [Shougo/denite.nvim]      | Dark powered asynchronous unite all interfaces    |
+| [nixprime/cpsm]           | File matcher, specialized for paths               |
+| [chemzqm/unite-location]  | Denite location & quickfix lists                  |
+| [chemzqm/denite-git]      | gitlog, gitstatus and gitchanged sources          |
+| [rafi/vim-denite-z]       | Filter and browse Z (jump around) data file       |
+| [rafi/vim-denite-session] | Browse and open sessions                          |
+| [rafi/vim-denite-mpc]     | Denite source for browsing your MPD music library |
 
 ### Operators & Text Objects
 
-Name           | Description
--------------- | ----------------------
-[kana/vim-operator-user] | Define your own custom operators
-[kana/vim-operator-replace] | Operator to replace text with register content
-[rhysd/vim-operator-surround] | Operator to enclose text objects
-[haya14busa/vim-operator-flashy] | Highlight yanked area
-[kana/vim-textobj-user] | Create your own text objects
-[bkad/CamelCaseMotion] | Provide CamelCase motion through words
-[terryma/vim-expand-region] | Visually select increasingly larger regions of text
-[AndrewRadev/sideways.vim] | Match function arguments
-[AndrewRadev/splitjoin.vim] | Transition code between multi-line and single-line
-[AndrewRadev/linediff.vim] | Perform diffs on blocks of code
-[glts/vim-textobj-comment] | Text objects for comments
-[AndrewRadev/dsf.vim] | Delete surrounding function call
-[osyo-manga/vim-textobj-multiblock] | Handle bracket objects
-[kana/vim-textobj-function] | Text objects for functions
+| Name                                | Description                                         |
+|-------------------------------------|-----------------------------------------------------|
+| [kana/vim-operator-user]            | Define your own custom operators                    |
+| [kana/vim-operator-replace]         | Operator to replace text with register content      |
+| [rhysd/vim-operator-surround]       | Operator to enclose text objects                    |
+| [haya14busa/vim-operator-flashy]    | Highlight yanked area                               |
+| [kana/vim-textobj-user]             | Create your own text objects                        |
+| [bkad/CamelCaseMotion]              | Provide CamelCase motion through words              |
+| [terryma/vim-expand-region]         | Visually select increasingly larger regions of text |
+| [AndrewRadev/sideways.vim]          | Match function arguments                            |
+| [AndrewRadev/splitjoin.vim]         | Transition code between multi-line and single-line  |
+| [AndrewRadev/linediff.vim]          | Perform diffs on blocks of code                     |
+| [glts/vim-textobj-comment]          | Text objects for comments                           |
+| [AndrewRadev/dsf.vim]               | Delete surrounding function call                    |
+| [osyo-manga/vim-textobj-multiblock] | Handle bracket objects                              |
+| [kana/vim-textobj-function]         | Text objects for functions                          |
 
 [Shougo/dein.vim]: https://github.com/Shougo/dein.vim
 [rafi/awesome-colorschemes]: https://github.com/rafi/awesome-vim-colorschemes
@@ -457,249 +458,256 @@ Arrows | Normal | Resize splits (* Enable `g:elite_mode` in `.vault.vim`)
 
 ### File Operations
 
-Key   | Mode | Action
------ |:----:| ------------------
-`<leader>`+`cd` | Normal | Switch to the directory of opened buffer (:lcd %:p:h)
-`<leader>`+`w` | Normal/visual | Write (:w)
-`<leader>`+`y` / `<leader>`+`Y` | Normal | Copy (relative / absolute) file-path to clipboard
-`Ctrl`+`s` | _All_ | Write (:w)
-`W!!` | Command | Write as root
+| Key                             |      Mode     | Action                                                |
+|---------------------------------|:-------------:|-------------------------------------------------------|
+| `<leader>`+`cd`                 |     Normal    | Switch to the directory of opened buffer (:lcd %:p:h) |
+| `<leader>`+`w`                  | Normal/visual | Write (:w)                                            |
+| `<leader>`+`y` / `<leader>`+`Y` |     Normal    | Copy (relative / absolute) file-path to clipboard     |
+| `Ctrl`+`s`                      |     _All_     | Write (:w)                                            |
+| `W!!`                           |    Command    | Write as root                                         |
 
 ### Editor UI
 
-Key   | Mode | Action
------ |:----:| ------------------
-`<leader>`+`toi` | Normal | Toggle indentation lines
-`<leader>`+`tos` | Normal | Toggle spell-checker (:setlocal spell!)
-`<leader>`+`ton` | Normal | Toggle line numbers (:setlocal nonumber!)
-`<leader>`+`tol` | Normal | Toggle hidden characters (:setlocal nolist!)
-`<leader>`+`toh` | Normal | Toggle highlighted search (:set hlsearch!)
-`<leader>`+`tow` | Normal | Toggle wrap (:setlocal wrap! breakindent!)
-`g0` | Normal | Go to first tab (:tabfirst)
-`g$` | Normal | Go to last tab (:tablast)
-`gr` | Normal | Go to previous tab (:tabprevious)
-`Shift-h` | Normal | Go to previous tab (:tabprevious)
-`Shift-l` | Normal | Go to next tab (:tabnext)
-`Ctrl`+`j` | Normal | Move to split below (\<C-w>j)
-`Ctrl`+`k` | Normal | Move to upper split (\<C-w>k)
-`Ctrl`+`h` | Normal | Move to left split (\<C-w>h)
-`Ctrl`+`l` | Normal | Move to right split (\<C-w>l)
-`*` | Visual | Search selection forwards
-`#` | Visual | Search selection backwards
-`<leader>`+`j` | Normal | Next on location list
-`<leader>`+`k` | Normal | Previous on location list
-`<leader>`+`bg` | Normal | Toggle colorscheme background dark/light
-`s`+`-` | Normal | Lower colorscheme contrast (Support solarized8)
-`s`+`=` | Normal | Raise colorscheme contrast (Support solarized8)
-`Alt-h` | Insert | Move cursor one character to the left
-`alt-l` | insert | move cursor one character to the right
+| Key              |  Mode  | Action                                          |
+|------------------|:------:|-------------------------------------------------|
+| `<leader>`+`toi` | Normal | Toggle indentation lines                        |
+| `<leader>`+`tos` | Normal | Toggle spell-checker (:setlocal spell!)         |
+| `<leader>`+`ton` | Normal | Toggle line numbers (:setlocal nonumber!)       |
+| `<leader>`+`tol` | Normal | Toggle hidden characters (:setlocal nolist!)    |
+| `<leader>`+`toh` | Normal | Toggle highlighted search (:set hlsearch!)      |
+| `<leader>`+`tow` | Normal | Toggle wrap (:setlocal wrap! breakindent!)      |
+| `g0`             | Normal | Go to first tab (:tabfirst)                     |
+| `g$`             | Normal | Go to last tab (:tablast)                       |
+| `gr`             | Normal | Go to previous tab (:tabprevious)               |
+| `Shift-h`        | Normal | Go to previous tab (:tabprevious)               |
+| `Shift-l`        | Normal | Go to next tab (:tabnext)                       |
+| `Ctrl`+`j`       | Normal | Move to split below (\<C-w>j)                   |
+| `Ctrl`+`k`       | Normal | Move to upper split (\<C-w>k)                   |
+| `Ctrl`+`h`       | Normal | Move to left split (\<C-w>h)                    |
+| `Ctrl`+`l`       | Normal | Move to right split (\<C-w>l)                   |
+| `*`              | Visual | Search selection forwards                       |
+| `#`              | Visual | Search selection backwards                      |
+| `<leader>`+`j`   | Normal | Next on location list                           |
+| `<leader>`+`k`   | Normal | Previous on location list                       |
+| `<leader>`+`bg`  | Normal | Toggle colorscheme background dark/light        |
+| `s`+`-`          | Normal | Lower colorscheme contrast (Support solarized8) |
+| `s`+`=`          | Normal | Raise colorscheme contrast (Support solarized8) |
+| `Alt-h`          | Insert | Move cursor one character to the left           |
+| `alt-l`          | insert | move cursor one character to the right          |
 
 ### ChromeOS
 
 ### Window Management
 
-Key   | Mode | Action
------ |:----:| ------------------
-`q` | Normal | Quit window (and Vim, if last window)
-`Ctrl + q` | Normal | Save session, save all buffers, quit all and close Vim
-`Tab` | Normal | Next window in tab
-`Shift`+`Tab` | Normal | Previous window in tab
-`Ctrl`+`Tab` | Normal | Next tab
-`Ctrl`+`Shift`+`Tab` | Normal | Previous tab
-`\`+`\` | Normal | Jump to last tab
-`s`+`v` | Normal | Horizontal split (:split)
-`s`+`g` | Normal | Vertical split (:vsplit)
-`s`+`t` | Normal | Open new tab (:tabnew)
-`s`+`o` | Normal | Close other windows (:only)
-`s`+`x` | Normal | Remove buffer, leave blank window
-`s`+`q` | Normal | Closes current buffer (:close)
-`s`+`Q` | Normal | Removes current buffer (:bdelete)
-`<leader>`+`s-` | Normal | Split with previous buffer
-`<leader>`+`s\\` | Normal | Vertical split with previous buffer
+| Key                  |  Mode  | Action                                                 |
+|----------------------|:------:|--------------------------------------------------------|
+| `q`                  | Normal | Quit window (and Vim, if last window)                  |
+| `Ctrl + q`           | Normal | Save session, save all buffers, quit all and close Vim |
+| `Tab`                | Normal | Next window in tab                                     |
+| `Shift`+`Tab`        | Normal | Previous window in tab                                 |
+| `Ctrl`+`Tab`         | Normal | Next tab                                               |
+| `Ctrl`+`Shift`+`Tab` | Normal | Previous tab                                           |
+| `\`+`\`              | Normal | Jump to last tab                                       |
+| `s`+`v`              | Normal | Horizontal split (:split)                              |
+| `s`+`g`              | Normal | Vertical split (:vsplit)                               |
+| `s`+`t`              | Normal | Open new tab (:tabnew)                                 |
+| `s`+`o`              | Normal | Close other windows (:only)                            |
+| `s`+`x`              | Normal | Remove buffer, leave blank window                      |
+| `s`+`q`              | Normal | Closes current buffer (:close)                         |
+| `s`+`Q`              | Normal | Removes current buffer (:bdelete)                      |
+| `<leader>`+`s-`      | Normal | Split with previous buffer                             |
+| `<leader>`+`s\\`     | Normal | Vertical split with previous buffer                    |
 
 ### Plugin: Denite
 
-Key   | Mode | Action
------ |:----:| ------------------
-`;`+`r` | Normal | Resumes last Denite window
-`;`+`f` | Normal | File search
-`;`+`b` | Normal | Buffers and MRU
-`;`+`d` | Normal | Directories
-`;`+`l` | Normal | Location list
-`;`+`q` | Normal | Quick fix
-`;`+`n` | Normal | Dein plugin list
-`;`+`g` | Normal | Grep search
-`;`+`j` | Normal | Jump points
-`;`+`o` | Normal | Outline tags
-`;`+`s` | Normal | Sessions
-`;`+`t` | Normal | Tag under cursor
-`;`+`p` | Normal | Jump to previous position
-`;`+`h` | Normal | Help
-`;`+`v` | Normal/Visual | Register
-`;`+`z` | Normal | Z (jump around)
-`;`+`;` | Normal | Command history
-`;`+`/` | Normal | Buffer lines
-`;`+`*` | Normal | Match line
-`<leader>`+`gl` | Normal | Git log (all)
-`<leader>`+`gs` | Normal | Git status
-`<leader>`+`gc` | Normal | Git branches
-`<leader>`+`gf` | Normal | Grep word under cursor
-`<leader>`+`gg` | Normal/Visual | Grep word under cursor
-| **Within _Denite_ mode** |||
-`Escape` | Normal/Insert | Toggle modes
-`jj` | Insert | Leave Insert mode
-`Ctrl`+`y` | Insert | Redraw
-`r` | Normal | Redraw
-`st` | Normal | Open in a new tab
-`s\\` | Normal | Open in a vertical split
-`s-` | Normal | Open in a split
-`'` | Normal | Toggle mark current candidate
+| Key             |      Mode     | Action                     |
+|-----------------|:-------------:|----------------------------|
+| `;`+`r`         |     Normal    | Resumes last Denite window |
+| `;`+`f`         |     Normal    | File search                |
+| `;`+`b`         |     Normal    | Buffers and MRU            |
+| `;`+`d`         |     Normal    | Directories                |
+| `;`+`l`         |     Normal    | Location list              |
+| `;`+`q`         |     Normal    | Quick fix                  |
+| `;`+`n`         |     Normal    | Dein plugin list           |
+| `;`+`g`         |     Normal    | Grep search                |
+| `;`+`j`         |     Normal    | Jump points                |
+| `;`+`o`         |     Normal    | Outline tags               |
+| `;`+`s`         |     Normal    | Sessions                   |
+| `;`+`t`         |     Normal    | Tag under cursor           |
+| `;`+`p`         |     Normal    | Jump to previous position  |
+| `;`+`h`         |     Normal    | Help                       |
+| `;`+`v`         | Normal/Visual | Register                   |
+| `;`+`z`         |     Normal    | Z (jump around)            |
+| `;`+`;`         |     Normal    | Command history            |
+| `;`+`/`         |     Normal    | Buffer lines               |
+| `;`+`*`         |     Normal    | Match line                 |
+| `<leader>`+`gl` |     Normal    | Git log (all)              |
+| `<leader>`+`gs` |     Normal    | Git status                 |
+| `<leader>`+`gc` |     Normal    | Git branches               |
+| `<leader>`+`gf` |     Normal    | Grep word under cursor     |
+| `<leader>`+`gg` | Normal/Visual | Grep word under cursor     |
+
+**Within _Denite_ mode**
+| Key        |      Mode     | Action                        |
+|------------|:-------------:|-------------------------------|
+| `Escape`   | Normal/Insert | Toggle modes                  |
+| `jj`       |     Insert    | Leave Insert mode             |
+| `Ctrl`+`y` |     Insert    | Redraw                        |
+| `r`        |     Normal    | Redraw                        |
+| `st`       |     Normal    | Open in a new tab             |
+| `s\\`      |     Normal    | Open in a vertical split      |
+| `s-`       |     Normal    | Open in a split               |
+| `'`        |     Normal    | Toggle mark current candidate |
 
 ### Plugin: NERDTree
 
-Key   | Mode | Action
------ |:----:| ------------------
-`;`+`e` | Normal | Toggle file explorer
-`;`+`a` | Normal | Toggle file explorer on current file
-| **Within _NERDTree_ buffers** |||
-`h/j/k/l` | Normal | Movement + collapse/expand + file open
-`w` | Normal | Toggle window size
-`N` | Normal | Create new file or directory
-`yy` | Normal | Yank selected item to clipboard
-`st` | Normal | Open file in new tab
-`s-` | Normal | Open file in a horizontal split
-`s\\` | Normal | Open file in a vertical split
-`&` | Normal | Jump to project root
-`gh` | Normal | Jump to user's home directory
-`gd` | Normal | Open split diff on selected file
-`gf` | Normal | Search in selected directory for files
-`gr` | Normal | Grep in selected directory
+| Key     |  Mode  | Action                               |
+|---------|:------:|--------------------------------------|
+| `;`+`e` | Normal | Toggle file explorer                 |
+| `;`+`a` | Normal | Toggle file explorer on current file |
+
+**Within _NERDTree_ buffers**
+| Key       |  Mode  | Action                                 |
+|-----------|:------:|----------------------------------------|
+| `h/j/k/l` | Normal | Movement + collapse/expand + file open |
+| `w`       | Normal | Toggle window size                     |
+| `N`       | Normal | Create new file or directory           |
+| `yy`      | Normal | Yank selected item to clipboard        |
+| `st`      | Normal | Open file in new tab                   |
+| `s-`      | Normal | Open file in a horizontal split        |
+| `s\\`     | Normal | Open file in a vertical split          |
+| `&`       | Normal | Jump to project root                   |
+| `gh`      | Normal | Jump to user's home directory          |
+| `gd`      | Normal | Open split diff on selected file       |
+| `gf`      | Normal | Search in selected directory for files |
+| `gr`      | Normal | Grep in selected directory             |
 
 ### Plugin: Deoplete / Emmet / Neocomplete
 
-Key   | Mode | Action
------ |:----:| ------------------
-`Enter` | Insert | Select completion or expand snippet
-`Tab` | Insert/select | Smart tab movement or completion
-`Ctrl`+`j/k/f/b/d/u` | Insert | Movement in completion pop-up
-`Ctrl`+`<Return>` | Insert | Expand Emmet sequence
-`Ctrl`+`o` | Insert | Expand snippet
-`Ctrl`+`g` | Insert | Refresh candidates
-`Ctrl`+`l` | Insert | Complete common string
-`Ctrl`+`e` | Insert | Cancel selection and close pop-up
-`Ctrl`+`y` | Insert | Close pop-up
+  | Key                  |      Mode     | Action                              |
+  |----------------------|:-------------:|-------------------------------------|
+  | `enter`              |     insert    | select completion or expand snippet |
+  | `Tab`                | Insert/select | Smart tab movement or completion    |
+  | `Ctrl`+`j/k/f/b/d/u` |     Insert    | Movement in completion pop-up       |
+  | `Ctrl`+`<Return>`    |     Insert    | Expand Emmet sequence               |
+  | `Ctrl`+`o`           |     Insert    | Expand snippet                      |
+  | `Ctrl`+`g`           |     Insert    | Refresh candidates                  |
+  | `Ctrl`+`l`           |     Insert    | Complete common string              |
+  | `Ctrl`+`e`           |     Insert    | Cancel selection and close pop-up   |
+  | `Ctrl`+`y`           |     Insert    | Close pop-up                        |
 
 ### Plugin: Commentary
 
-Key   | Mode | Action
------ |:----:| ------------------
-`<leader>`+`v` | Normal/visual | Toggle single-line comments
+| Key            | Mode          | Action                      |
+|----------------|:-------------:|-----------------------------|
+| `<leader>`+`v` | Normal/visual | Toggle single-line comments |
 
 ### Plugin: Unit-Test
 
-Key   | Mode | Action
------ |:----:| ------------------
-`<leader>`+`tn` | Normal | Test nearest to the cursor
-`<leader>`+`tl` | Normal | Test the last ran item
-`<leader>`+`ta` | Normal | Test suite
-`<leader>`+`tf` | Normal | Test current file
+| Key             |  Mode  | Action                     |
+|-----------------|:------:|----------------------------|
+| `<leader>`+`tn` | Normal | Test nearest to the cursor |
+| `<leader>`+`tl` | Normal | Test the last ran item     |
+| `<leader>`+`ta` | Normal | Test suite                 |
+| `<leader>`+`tf` | Normal | Test current file          |
 
 ### Plugin: Edge Motion
 
-Key   | Mode | Action
------ |:----:| ------------------
-`g`+`j` | Normal/Visual | Jump to edge downwards
-`g`+`k` | Normal/Visual | Jump to edge upwards
+| Key     |      Mode     | Action                 |
+|---------|:-------------:|------------------------|
+| `g`+`j` | Normal/Visual | Jump to edge downwards |
+| `g`+`k` | Normal/Visual | Jump to edge upwards   |
 
 ### Plugin: QuickHL
 
-Key   | Mode | Action
------ |:----:| ------------------
-`<leader>`+`,` | Normal/Visual | Toggle highlighted word
+
+| Key          |      Mode     | Action                  |
+|--------------|:-------------:|-------------------------|
+| `<leader>`+` | Normal/Visual | Toggle highlighted word |
 
 ### Plugin: Expand-Region
 
-Key   | Mode | Action
------ |:----:| ------------------
-`v` | Visual/select | Expand selection
-`V` | Visual/select | Reduce selection
+| Key |      Mode     | Action           |
+|-----|:-------------:|------------------|
+| `v` | Visual/select | Expand selection |
+| `V` | Visual/select | Reduce selection |
 
 ### Plugin: Easymotion
 
-Key   | Mode | Action
------ |:----:| ------------------
-`s`+`s` | Normal | Jump to two characters from input
-`s`+`d` | Normal | Jump to a character from input
-`s`+`f` | Normal | Jump over-windows
-`s`+`h` | Normal | Jump backwards in-line
-`s`+`l` | Normal | Jump forwards in-line
-`s`+`j` | Normal | Jump downwards
-`s`+`k` | Normal | Jump upwards
-`s`+`/` | Normal/operator | Jump to free-search
-`s`+`n` | Normal | Smart next occurrence
-`s`+`p` | Normal | Smart previous occurrence
+| Key     |       Mode      | Action                            |
+|---------|:---------------:|-----------------------------------|
+| `s`+`s` |      Normal     | Jump to two characters from input |
+| `s`+`d` |      Normal     | Jump to a character from input    |
+| `s`+`f` |      Normal     | Jump over-windows                 |
+| `s`+`h` |      Normal     | Jump backwards in-line            |
+| `s`+`l` |      Normal     | Jump forwards in-line             |
+| `s`+`j` |      Normal     | Jump downwards                    |
+| `s`+`k` |      Normal     | Jump upwards                      |
+| `s`+`/` | Normal/operator | Jump to free-search               |
+| `s`+`n` |      Normal     | Smart next occurrence             |
+| `s`+`p` |      Normal     | Smart previous occurrence         |
 
 ### Plugin: ChooseWin
 
-Key   | Mode | Action
------ |:----:| ------------------
-`-` | Normal | Choose a window to edit
-`<leader>`+`-` | Normal | Switch editing window with selected
+| Key            |  Mode  | Action                              |
+|----------------|:------:|-------------------------------------|
+| `-`            | Normal | Choose a window to edit             |
+| `<leader>`+`-` | Normal | Switch editing window with selected |
 
 ### Plugin: Bookmarks
 
-Key   | Mode | Action
------ |:----:| ------------------
-`m`+`a` | Normal | Show list of all bookmarks
-`m`+`m` | Normal | Toggle bookmark in current line
-`m`+`n` | Normal | Jump to next bookmark
-`m`+`p` | Normal | Jump to previous bookmark
-`m`+`i` | Normal | Annotate bookmark
+| Key     |  Mode  | Action                          |
+|---------|:------:|---------------------------------|
+| `m`+`a` | Normal | Show list of all bookmarks      |
+| `m`+`m` | Normal | Toggle bookmark in current line |
+| `m`+`n` | Normal | Jump to next bookmark           |
+| `m`+`p` | Normal | Jump to previous bookmark       |
+| `m`+`i` | Normal | Annotate bookmark               |
 
 ### Plugin: Easygit
 
-Key   | Mode | Action
------ |:----:| ------------------
-`<leader>`+`ga` | Normal | Git add current file
-`<leader>`+`gS` | Normal | Git status
-`<leader>`+`gd` | Normal | Git diff
-`<leader>`+`gD` | Normal | Close diff
-`<leader>`+`gc` | Normal | Git commit
-`<leader>`+`gb` | Normal | Git blame
-`<leader>`+`gB` | Normal | Open in browser
-`<leader>`+`gp` | Normal | Git push
+| Key | Mode | Action |
+|-----|:----:|--------|
+|`<leader>`+`ga` | Normal | Git add current file|
+|`<leader>`+`gS` | Normal | Git status|
+|`<leader>`+`gd` | Normal | Git diff|
+|`<leader>`+`gD` | Normal | Close diff|
+|`<leader>`+`gc` | Normal | Git commit|
+|`<leader>`+`gb` | Normal | Git blame|
+|`<leader>`+`gB` | Normal | Open in browser|
+|`<leader>`+`gp` | Normal | Git push|
 
 ### Plugin: GitGutter
 
-Key   | Mode | Action
------ |:----:| ------------------
-`<leader>`+`hj` | Normal | Jump to next hunk
-`<leader>`+`hk` | Normal | Jump to previous hunk
-`<leader>`+`hs` | Normal | Stage hunk
-`<leader>`+`hr` | Normal | Revert hunk
-`<leader>`+`hp` | Normal | Preview hunk
+| Key             |  Mode  | Action                |
+|-----------------|:------:|-----------------------|
+| `<leader>`+`hj` | Normal | Jump to next hunk     |
+| `<leader>`+`hk` | Normal | Jump to previous hunk |
+| `<leader>`+`hs` | Normal | Stage hunk            |
+| `<leader>`+`hr` | Normal | Revert hunk           |
+| `<leader>`+`hp` | Normal | Preview hunk          |
 
 ### Plugin: Linediff
 
-Key   | Mode | Action
------ |:----:| ------------------
-`,`+`df` | Visual | Mark lines and open diff if 2nd region
-`,`+`da` | Visual | Mark lines for diff
-`,`+`ds` | Normal | Shows the diff between all the marked areas
-`,`+`dr` | Normal | Removes the signs denoting the diff'ed regions
+| Key |  Mode  | Action |
+|-----|:------:|--------|------------------------------------------------|
+| `   | `+`df` | Visual | Mark lines and open diff if 2nd region         |
+| `   | `+`da` | Visual | Mark lines for diff                            |
+| `   | `+`ds` | Normal | Shows the diff between all the marked areas    |
+| `   | `+`dr` | Normal | Removes the signs denoting the diff'ed regions |
 
 ### Misc Plugins
 
-Key   | Mode | Action
------ |:----:| ------------------
-`m`+`g` | Normal | Open Magit
-`<leader>`+`l` | Normal | Open sidemenu
-`<leader>`+`o` | Normal | Open tag-bar
-`<leader>`+`G` | Normal | Toggle distraction-free writing
-`<leader>`+`gu` | Normal | Open undo tree
-`<leader>`+`W` | Normal | Wiki
-`<leader>`+`K` | Normal | Thesaurus
-`<leader>`+`?` | Normal | Dictionary (macOS only)
+| Key             |  Mode  | Action                          |
+|-----------------|:------:|---------------------------------|
+| `m`+`g`         | Normal | Open Magit                      |
+| `<leader>`+`l`  | Normal | Open sidemenu                   |
+| `<leader>`+`o`  | Normal | Open tag-bar                    |
+| `<leader>`+`G`  | Normal | Toggle distraction-free writing |
+| `<leader>`+`gu` | Normal | Open undo tree                  |
+| `<leader>`+`W`  | Normal | Wiki                            |
+| `<leader>`+`K`  | Normal | Thesaurus                       |
+| `<leader>`+`?`  | Normal | Dictionary (macOS only)         |
 
 ## Credits & Contribution
 

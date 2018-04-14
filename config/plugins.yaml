@@ -67,6 +67,12 @@
     let g:gfm_syntax_highlight_emoji = 0
     let g:gfm_syntax_enable_filetypes = ['markdown']
 
+- repo: dhruvasagar/vim-table-mode
+  on_ft: markdown
+  on_cmd: TableModeToggle
+  hook_source: |
+    let g:table_mode_corner='|'
+
 - repo: pangloss/vim-javascript
   on_ft: [ javascript, jsx, javascript.jsx ]
   hook_source: |
