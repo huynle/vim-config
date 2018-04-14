@@ -355,6 +355,7 @@
   on_path: .*
   hook_add: |
     let g:gutentags_cache_dir = $VARPATH.'/tags'
+  hook_source: |
     let g:gutentags_generate_on_write = 1
     let g:gutentags_generate_on_missing = 0
     let g:gutentags_generate_on_new = 0
