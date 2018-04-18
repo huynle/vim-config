@@ -2,4 +2,5 @@
 if 1
 	execute 'source' fnamemodify(expand('<sfile>'), ':h').'/fullrc.vim'
 elseif 0
+	execute 'source' fnamemodify(expand('<sfile>'), ':h').'/minrc.vim'
 endif
