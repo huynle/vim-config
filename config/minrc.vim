@@ -51,7 +51,7 @@ endif
 call s:source_file('general.vim')
 call s:source_file('filetype.vim')
 call s:source_file('mappings.vim')
-call s:source_file('theme.vim')
+" call s:source_file('theme.vim')
 
 " Load user custom local settings
 if filereadable(expand('$VIMPATH/config/local.vim'))
