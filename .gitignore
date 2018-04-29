@@ -8,3 +8,5 @@
 /.stignore
 /.stfolder
 /.stversions
+tags
+.netrwhist
