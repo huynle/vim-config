@@ -91,11 +91,11 @@ xnoremap s :s//g<Left><Left>
 
 " Improve scroll, credits: https://gijhub.com/Shougo
 nnoremap <expr> zz (winline() == (winheight(0)+1) / 2) ?
-	\ 'zt' : (winline() == 1) ? 'zb' : 'zz'
+  \ 'zt' : (winline() == 1) ? 'zb' : 'zz'
 noremap <expr> <C-f> max([winheight(0) - 2, 1])
-	\ ."\<C-d>".(line('w$') >= line('$') ? "L" : "M")
+  \ ."\<C-d>".(line('w$') >= line('$') ? "L" : "M")
 noremap <expr> <C-b> max([winheight(0) - 2, 1])
-	\ ."\<C-u>".(line('w0') <= 1 ? "H" : "M")
+  \ ."\<C-u>".(line('w0') <= 1 ? "H" : "M")
 noremap <expr> <C-e> (line("w$") >= line('$') ? "j" : "3\<C-e>")
 noremap <expr> <C-y> (line("w0") <= 1         ? "k" : "3\<C-y>")
 
@@ -204,8 +204,8 @@ vnoremap <C-t> >gv
 
 " Show highlight names under cursor
 nmap <silent> gh :echo 'hi<'.synIDattr(synID(line('.'), col('.'), 1), 'name')
-	\.'> trans<'.synIDattr(synID(line('.'), col('.'), 0), 'name').'> lo<'
-	\.synIDattr(synIDtrans(synID(line('.'), col('.'), 1)), 'name').'>'<CR>
+  \.'> trans<'.synIDattr(synID(line('.'), col('.'), 0), 'name').'> lo<'
+  \.synIDattr(synIDtrans(synID(line('.'), col('.'), 1)), 'name').'>'<CR>
 
 " Toggle editor visuals
 nmap <silent> <Leader>tos :setlocal spell!<cr>
@@ -254,10 +254,10 @@ nnoremap <Leader>r :call Replace(0, input('Replace '.expand('<cword>').' with: '
 
 " Returns visually selected text
 function! s:get_selection(cmdtype) "{{{
-	let temp = @s
-	normal! gv"sy
-	let @/ = substitute(escape(@s, '\'.a:cmdtype), '\n', '\\n', 'g')
-	let @s = temp
+  let temp = @s
+  normal! gv"sy
+  let @/ = substitute(escape(@s, '\'.a:cmdtype), '\n', '\\n', 'g')
+  let @s = temp
 endfunction "}}}
 
 " Background dark/light toggle and contrasts
@@ -330,10 +330,9 @@ vnoremap [<space>  :<c-u>put! =repeat(nr2char(10), v:count1)<cr>
 vnoremap ]<space>  :<c-u>put =repeat(nr2char(10), v:count1)<cr>
 
 " Copying and Pasting on ChromeOS
-"
 if !empty(glob("$HOME/.crouton-clipboard/data.txt"))
-	nnoremap <Leader>p :r !cat $HOME/.crouton-clipboard/data.txt<CR>
-	vnoremap <Leader>y :'<,'>w! $HOME/.crouton-clipboard/data.txt<CR>
+	nnoremap "*p :r !cat $HOME/.crouton-clipboard/data.txt<CR>
+	vnoremap "*y :'<,'>w! $HOME/.crouton-clipboard/data.txt<CR>
 endif
 
 " Session management shortcuts
@@ -344,44 +343,44 @@ nmap <silent> <Leader>os :<C-u>execute 'source '.g:session_directory.'/'.fnamemo
 nnoremap <silent> <C-q> :execute 'SessionSave '.fnamemodify(resolve(getcwd()), ':p:gs?[\\/:-]?_?')<CR>:wqa!<CR>
 
 if has('mac')
-	" Open the macOS dictionary on current word
-	nmap <Leader>? :!open dict://<cword><CR><CR>
+  " Open the macOS dictionary on current word
+  nmap <Leader>? :!open dict://<cword><CR><CR>
 
-	" Use Marked for real-time Markdown preview
-	if executable('/Applications/Marked 2.app/Contents/MacOS/Marked 2')
-		autocmd MyAutoCmd FileType markdown
-			\ nmap <buffer><Leader>P :silent !open -a Marked\ 2.app '%:p'<CR>
-	endif
+  " Use Marked for real-time Markdown preview
+  if executable('/Applications/Marked 2.app/Contents/MacOS/Marked 2')
+    autocmd MyAutoCmd FileType markdown
+      \ nmap <buffer><Leader>P :silent !open -a Marked\ 2.app '%:p'<CR>
+  endif
 
-	" Use Dash on Mac, for context help
-	if executable('/Applications/Dash.app/Contents/MacOS/Dash')
-		autocmd MyAutoCmd FileType ansible,go,php,css,less,html,markdown
-			\ nmap <silent><buffer> K :!open -g dash://"<C-R>=split(&ft, '\.')[0]<CR>:<cword>"&<CR><CR>
-		autocmd MyAutoCmd FileType javascript,javascript.jsx,sql,ruby,conf,sh
-			\ nmap <silent><buffer> K :!open -g dash://"<cword>"&<CR><CR>
-	endif
+  " Use Dash on Mac, for context help
+  if executable('/Applications/Dash.app/Contents/MacOS/Dash')
+    autocmd MyAutoCmd FileType ansible,go,php,css,less,html,markdown
+      \ nmap <silent><buffer> K :!open -g dash://"<C-R>=split(&ft, '\.')[0]<CR>:<cword>"&<CR><CR>
+    autocmd MyAutoCmd FileType javascript,javascript.jsx,sql,ruby,conf,sh
+      \ nmap <silent><buffer> K :!open -g dash://"<cword>"&<CR><CR>
+  endif
 
-" Use Zeal on Linux for context help
+  " Use Zeal on Linux for context help
 elseif executable('zeal')
-	autocmd MyAutoCmd FileType ansible,go,php,css,less,html,markdown
-		\ nmap <silent><buffer> K :!zeal --query "<C-R>=split(&ft, '\.')[0]<CR>:<cword>"&<CR><CR>
-	autocmd MyAutoCmd FileType javascript,javascript.jsx,sql,ruby,conf,sh
-		\ nmap <silent><buffer> K :!zeal --query "<cword>"&<CR><CR>
+  autocmd MyAutoCmd FileType ansible,go,php,css,less,html,markdown
+    \ nmap <silent><buffer> K :!zeal --query "<C-R>=split(&ft, '\.')[0]<CR>:<cword>"&<CR><CR>
+  autocmd MyAutoCmd FileType javascript,javascript.jsx,sql,ruby,conf,sh
+    \ nmap <silent><buffer> K :!zeal --query "<cword>"&<CR><CR>
 endif
 
 " Toggle Verbose for vim debugging
 nnoremap <silent><Leader>vb :<C-u>call <SID>toggle_verbose()<CR>
 let g:verbose_level = 9
 function! s:toggle_verbose()
-	if !&verbose
-		execute "set verbosefile=".$VARPATH.'/vim.log'
-		execute "set verbose=".g:verbose_level
-		echomsg "vim verbose is on, and set to ".g:verbose_level
-	else
-		set verbose=0
-		set verbosefile=
-		echomsg "vim verbose is off"
-	endif
+  if !&verbose
+    execute "set verbosefile=".$VARPATH.'/vim.log'
+    execute "set verbose=".g:verbose_level
+    echomsg "vim verbose is on, and set to ".g:verbose_level
+  else
+    set verbose=0
+    set verbosefile=
+    echomsg "vim verbose is off"
+  endif
 
 endfunction
 " }}}
@@ -394,10 +393,10 @@ nnoremap <silent> <Leader>ml :call <SID>append_modeline()<CR>
 " Append modeline after last line in buffer
 " See: http://vim.wikia.com/wiki/Modeline_magic
 function! s:append_modeline() "{{{
-	let l:modeline = printf(' vim: set ts=%d sw=%d tw=%d %set :',
-				\ &tabstop, &shiftwidth, &textwidth, &expandtab ? '' : 'no')
-	let l:modeline = substitute(&commentstring, '%s', l:modeline, '')
-	call append(line('$'), l:modeline)
+  let l:modeline = printf(' vim: set ts=%d sw=%d tw=%d %set :',
+    \ &tabstop, &shiftwidth, &textwidth, &expandtab ? '' : 'no')
+  let l:modeline = substitute(&commentstring, '%s', l:modeline, '')
+  call append(line('$'), l:modeline)
 endfunction "}}}
 " }}}
 " s: Windows and buffers {{{
@@ -432,40 +431,40 @@ nnoremap <silent> [Window]z  <C-w>z
 " nnoremap <silent> [Window]st :vsplit<CR>:wincmd p<CR>:e#<CR>
 
 function! WipeHiddenBuffers()
-	let tpbl=[]
-	call map(range(1, tabpagenr('$')), 'extend(tpbl, tabpagebuflist(v:val))')
-	for buf in filter(range(1, bufnr('$')), 'bufexists(v:val) && index(tpbl, v:val)==-1')
-		silent execute 'bwipeout' buf
-	endfor
+  let tpbl=[]
+  call map(range(1, tabpagenr('$')), 'extend(tpbl, tabpagebuflist(v:val))')
+  for buf in filter(range(1, bufnr('$')), 'bufexists(v:val) && index(tpbl, v:val)==-1')
+    silent execute 'bwipeout' buf
+  endfor
 endfunction
 
 function! s:BufferEmpty()
-	let l:current = bufnr('%')
-	if ! getbufvar(l:current, '&modified')
-		enew
-		silent! execute 'bdelete '.l:current
-	endif
+  let l:current = bufnr('%')
+  if ! getbufvar(l:current, '&modified')
+    enew
+    silent! execute 'bdelete '.l:current
+  endif
 endfunction
 
 function! s:SweepBuffers()
-	let bufs = range(1, bufnr('$'))
-	let hidden = filter(bufs, 'buflisted(v:val) && !bufloaded(v:val)')
-	if ! empty(hidden)
-		execute 'silent bdelete' join(hidden)
-	endif
+  let bufs = range(1, bufnr('$'))
+  let hidden = filter(bufs, 'buflisted(v:val) && !bufloaded(v:val)')
+  if ! empty(hidden)
+    execute 'silent bdelete' join(hidden)
+  endif
 endfunction
 
 " OpenChangedFiles COMMAND
 " Open a split for each dirty file in git
 function! OpenChangedFiles()
-	only " Close all windows, unless they're modified
-	let status =
-		\ system('git status -s | grep "^ \?\(M\|A\|UU\)" | sed "s/^.\{3\}//"')
-	let filenames = split(status, "\n")
-	exec 'edit ' . filenames[0]
-	for filename in filenames[1:]
-		exec 'sp ' . filename
-	endfor
+  only " Close all windows, unless they're modified
+  let status =
+    \ system('git status -s | grep "^ \?\(M\|A\|UU\)" | sed "s/^.\{3\}//"')
+  let filenames = split(status, "\n")
+  exec 'edit ' . filenames[0]
+  for filename in filenames[1:]
+    exec 'sp ' . filename
+  endfor
 endfunction
 
 " vim: set ts=2 sw=2 tw=80 noet :
