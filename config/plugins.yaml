@@ -302,7 +302,7 @@
     let g:vimwiki_use_calendar = 1
     let g:vimwiki_hl_headers = 1
     let g:vimwiki_hl_cb_checked = 1
-    let g:vimwiki_autowriteall = 1
+    let g:vimwiki_autowriteall = 0
   hook_source: |
     let g:vimwiki_list = [
     \   { 'diary_header': 'Diary',

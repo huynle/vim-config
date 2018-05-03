@@ -343,8 +343,8 @@ nmap <silent> <Leader>os :<C-u>execute 'source '.g:session_directory.'/'.fnamemo
 nnoremap <silent> <C-q> :execute 'SessionSave '.fnamemodify(resolve(getcwd()), ':p:gs?[\\/:-]?_?')<CR>:wqa!<CR>
 
 if has('mac')
-  " Open the macOS dictionary on current word
-  nmap <Leader>? :!open dict://<cword><CR><CR>
+	" Open the macOS dictionary on current word
+	nmap <Leader>? :!open dict://<cword><CR><CR>
 
   " Use Marked for real-time Markdown preview
   if executable('/Applications/Marked 2.app/Contents/MacOS/Marked 2')
