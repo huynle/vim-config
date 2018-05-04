@@ -25,8 +25,9 @@ nnoremap <Left> :vertical resize -5<CR>
 " endif
 
 " Double leader key for toggling visual-line mode
-nmap <silent> <Leader><Leader> V
-vmap <Leader><Leader> <Esc>
+" nmap <silent> <Leader><Leader> V
+" vmap <Leader><Leader> <Esc>
+nmap <Leader><Leader> :sb<SPACE>
 
 " Change current word in a repeatable manner
 nnoremap cn *``cgn
@@ -114,6 +115,10 @@ vnoremap <S-Tab> <gv
 nnoremap > >>_
 nnoremap < <<_
 
+" Move visual block
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
 " Select last paste
 nnoremap <expr> gp '`['.strpart(getregtype(), 0, 1).'`]'
 
@@ -140,9 +145,9 @@ map <Leader>cd :lcd %:p:h<CR>:pwd<CR>
 " Fast saving
 nnoremap <silent><Leader>w :write<CR>
 vnoremap <silent><Leader>w <Esc>:write<CR>
-nnoremap <silent><C-s> :<C-u>write<CR>
-vnoremap <silent><C-s> :<C-u>write<CR>
-cnoremap <silent><C-s> :<C-u>write<CR>
+" nnoremap <silent><C-s> :<C-u>write<CR>
+" vnoremap <silent><C-s> :<C-u>write<CR>
+" cnoremap <silent><C-s> :<C-u>write<CR>
 
 " Save a file with sudo
 " http://forrst.com/posts/Use_w_to_sudo_write_a_file_with_Vim-uAN
@@ -231,6 +236,10 @@ nnoremap <silent> <S-h> :<C-U>tabprevious<CR>
 " " goto definition with splits
 " nnoremap <silent> g\  :vsplit <CR>:exec("tag ".expand("<cword>"))<CR>
 " nnoremap <silent> g-  :split <CR>:exec("tag ".expand("<cword>"))<CR>
+
+" " Moving back and forth beween searches with n and N
+nnoremap <expr> n  'Nn'[v:searchforward]
+nnoremap <expr> N  'nN'[v:searchforward]
 
 " Remove spaces at the end of lines
 nnoremap <silent> ,<Space> :<C-u>silent! keeppatterns %substitute/\s\+$//e<CR>

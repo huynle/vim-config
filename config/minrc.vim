@@ -8,6 +8,57 @@ let $VIMPATH = fnamemodify(resolve(expand('<sfile>:p')), ':h:h')
 let $VARPATH = expand(($XDG_CACHE_HOME ? $XDG_CACHE_HOME : '~/.cache').'/vim')
 let $VIMRC = expand($VIMPATH.'/init.vim')
 
+let g:dein#install_max_processes = 16
+let g:dein#install_progress_type = 'echo'
+let g:dein#enable_notification = 0
+let g:dein#install_log_filename = $VARPATH.'/dein.log'
+
+
+function! s:dein_check_ruby() abort
+	call system("ruby -e 'require \"json\"; require \"yaml\"'")
+	return (v:shell_error == 0) ? 1 : 0
+endfunction
+
+function! s:dein_check_yaml2json()
+	try
+		let result = system('yaml2json', "---\ntest: 1")
+		if v:shell_error != 0
+			return 0
+		endif
+		let result = json_decode(result)
+		return result.test
+	catch
+	endtry
+	return 0
+endfunction
+
+function! s:dein_load_yaml(filename) abort
+	if executable('yaml2json') && exists('*json_decode') &&
+				\ s:dein_check_yaml2json()
+		" Decode YAML using the CLI tool yaml2json
+		" See: https://github.com/koraa/large-yaml2json-json2yaml
+		let g:denite_plugins = json_decode(
+					\ system('yaml2json', readfile(a:filename)))
+	elseif executable('ruby') && exists('*json_decode') && s:dein_check_ruby()
+		let g:denite_plugins = json_decode(
+					\ system("ruby -e 'require \"json\"; require \"yaml\"; ".
+									\ "print JSON.generate YAML.load \$stdin.read'",
+									\ readfile(a:filename)))
+	else
+		" Fallback to use python3 and PyYAML
+	python3 << endpython
+import vim, yaml
+with open(vim.eval('a:filename'), 'r') as f:
+	vim.vars['denite_plugins'] = yaml.load(f.read())
+endpython
+	endif
+
+	for plugin in g:denite_plugins
+		call dein#add(plugin['repo'], extend(plugin, {}, 'keep'))
+	endfor
+	unlet g:denite_plugins
+endfunction
+
 function! s:source_file(path, ...) abort
 	let use_global = get(a:000, 0, ! has('vim_starting'))
 	let abspath = resolve(expand($VIMPATH.'/config/'.a:path))
@@ -47,6 +98,45 @@ if has('vim_starting')
 	endif
 endif
 
+" Initialize dein.vim (package manager)
+let s:path = expand('$VARPATH/dein')
+let s:plugins_path = expand('$VIMPATH/config/minimal_plugins.yaml')
+let s:user_plugins_path = expand('$VIMPATH/config/local.plugins.yaml')
+if dein#load_state(s:path)
+	call dein#begin(s:path, [expand('<sfile>'), s:plugins_path])
+	try
+		call s:dein_load_yaml(s:plugins_path)
+	catch /.*/
+		echoerr v:exception
+		echomsg 'Error loading config/plugins.yaml...'
+		echomsg 'Caught: ' v:exception
+		echoerr 'Please run: pip3 install --user PyYAML'
+	endtry
+
+	if isdirectory(expand('$VIMPATH/dev'))
+		call dein#local(expand('$VIMPATH/dev'), {'frozen': 1, 'merged': 0})
+	endif
+	call dein#end()
+	call dein#save_state()
+	if dein#check_install()
+		if ! has('nvim')
+			set nomore
+		endif
+		call dein#install()
+	endif
+endif
+
+call s:source_file('plugins/all.vim')
+
+filetype plugin indent on
+syntax enable
+
+if ! has('vim_starting')
+	call dein#call_hook('source')
+	call dein#call_hook('post_source')
+endif
+
+
 " Loading configuration modules
 call s:source_file('general.vim')
 call s:source_file('filetype.vim')
@@ -59,21 +149,6 @@ if filereadable(expand('$VIMPATH/config/local.vim'))
 endif
 set secure
 
-" Netrw Explorer {{{
-" ---------------------------------------------------------
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
-let g:netrw_winsize = 25
-let g:netrw_list_hide='.*\.swp$'
-let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+,\(^\|\s\s\)ntuser\.\S\+'
-let g:netrw_dirhistmax = 0
-
-" UI elements {{{
-" ---------------------------------------------------------
-set showbreak=↪
-set fillchars=vert:│,fold:─
-set listchars=tab:\▏\ ,extends:⟫,precedes:⟪,nbsp:␣,trail:·
+source $VIMPATH/config/plugins/netrw.vim
 
 " vim: set ts=2 sw=2 tw=80 noet :

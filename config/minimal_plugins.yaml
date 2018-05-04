@@ -7,7 +7,11 @@
 - repo: Shougo/dein.vim
 - repo: rafi/awesome-vim-colorschemes
 - repo: rafi/vim-badge
-- repo: thinca/vim-localrc
+
+- repo: embear/vim-localvimrc
+  hook_source: |
+    let g:localvimrc_enable = 1
+
 - repo: christoomey/vim-tmux-navigator
 - repo: junegunn/vim-peekaboo
 - repo: tpope/vim-sleuth
