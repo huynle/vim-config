@@ -7,7 +7,14 @@
 - repo: Shougo/dein.vim
 - repo: rafi/awesome-vim-colorschemes
 - repo: rafi/vim-badge
-- repo: thinca/vim-localrc
+
+- repo: embear/vim-localvimrc
+  hook_add: |
+    let g:localvimrc_enable = 1
+    let g:localvimrc_ask = 0
+    let g:localvimrc_event = [ "BufNew" ]
+    let g:localvimrc_name = [ ".config/project.vim", ".config/local.vim" ]
+
 - repo: christoomey/vim-tmux-navigator
 - repo: junegunn/vim-peekaboo
 - repo: tpope/vim-sleuth
@@ -353,16 +360,7 @@
 - repo: ludovicchabant/vim-gutentags
   if: executable('ctags') && empty($VIM_MINIMAL)
   on_path: .*
-  hook_source: |
-    let g:gutentags_cache_dir = $VARPATH.'/tags'
-    let g:gutentags_generate_on_write = 1
-    let g:gutentags_generate_on_missing = 0
-    let g:gutentags_generate_on_new = 0
-    let g:gutentags_ctags_exclude_wildignore = 1
-    let g:gutentags_ctags_exclude = [
-      \ '*/wp-admin', '*/wp-content', '*/wp-includes',
-      \ '*/application/vendor', '*/vendor/ckeditor', '*/media/vendor',
-      \ '*/venv']
+  hook_source: source $VIMPATH/config/plugins/gutentags.vim
 
 - repo: mattn/emmet-vim
   if: empty($VIM_MINIMAL)

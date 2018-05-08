@@ -81,9 +81,6 @@ cnoreabbrev Qa qa
 cnoreabbrev Bd bd
 cnoreabbrev bD bd
 
-" Start new line from any cursor position
-inoremap <S-Return> <C-o>o
-
 " Quick substitute within selected area
 xnoremap s :s//g<Left><Left>
 
