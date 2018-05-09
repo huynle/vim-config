@@ -12,7 +12,7 @@ if &compatible
 endif
 
 " let &rtp .= ',~/.vim'
-set runtimepath+=~/.vim
+" set runtimepath+=~/.vim
 
 " To use for loading plugins with dein on windows using cygwin
 " this is to turn on NVIM regardless of operating system
@@ -33,7 +33,6 @@ endif
 
 " Set main configuration directory, and where cache is stored.
 let $VIMPATH = fnamemodify(resolve(expand('<sfile>:p')), ':h:h')
-" let $VIMPATH = expand('$HOME/.vim')
 let $VARPATH = expand(($XDG_CACHE_HOME ? $XDG_CACHE_HOME : '~/.cache').'/vim')
 let $VIMRC = expand($VIMPATH.'/config/vimrc')
 
