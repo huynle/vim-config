@@ -312,13 +312,13 @@
     let g:vimwiki_autowriteall = 0
   hook_source: |
     let g:vimwiki_list = [
-    \   { 'diary_header': 'Diary',
+    \   { 'diary_header': 'Daily',
     \     'diary_link_fmt': '%Y-%m/%d',
     \     'auto_toc': 1,
-    \     'path': '~/docs/wiki/',
+    \     'path': '~/docs/orion/',
     \     'syntax': 'markdown',
     \     'ext': '.md' },
-    \   { 'path': '~/docs/blog/',
+    \   { 'path': '~/docs/wiki/',
     \     'syntax': 'markdown',
     \     'ext': '.md' }
     \ ]

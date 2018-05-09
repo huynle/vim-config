@@ -383,17 +383,19 @@ elseif executable('zeal')
 endif
 
 " Toggle Verbose for vim debugging
-nnoremap <silent><Leader>vb :<C-u>call <SID>toggle_verbose()<CR>
+nnoremap <silent><Leader>db :<C-u>call <SID>toggle_verbose()<CR>
+
 let g:verbose_level = 9
 function! s:toggle_verbose()
   if !&verbose
     execute "set verbosefile=".$VARPATH.'/vim.log'
     execute "set verbose=".g:verbose_level
-    echomsg "vim verbose is on, and set to ".g:verbose_level
+    echomsg "======== DEBUGGING STARTED ============"
+    echomsg "Verbose set to ".g:verbose_level
   else
+    echomsg "======== DEBUGGING STOPPED ============"
     set verbose=0
     set verbosefile=
-    echomsg "vim verbose is off"
   endif
 
 endfunction

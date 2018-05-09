@@ -17,6 +17,8 @@ if has('gui_running')
 
 	" Silent bell
 	autocmd GUIEnter * set vb t_vb=
+elseif exists('g:GuiLoaded')
+	let g:Guifont="DejaVu Sans Mono for Powerline:h8"
 endif
 " }}}
 
