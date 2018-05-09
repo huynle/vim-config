@@ -5,8 +5,18 @@
 " gVim Appearance {{{
 " ---------------------------------------------------------
 if has('gui_running')
-	set guifont=PragmataPro:h16
-	" set noantialias
+	set guifont=Dejavu\ Sans\ Mono\ for\ Powerline:h10
+	
+	set lines=60 columns=108 linespace=0
+	
+	set guioptions-=m  "remove menu bar
+	set guioptions-=T  " no toolbar
+	set guioptions-=r  "remove right-hand scroll bar
+	set guioptions-=L  "remove left-hand scroll bar
+	set guioptions+=c  " show console dialogs
+
+	" Silent bell
+	autocmd GUIEnter * set vb t_vb=
 endif
 " }}}
 

@@ -31,16 +31,16 @@ if has('nvim') && &runtimepath =~# '\/cpsm'
 		\ 'matchers', ['matcher_cpsm', 'matcher_fuzzy'])
 endif
 
-call denite#custom#source(
-  \ 'grep', 'matchers', ['matcher_regexp'])
+" call denite#custom#source(
+"   \ 'grep', 'matchers', ['matcher_regexp'])
 
 " SORTERS
 " Default is 'sorter_rank'
 call denite#custom#source('z', 'sorters', ['sorter_z'])
 
-" GREPPING
-" make grep interactive
-call denite#custom#source('grep', 'args', ['', '', '!'])
+" " GREPPING
+" " make grep interactive
+" call denite#custom#source('grep', 'args', ['', '', '!'])
 
 " CONVERTERS
 " Default is none

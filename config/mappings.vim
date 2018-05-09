@@ -81,6 +81,9 @@ cnoreabbrev Qa qa
 cnoreabbrev Bd bd
 cnoreabbrev bD bd
 
+" Start new line from any cursor position
+inoremap <S-Return> <C-o>o
+
 " Quick substitute within selected area
 xnoremap s :s//g<Left><Left>
 
@@ -313,8 +316,13 @@ nmap <Leader>j :lnext<CR>
 nmap <Leader>k :lprev<CR>
 
 " Duplicate lines
-nnoremap <Leader>d m`YP``
-vnoremap <Leader>d YPgv
+if has('win32') || has('win64')
+	vnoremap <Leader>d Y""Pgv
+	nnoremap <Leader>d m`Y""P``
+else
+	nnoremap <Leader>d m`YP``
+	vnoremap <Leader>d YPgv
+endif
 
 " Source line and selection in vim
 vnoremap <Leader>S y:execute @@<CR>:echo 'Sourced selection.'<CR>

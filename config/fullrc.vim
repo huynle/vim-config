@@ -10,10 +10,33 @@ if &compatible
 	set nocompatible
 endif
 
+" let &rtp .= ',~/.vim'
+set runtimepath+=~/.vim
+
+" To use for loading plugins with dein on windows using cygwin
+" this is to turn on NVIM regardless of operating system
+if ! has('nvim')
+	" This is for VIM 8 configurations to turn off specific plugins
+	let $NVIM = 1
+else
+	" If it is true neovim running
+	" let $NVIM = 1
+    " set runtimepath^=~/.vim runtimepath+=~/.vim/after
+    "let &packpath = &runtimepath
+	echo "running neovim"
+endif
+
+" Load less plugins while SSHing to remote machines {{{
+if len($SSH_CLIENT)
+	let $VIM_MINIMAL = 1
+endif
+
 " Set main configuration directory, and where cache is stored.
 let $VIMPATH = fnamemodify(resolve(expand('<sfile>:p')), ':h:h')
-let $VARPATH = expand(($XDG_CACHE_HOME ? $XDG_CACHE_HOME : '~/.cache').'/vim')
-let $VIMRC = expand($VIMPATH.'/init.vim')
+" let $VIMPATH = expand('$HOME/.vim')
+let $VARPATH = expand(($XDG_CACHE_HOME ? $XDG_CACHE_HOME : '~/.cache').'/nvim')
+let $VIMRC = expand($VIMPATH.'/config/vimrc')
+
 
 let g:dein#install_max_processes = 16
 let g:dein#install_progress_type = 'echo'
@@ -93,9 +116,11 @@ augroup MyAutoCmd
 	autocmd CursorHold *? syntax sync minlines=300
 augroup END
 
+
 " Initialize base requirements
 if has('vim_starting')
 	call s:source_file('init.vim')
+
 	if has('nvim')
 		" Neovim settings
 		call s:source_file('neovim.vim')
@@ -105,10 +130,13 @@ if has('vim_starting')
 	endif
 endif
 
+
 " Initialize dein.vim (package manager)
+
 let s:path = expand('$VARPATH/dein')
 let s:plugins_path = expand('$VIMPATH/config/plugins.yaml')
 let s:user_plugins_path = expand('$VIMPATH/config/local.plugins.yaml')
+
 if dein#load_state(s:path)
 	call dein#begin(s:path, [expand('<sfile>'), s:plugins_path])
 	try

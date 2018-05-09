@@ -40,7 +40,9 @@ endif
 " }}}
 " Setup dein {{{
 if &runtimepath !~# '/dein.vim'
-	let s:dein_dir = expand('$VARPATH/dein').'/repos/github.com/Shougo/dein.vim'
+
+	let s:dein_dir = expand('$VARPATH/dein/repos/github.com/Shougo/dein.vim')
+	
 	if ! isdirectory(s:dein_dir)
 		execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
 	endif
@@ -51,19 +53,14 @@ endif
 
 " }}}
 
-" " Load less plugins while SSHing to remote machines {{{
-" if len($SSH_CLIENT)
-" 	let $VIM_MINIMAL = 1
-" endif
 
-" }}}
 
 " Disable default plugins "{{{
 
 " Disable menu.vim
-if has('gui_running')
-  set guioptions=Mc
-endif
+" if has('gui_running')
+"   set guioptions=Mc
+" endif
 
 " Disable pre-bundled plugins
 let g:loaded_getscript = 1

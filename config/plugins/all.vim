@@ -53,6 +53,9 @@ if dein#tap('denite.nvim')
 		let @/ = substitute(escape(@s, '\'.a:cmdtype), '\n', '\\n', 'g')
 		let @s = temp
 	endfunction "}}}
+else
+	nnoremap <silent><LocalLeader>f :<C-u>FindFile<SPACE>
+	nnoremap <silent><LocalLeader>g :<C-u>Ag<SPACE>
 endif
 
 if dein#tap('vim-denite-z')
@@ -62,7 +65,7 @@ endif
 
 if dein#tap('tagbar')
 	nnoremap <silent> <Leader>o   :<C-u>TagbarOpen fj<CR>
-	nnoremap <silent> <Leader>tot :<C-u>TagbarToggle<CR>
+	" nnoremap <silent> <Leader>tot :<C-u>TagbarToggle<CR>
 	" Also use h/l to open/close folds
 	let g:tagbar_map_closefold = ['h', '-', 'zc']
 	let g:tagbar_map_openfold = ['l', '+', 'zo']
@@ -186,7 +189,7 @@ if dein#tap('vim-peekaboo')
 endif
 
 if dein#tap('vimwiki')
-	nnoremap <silent> <Leader>W :<C-u>VimwikiIndex<CR>
+	nnoremap <silent> <Leader>W :<C-u>VimwikiTabIndex<CR>
 endif
 
 if dein#tap('vim-choosewin')
