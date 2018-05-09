@@ -6,6 +6,7 @@
 " Runtime and Plugins
 " -------------------------------------------------
 
+
 if &compatible
 	set nocompatible
 endif
@@ -23,7 +24,6 @@ else
 	" let $NVIM = 1
     " set runtimepath^=~/.vim runtimepath+=~/.vim/after
     "let &packpath = &runtimepath
-	echo "running neovim"
 endif
 
 " Load less plugins while SSHing to remote machines {{{
@@ -34,7 +34,7 @@ endif
 " Set main configuration directory, and where cache is stored.
 let $VIMPATH = fnamemodify(resolve(expand('<sfile>:p')), ':h:h')
 " let $VIMPATH = expand('$HOME/.vim')
-let $VARPATH = expand(($XDG_CACHE_HOME ? $XDG_CACHE_HOME : '~/.cache').'/nvim')
+let $VARPATH = expand(($XDG_CACHE_HOME ? $XDG_CACHE_HOME : '~/.cache').'/vim')
 let $VIMRC = expand($VIMPATH.'/config/vimrc')
 
 
