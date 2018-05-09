@@ -6,10 +6,16 @@
 " Runtime and Plugins
 " -------------------------------------------------
 
+
 if &compatible
 	set nocompatible
 endif
 
+" has to be there for Windows Dein
+if has('win16') || has('win32') || has('win64') && 0
+	set runtimepath+=~/.vim
+endif
+	
 " To use for loading plugins with dein on windows using cygwin
 " this is to turn on NVIM regardless of operating system
 if ! has('nvim')
