@@ -6,13 +6,9 @@
 " Runtime and Plugins
 " -------------------------------------------------
 
-
 if &compatible
 	set nocompatible
 endif
-
-" let &rtp .= ',~/.vim'
-" set runtimepath+=~/.vim
 
 " To use for loading plugins with dein on windows using cygwin
 " this is to turn on NVIM regardless of operating system
