@@ -472,9 +472,9 @@
   hook_post_source: |
     autocmd MyAutoCmd FileType javascript setlocal omnifunc=tern#Complete
 
-- repo: nixprime/cpsm
-  if: empty($NVIM) && empty($VIM_MINIMAL)
-  build: ./install.sh
+# - repo: nixprime/cpsm
+#   if: empty($NVIM) && empty($VIM_MINIMAL)
+#   build: ./install.sh
 
 # ==========================================
 # Denite
