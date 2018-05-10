@@ -2,9 +2,10 @@
 """"""" getting vimdiff to work.. it needs bash for to do the diff
 " why cant it use diff in the VIMRUMTIME folder?
 
-if ! empty($NVIM)
+if ! empty($NVIM) && has('win32')
   set shell=c:\cygwin64\bin\bash.exe
 endif
+
 
 """"""""""" find files and populate the quickfix list
 fun! FindFiles(filename, regFlag)
@@ -106,33 +107,6 @@ command! -nargs=1 Bs :call BufSel("<args>")
 
 " allowing tab to be used in the commandline to compelte buffers and filenames
 set wildchar=<Tab> wildmenu wildmode=full
-
-"""""""""""""""""""" Running rsync one save"
-" rsync
-function! RemoteSync (sync_type)
-	if !exists("b:enable_rsync") || b:enable_rsync == 0
-		return
-	endif
-	" u for Update
-	" t for copying time also
-	" r for recursive
-	if a:sync_type == "write"
-		let rsync_command = "rsync -arut --exclude-from=".b:rsync_local."/".b:rsync_exclude." ".b:rsync_local."/* ".b:rsync_server.":".b:rsync_remote." &"
-	elseif a:sync_type == "read"
-		let rsync_command = "rsync -arut --exclude-from=".b:rsync_local."/".b:rsync_exclude." ".b:rsync_server.":".b:rsync_remote."/* ".b:rsync_local." &"
-	endif
-
-	execute "!" . rsync_command
-	" execute "!" . rsync_command_reverse
-
-	" turn off rsync until it is loaded again by .local.vimrc
-endfunction
-
-" bind K to grep word under cursor
-nnoremap <silent> <Leader>sw :silent call RemoteSync("write")<CR>
-nnoremap <silent> <Leader>sr :silent call RemoteSync("read")<CR>
-" au BufWritePost,FileWritePost * silent call RemoteSync()
-
 """"" neovim?
 
 " " Write history on idle, for sharing among different sessions
