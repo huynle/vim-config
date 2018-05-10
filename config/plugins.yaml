@@ -12,6 +12,7 @@
   hook_add: |
     let g:localvimrc_enable = 1
     let g:localvimrc_ask = 0
+    let g:localvimrc_sandbox = 0
     let g:localvimrc_event = [ "BufNew" ]
     let g:localvimrc_name = [ ".config/project.vim", ".config/local.vim" ]
 
@@ -271,7 +272,7 @@
     let g:lint_filetypes = [
       \  'ansible', 'python', 'php', 'ruby', 'vim', 'go', 'sh',
       \  'javascript', 'jsx', 'javascript.jsx', 'json', 'css',
-      \  'markdown', 'html', 'yaml'
+      \  'markdown', 'html', 'yaml', 'c', 'cpp'
       \ ]
     autocmd MyAutoCmd BufWritePost *
       \ if index(g:lint_filetypes, &filetype) > -1 && empty(&buftype)
@@ -315,10 +316,10 @@
     \   { 'diary_header': 'Daily',
     \     'diary_link_fmt': '%Y-%m/%d',
     \     'auto_toc': 1,
-    \     'path': '~/docs/orion/',
+    \     'path': '~/docs/wiki/',
     \     'syntax': 'markdown',
     \     'ext': '.md' },
-    \   { 'path': '~/docs/wiki/',
+    \   { 'path': '~/docs/orion/',
     \     'syntax': 'markdown',
     \     'ext': '.md' }
     \ ]

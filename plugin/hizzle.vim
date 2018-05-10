@@ -105,8 +105,9 @@ endfunction
 "Bind the BufSel() function to a user-command
 command! -nargs=1 Bs :call BufSel("<args>")
 
-" allowing tab to be used in the commandline to compelte buffers and filenames
-set wildchar=<Tab> wildmenu wildmode=full
+" " allowing tab to be used in the commandline to compelte buffers and filenames
+" set wildchar=<Tab> wildmenu wildmode=full
+
 """"" neovim?
 
 " " Write history on idle, for sharing among different sessions

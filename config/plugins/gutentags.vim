@@ -37,5 +37,5 @@ let g:gutentags_ctags_exclude = [
 
 " settings project cscope
 let g:gutentags_auto_add_cscope = 1
-let g:gutentags_scopefile = 'cscope.out'
+let g:gutentags_scopefile = '.config/cscope.big'
 
