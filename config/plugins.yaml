@@ -11,9 +11,9 @@
 - repo: embear/vim-localvimrc
   hook_add: |
     let g:localvimrc_enable = 1
-    let g:localvimrc_ask = 0
+    let g:localvimrc_ask = 1
     let g:localvimrc_sandbox = 0
-    let g:localvimrc_event = [ "BufNew" ]
+    let g:localvimrc_event = [ "BufWritePre" ]
     let g:localvimrc_name = [ ".config/project.vim", ".config/local.vim" ]
 
 - repo: christoomey/vim-tmux-navigator

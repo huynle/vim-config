@@ -25,10 +25,6 @@ endfun
 command! -nargs=1 FindFile call FindFiles(<q-args>, 0)
 command! -nargs=1 FindFileR call FindFiles(<q-args>, 1)
 
-" different way to grep
-command GREP :execute 'vimgrep '.expand('<cword>').' '.expand('%') | :copen | :cc
-
-
 
 """"""""""""""" thoughtbot settings
 " bind K to grep word under cursor
