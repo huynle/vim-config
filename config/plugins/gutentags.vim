@@ -32,8 +32,11 @@ let g:gutentags_ctags_exclude_wildignore = 0
 let g:gutentags_ctags_exclude = [
   \ '*/wp-admin', '*/wp-content', '*/wp-includes',
   \ '*/application/vendor', '*/vendor/ckeditor', '*/media/vendor',
-  \ '*/venv']
-
+  \ '*/venv', '*.css', '*.html', '*.js', '*.json', '*.xml',
+  \ '*.phar', '*.ini', '*.rst', '*.md',
+  \ '*vendor/*/test*', '*vendor/*/Test*',
+  \ '*vendor/*/fixture*', '*vendor/*/Fixture*',
+  \ '*var/cache*', '*var/log*']
 
 " settings project cscope
 let g:gutentags_auto_add_cscope = 1
