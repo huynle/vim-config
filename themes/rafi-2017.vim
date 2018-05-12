@@ -30,8 +30,8 @@ set showbreak=↪
 set fillchars=vert:│,fold:─
 set listchars=tab:\▏\ ,extends:⟫,precedes:⟪,nbsp:␣,trail:·
 
-hi StatusLine ctermfg=bg ctermbg=bg guibg=bg guifg=bg
-hi StatusLineNC ctermfg=bg ctermbg=bg guibg=bg guifg=bg
+" hi StatusLine ctermfg=bg ctermbg=bg guibg=bg guifg=bg
+" hi StatusLineNC ctermfg=bg ctermbg=bg guibg=bg guifg=bg
 
 " icons:  ▏│ ¦ ╎ ┆ ⋮ ⦙ ┊ 
 " }}}

@@ -302,15 +302,16 @@
     let g:calendar_view = 'week'
     let g:calendar_views = ['month', 'week', 'day']
 
-- repo: vimwiki/vimwiki
+- repo: huynle/vimwiki
   if: empty($VIM_MINIMAL)
+  rev: 7a7e6ff6b10d0902dd
   on_map: { n: <Plug> }
   on_cmd: Vimwiki
   hook_add: |
     let g:vimwiki_use_calendar = 1
     let g:vimwiki_hl_headers = 1
     let g:vimwiki_hl_cb_checked = 1
-    let g:vimwiki_autowriteall = 0
+    let g:vimwiki_autowriteall = 1
   hook_source: |
     let g:vimwiki_list = [
     \   { 'diary_header': 'Daily',
