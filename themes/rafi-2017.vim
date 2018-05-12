@@ -30,8 +30,8 @@ set showbreak=↪
 set fillchars=vert:│,fold:─
 set listchars=tab:\▏\ ,extends:⟫,precedes:⟪,nbsp:␣,trail:·
 
-" hi StatusLine ctermfg=bg ctermbg=bg guibg=bg guifg=bg
-" hi StatusLineNC ctermfg=bg ctermbg=bg guibg=bg guifg=bg
+hi StatusLine ctermfg=bg ctermbg=bg guibg=bg guifg=bg
+hi StatusLineNC ctermfg=bg ctermbg=bg guibg=bg guifg=bg
 
 " icons:  ▏│ ¦ ╎ ┆ ⋮ ⦙ ┊ 
 " }}}
@@ -39,13 +39,13 @@ set listchars=tab:\▏\ ,extends:⟫,precedes:⟪,nbsp:␣,trail:·
 " Tabline {{{
 " ---------------------------------------------------------
 " TabLineFill: Tab pages line, where there are no labels
-" hi TabLineFill ctermfg=234 ctermbg=236 guifg=#1C1C1C guibg=#303030 cterm=NONE gui=NONE
+hi TabLineFill ctermfg=234 ctermbg=236 guifg=#1C1C1C guibg=#303030 cterm=NONE gui=NONE
 
 " TabLine: Not-active tab page label
-" hi TabLine     ctermfg=243 ctermbg=236 guifg=#767676 guibg=#303030 cterm=NONE gui=NONE
+hi TabLine     ctermfg=243 ctermbg=236 guifg=#767676 guibg=#303030 cterm=NONE gui=NONE
 
 " TabLineSel: Active tab page label
-" hi TabLineSel  ctermfg=241 ctermbg=234 guifg=bg guibg=#528bff cterm=NONE gui=NONE
+hi TabLineSel  ctermfg=241 ctermbg=234 guifg=bg guibg=#528bff cterm=NONE gui=NONE
 
 " Custom
 highlight TabLineSelShade  ctermfg=235 ctermbg=234 guifg=#262626 guibg=#1C1C1C
