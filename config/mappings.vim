@@ -328,9 +328,16 @@ endif
 vnoremap <Leader>S y:execute @@<CR>:echo 'Sourced selection.'<CR>
 nnoremap <Leader>S ^vg_y:execute @@<CR>:echo 'Sourced line.'<CR>
 
+" Yanking
 " Yank buffer's absolute path to X11 clipboard
-" nnoremap <Leader>y :let @+=expand("%")<CR>:echo 'Relative path copied to clipboard.'<CR>
-" nnoremap <Leader>Y :let @+=expand("%:p")<CR>:echo 'Absolute path copied to clipboard.'<CR>
+nnoremap <Leader>y :let @+=expand("%")<CR>:echo 'Relative path copied to clipboard.'<CR>
+nnoremap <Leader>Y :let @+=expand("%:p")<CR>:echo 'Absolute path copied to clipboard.'<CR>
+
+" Yanking to registers
+nnoremap y "*y
+" nnoremap Y V"*y
+nnoremap yy V"*y
+
 
 " Drag current line/s vertically and auto-indent
 vnoremap mk :m-2<CR>gv=gv
