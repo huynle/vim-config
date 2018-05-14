@@ -31,22 +31,14 @@ command! -nargs=1 FindFileR call FindFiles(<q-args>, 1)
 " nnoremap <Leader>g :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " bind \ (backward slash) to grep shortcut
-command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-nnoremap \ :Ag<SPACE>
+" command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+" nnoremap \ :Ag<SPACE>
 
 
 """"""""""""""""""" Change font size
 if has('nvim')
-	nnoremap <C-Up> :silent! eval ('GuiFont '.substitute(
-		\ GuiFont,
-		\ ':h\zs\d\+',
-		\ '\=eval(submatch(0)+1)',
-		\ ''))<CR>
-	nnoremap <C-Down> :silent! let &GuiFont = substitute(
-		\ &GuiFont,
-		\ ':h\zs\d\+',
-		\ '\=eval(submatch(0)-1)',
-		\ '')<CR>
+	nnoremap <C-Up> :execute 'GuiFont '.substitute( GuiFont, ':h\zs\d\+', '\=eval(submatch(0)+1)', '' )<CR>
+	nnoremap <C-Down> :execute 'GuiFont '.substitute( GuiFont, ':h\zs\d\+', '\=eval(submatch(0)-1)', '' )<CR>
 else
 	nnoremap <C-Up> :silent! let &guifont = substitute(
 		\ &guifont,
@@ -63,7 +55,7 @@ endif
 " still not working to change neovim font size
 function! ChangeFontSize(size)
 	let font_size_string = substitute(GuiFont, ':h\zs\d\+', '\=eval(submatch(0)+1)', "")
-	eval('GuiFont '.font_size_string)
+	execute('GuiFont '.font_size_string)
 endfunction
 
 

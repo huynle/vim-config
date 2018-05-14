@@ -49,7 +49,7 @@ hi TabLineSel  ctermfg=241 ctermbg=234 guifg=bg guibg=#528bff cterm=NONE gui=NON
 
 " Custom
 highlight TabLineSelShade  ctermfg=235 ctermbg=234 guifg=#262626 guibg=#1C1C1C
-" highlight TabLineAlt       ctermfg=252 ctermbg=238 guifg=#D0D0D0 guibg=#444444
+highlight TabLineAlt       ctermfg=252 ctermbg=238 guifg=#D0D0D0 guibg=#444444
 highlight TabLineAltShade  ctermfg=238 ctermbg=236 guifg=#444444 guibg=#303030
 
 function! Tabline() abort "{{{
