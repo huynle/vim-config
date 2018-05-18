@@ -73,7 +73,7 @@
   hook_source: |
     let g:gfm_syntax_enable_always = 0
     let g:gfm_syntax_highlight_emoji = 0
-    let g:gfm_syntax_enable_filetypes = ['markdown']
+    let g:gfm_syntax_enable_filetypes = [ 'markdown' ]
 
 - repo: dhruvasagar/vim-table-mode
   on_ft: markdown
@@ -165,6 +165,7 @@
   hook_post_source: source $VIMPATH/config/plugins/nerdtree.vim
 
 - repo: tpope/vim-unimpaired
+
 - { repo: Xuyuanp/nerdtree-git-plugin, on_source: nerdtree }
 - { repo: tpope/vim-commentary, on_map: <Plug>Commentary }
 - { repo: t9md/vim-choosewin, on_map: { n: <Plug> }}
@@ -194,7 +195,7 @@
     let g:EasyMotion_use_smartsign_us = 1
 
 - repo: chemzqm/vim-easygit
-  on_cmd: [Gcd, Glcd, Gcommit, Gblame, Gstatus, Gdiff, Gbrowse, Gstatus, Gpush]
+  on_cmd: [ Gcd, Glcd, Gcommit, Gblame, Gstatus, Gdiff, Gbrowse, Gstatus, Gpush ]
   hook_source: let g:easygit_enable_command = 1
 
 - repo: majutsushi/tagbar
@@ -300,7 +301,7 @@
     let g:calendar_task = 1
     let g:calendar_task_delete = 1
     let g:calendar_view = 'week'
-    let g:calendar_views = ['month', 'week', 'day']
+    let g:calendar_views = [ 'month', 'week', 'day' ]
 
 - repo: huynle/vimwiki
   if: empty($VIM_MINIMAL)
@@ -419,7 +420,7 @@
 
 
 # - repo: klen/python-mode
-#   on_cmd: [PymodeRopeRenameModule, PymodeRopeUndo, PymodeRopeAutoImport]
+#   on_cmd: [ PymodeRopeRenameModule, PymodeRopeUndo, PymodeRopeAutoImport ]
 #   on_ft: python
 #   hook_source: |
 #     let g:pymode=1
@@ -467,8 +468,8 @@
   on_i: 1
   on_ft: [ javascript, jsx, javascript.jsx ]
   hook_add: |
-    let g:tern#command = ['tern']
-    let g:tern#arguments = ['--persistent']
+    let g:tern#command = [ 'tern' ]
+    let g:tern#arguments = [ '--persistent' ]
     let g:tern_request_timeout = 1
     let g:tern_show_signature_in_pum = 0
   hook_post_source: |

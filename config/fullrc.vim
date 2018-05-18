@@ -29,9 +29,9 @@ else
 endif
 
 " Load less plugins while SSHing to remote machines {{{
-if len($SSH_CLIENT)
-	let $VIM_MINIMAL = 1
-endif
+" if len($SSH_CLIENT)
+"	  let $VIM_MINIMAL = 1
+" endif
 
 " Set main configuration directory, and where cache is stored.
 let $VIMPATH = fnamemodify(resolve(expand('<sfile>:p')), ':h:h')
