@@ -173,6 +173,12 @@
 - { repo: kana/vim-niceblock, on_map: { x: <Plug> }}
 - { repo: guns/xterm-color-table.vim, on_cmd: XtermColorTable }
 - { repo: mbbill/undotree, on_cmd: UndotreeToggle }
+- { repo: tpope/vim-commentary, on_map: <Plug>Commentary }
+- { repo: t9md/vim-choosewin, on_map: { n: <Plug> }}
+- { repo: Shougo/vinarise.vim, on_cmd: Vinarise }
+- { repo: kana/vim-niceblock, on_map: { x: <Plug> }}
+- { repo: guns/xterm-color-table.vim, on_cmd: XtermColorTable }
+- { repo: mbbill/undotree, on_cmd: UndotreeToggle }
 - { repo: metakirby5/codi.vim, on_cmd: Codi, if: empty($VIM_MINIMAL) }
 - { repo: Shougo/vimproc.vim, build: make, on_func: vimproc# }
 - { repo: reedes/vim-wordy, on_cmd: [ Wordy, NextWordy, PrevWordy ]}
@@ -225,7 +231,7 @@
 - { repo: rafi/vim-sidemenu, on_map: { nv: <Plug> }}
 
 - repo: airblade/vim-gitgutter
-  on_path: .*
+  on_cmd: [ GitGutter ]
   hook_source: |
     let g:gitgutter_map_keys = 0
     let g:gitgutter_sh = $SHELL
@@ -254,12 +260,15 @@
 - repo: MattesGroeger/vim-bookmarks
   on_path: .*
   hook_source: |
-    let g:bookmark_path = $VARPATH.'/bookmarks'
+    let g:bookmark_path = expand('$VARPATH/bookmarks')
+    let g:bookmark_auto_save_file = expand('$VARPATH/bookmarks')
     let g:bookmark_save_per_working_dir = 1
+    let g:bookmark_manage_per_buffer = 1
     let g:bookmark_no_default_key_mappings = 1
     let g:bookmark_disable_ctrlp = 1
     let g:bookmark_auto_save = 1
     let g:bookmark_center = 1
+    let g:bookmark_location_list = 1
 
 - repo: rhysd/committia.vim
   on_path: COMMIT_EDITMSG
@@ -398,22 +407,38 @@
 - { repo: Shougo/neco-vim, on_ft: vim, if: empty($VIM_MINIMAL) }
 - { repo: Shougo/neco-syntax, on_source: [ neocomplete.vim, deoplete.nvim ]}
 
+# - repo: davidhalter/jedi-vim
+  # if: empty($VIM_MINIMAL)
+  # on_ft: python
+  # hook_source: |
+    # let g:jedi#completions_enabled = 0
+    # let g:jedi#auto_vim_configuration = 0
+    # let g:jedi#smart_auto_mappings = 0
+    # let g:jedi#show_call_signatures = 2
+    # let g:jedi#use_tag_stack = 1
+    # let g:jedi#popup_select_first = 0
+    # let g:jedi#popup_on_dot = 0
+    # let g:jedi#max_doc_height = 100
+    # let g:jedi#quickfix_window_height = 10
+
+# let g:jedi#use_splits_not_buffers = 'bottom'
+# let g:jedi#use_tabs_not_buffers = 1
+
 - repo: davidhalter/jedi-vim
   if: empty($VIM_MINIMAL)
   on_ft: python
-  hook_source: |
+  hook_add: |
     let g:jedi#completions_enabled = 0
     let g:jedi#auto_vim_configuration = 0
     let g:jedi#smart_auto_mappings = 0
-    let g:jedi#show_call_signatures = 2
+    let g:jedi#show_call_signatures = 1
+  hook_source: |
     let g:jedi#use_tag_stack = 1
     let g:jedi#popup_select_first = 0
     let g:jedi#popup_on_dot = 0
     let g:jedi#max_doc_height = 100
     let g:jedi#quickfix_window_height = 10
-
-# let g:jedi#use_splits_not_buffers = 'bottom'
-# let g:jedi#use_tabs_not_buffers = 1
+    let g:jedi#use_splits_not_buffers = 'bottom'
 
 - repo: jmcantrell/vim-virtualenv
   on_ft: python

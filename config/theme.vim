@@ -27,11 +27,27 @@ endif
 "endif
 
 
-" if has('gui_running')
-" 	set background=dark
-" 	set lines=40
-" 	set columns=150
-" endif
+" gVim Appearance {{{
+" ---------------------------------------------------------
+if has('gui_running')
+	set guifont=Dejavu\ Sans\ Mono\ for\ Powerline:h10
+	
+	set lines=60 columns=108 linespace=0
+	
+	set guioptions-=m  "remove menu bar
+	set guioptions-=T  " no toolbar
+	set guioptions-=r  "remove right-hand scroll bar
+	set guioptions-=L  "remove left-hand scroll bar
+	set guioptions+=c  " show console dialogs
+
+	" Silent bell
+	autocmd GUIEnter * set vb t_vb=
+	
+elseif exists('g:GuiLoaded')
+	:Guifont! DejaVu\ Sans\ Mono\ for\ Powerline:h10
+	" :Guifont Consolas:h10
+endif
+" }}}
 
 function! s:theme_reload(name)
 	let theme_path = $VIMPATH.'/themes/'.a:name.'.vim'

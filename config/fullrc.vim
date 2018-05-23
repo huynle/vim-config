@@ -114,8 +114,12 @@ endfunction
 " Set augroup
 augroup MyAutoCmd
 	autocmd!
-	autocmd CursorHold *? syntax sync minlines=300
+	" Use to refresh syntax and clean it up to 300 lines
+	autocmd BufEnter *? syntax sync minlines=300
 augroup END
+
+noremap <F12> <Esc>:syntax sync fromstart<CR>
+inoremap <F12> <C-o>:syntax sync fromstart<CR>
 
 
 " Initialize base requirements

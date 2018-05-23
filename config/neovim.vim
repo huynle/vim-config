@@ -8,7 +8,7 @@ if has('win16') || has('win32') || has('win64')
 		let g:python3_host_prog = expand('$VARPATH/venv3/neovim3/Scripts/python.exe')
 	endif
 
-	if isdirectory(expand('$VARPATH/venv/neovim3'))
+	if isdirectory(expand('$VARPATH/venv/neovim2'))
 		let g:python_host_prog = expand('$VARPATH/venv3/neovim2/Scripts/python.exe')
 	endif
 else

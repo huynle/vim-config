@@ -37,8 +37,8 @@ command! -nargs=1 FindFileR call FindFiles(<q-args>, 1)
 
 """"""""""""""""""" Change font size
 if has('nvim')
-	nnoremap <C-Up> :execute 'GuiFont '.substitute( GuiFont, ':h\zs\d\+', '\=eval(submatch(0)+1)', '' )<CR>
-	nnoremap <C-Down> :execute 'GuiFont '.substitute( GuiFont, ':h\zs\d\+', '\=eval(submatch(0)-1)', '' )<CR>
+	nnoremap <C-Up> :execute 'GuiFont! '.substitute( GuiFont, ':h\zs\d\+', '\=eval(submatch(0)+1)', '' )<CR>
+	nnoremap <C-Down> :execute 'GuiFont! '.substitute( GuiFont, ':h\zs\d\+', '\=eval(submatch(0)-1)', '' )<CR>
 else
 	nnoremap <C-Up> :silent! let &guifont = substitute(
 		\ &guifont,

@@ -150,14 +150,16 @@ if dein#tap('vim-indent-guides')
 endif
 
 if dein#tap('vim-bookmarks')
-	nmap <silent><Leader>be :<C-u>execute 'BookmarkSave'.g:bookmark_path.'/'.fnamemodify(resolve(getcwd()), ':p:gs?/?_?')<CR>
-	nmap <silent><Leader>ob :<C-u>execute 'BookmarkLoad'.g:bookmark_path.'/'.fnamemodify(resolve(getcwd()), ':p:gs?/?_?')<CR>
-	nmap mma :<C-u>cgetexpr bm#location_list()<CR>
-		\ :<C-u>Denite quickfix -buffer-name=list<CR>
-	nmap mmn <Plug>BookmarkNext
-	nmap mmp <Plug>BookmarkPrev
-	nmap mmm <Plug>BookmarkToggle
-	nmap mmi <Plug>BookmarkAnnotate
+	nmap <silent><Leader>be :<C-u>execute 'BookmarkSave '.g:bookmark_path.'/'.fnamemodify(resolve(getcwd()), ':p:gs?[\\/:-]?_?')<CR>
+	nmap <silent><Leader>ob :<C-u>execute 'BookmarkLoad '.g:bookmark_path.'/'.fnamemodify(resolve(getcwd()), ':p:gs?[\\/:-]?_?')<CR>
+	" nmap ma :<C-u>cgetexpr bm#location_list()<CR>
+	"	\ :<C-u>Denite quickfix -buffer-name=list<CR>
+	nmap ma <Plug>BookmarkShowAll
+	nmap mn <Plug>BookmarkNext
+	nmap mp <Plug>BookmarkPrev
+	nmap mm <Plug>BookmarkToggle
+	nmap mi <Plug>BookmarkAnnotate
+	nmap mc <Plug>BookmarkClear
 endif
 
 if dein#tap('committia.vim')

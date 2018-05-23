@@ -17,7 +17,7 @@ let g:gutentags_generate_on_new = 0
 
 " Define custom project root marker
 let g:gutentags_add_default_project_roots = 0
-let g:gutentags_project_root = ['.project/config.vim']
+let g:gutentags_project_root = ['.project/config.vim','.metadata']
 let g:gutentags_exclude_project_root = [ '/usr/local', '/usr/include', '.project/notags']
 
 let g:gutentags_file_list_command = {
