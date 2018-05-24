@@ -154,12 +154,12 @@ if dein#tap('vim-bookmarks')
 	nmap <silent><Leader>ob :<C-u>execute 'BookmarkLoad '.g:bookmark_path.'/'.fnamemodify(resolve(getcwd()), ':p:gs?[\\/:-]?_?')<CR>
 	" nmap ma :<C-u>cgetexpr bm#location_list()<CR>
 	"	\ :<C-u>Denite quickfix -buffer-name=list<CR>
-	nmap ma <Plug>BookmarkShowAll
-	nmap mn <Plug>BookmarkNext
-	nmap mp <Plug>BookmarkPrev
-	nmap mm <Plug>BookmarkToggle
-	nmap mi <Plug>BookmarkAnnotate
-	nmap mc <Plug>BookmarkClear
+	nmap <Leader>ma <Plug>BookmarkShowAll
+	nmap <Leader>mn <Plug>BookmarkNext
+	nmap <Leader>mp <Plug>BookmarkPrev
+	nmap <Leader>mm <Plug>BookmarkToggle
+	nmap <Leader>mi <Plug>BookmarkAnnotate
+	nmap <Leader>mc <Plug>BookmarkClear
 endif
 
 if dein#tap('committia.vim')

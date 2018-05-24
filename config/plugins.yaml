@@ -261,7 +261,7 @@
   on_path: .*
   hook_source: |
     let g:bookmark_path = expand('$VARPATH/bookmarks')
-    let g:bookmark_auto_save_file = expand('$VARPATH/bookmarks')
+    let g:bookmark_auto_save_file = expand('$VARPATH/bookmarks/temp_book')
     let g:bookmark_save_per_working_dir = 1
     let g:bookmark_manage_per_buffer = 1
     let g:bookmark_no_default_key_mappings = 1
