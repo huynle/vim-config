@@ -356,12 +356,16 @@ if !empty(glob("$HOME/.crouton-clipboard/data.txt"))
 	vnoremap "*y :'<,'>w! $HOME/.crouton-clipboard/data.txt<CR>
 endif
 
-" Session management shortcuts
-nmap <silent> <Leader>se :<C-u>execute 'SessionSave '.fnamemodify(resolve(getcwd()), ':p:gs?[\\/:-]?_?')<CR>
-nmap <silent> <Leader>os :<C-u>execute 'source '.g:session_directory.'/'.fnamemodify(resolve(getcwd()), ':p:gs?[\\/:-]?_?').'.vim'<CR>
 
-" adding saving session by using current working directory of the project
-nnoremap <silent> <Leader>qq :execute 'SessionSave '.fnamemodify(resolve(getcwd()), ':p:gs?[\\/:-]?_?')<CR>:wqa!<CR>
+" " Session management shortcuts
+" nmap <silent> <Leader>se :<C-u>execute 'SessionSave '.fnamemodify(resolve(getcwd()), ':p:gs?[\\/:-]?_?')<CR>
+" nmap <silent> <Leader>os :<C-u>execute 'source '.g:session_directory.'/'.fnamemodify(resolve(getcwd()), ':p:gs?[\\/:-]?_?').'.vim'<CR>
+nmap <silent> <Leader>se :<C-u>SessionSaveCwd<CR>
+nmap <silent> <Leader>os :<C-u>SessionLoadCwd<CR>
+
+" " adding saving session by using current working directory of the project
+" nnoremap <silent> <Leader>qq :execute 'SessionSave '.fnamemodify(resolve(getcwd()), ':p:gs?[\\/:-]?_?')<CR>:wqa!<CR>
+nnoremap <silent> <Leader>qq :<C-u>SessionSaveCwd<CR>:wqa!<CR>
 
 if has('mac')
 	" Open the macOS dictionary on current word

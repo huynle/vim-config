@@ -48,11 +48,22 @@ function! s:session_load(name) abort
 	execute 'silent! source '.file_path
 endfunction
 
+function! s:session_load_cwd()
+	execute 'source '.g:session_directory.'/'.fnamemodify(resolve(getcwd()), ':p:gs?[\\/:-]?_?').'.vim'
+endfunction
+
+function! s:session_save_cwd()
+	execute 'SessionSave '.fnamemodify(resolve(getcwd()), ':p:gs?[\\/:-]?_?')
+endfunction
+
 function! s:session_complete(A, C, P)
 	return map(
 		\ split(glob(g:session_directory.'/*.vim'), '\n'),
 		\ "fnamemodify(v:val, ':t:r')"
 		\ )
 endfunction
+
+command! SessionLoadCwd call s:session_load_cwd()
+command! SessionSaveCwd call s:session_save_cwd()
 
 " vim: set ts=2 sw=2 tw=80 noet :
