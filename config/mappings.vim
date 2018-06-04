@@ -122,12 +122,12 @@ vnoremap K :m '<-2<CR>gv=gv
 " Select last paste
 nnoremap <expr> gp '`['.strpart(getregtype(), 0, 1).'`]'
 
-" Navigation in command line
-cnoremap <C-h> <Home>
-cnoremap <C-l> <End>
-cnoremap <C-f> <Right>
-cnoremap <C-b> <Left>
-cnoremap <C-d> <C-w>
+" " Navigation in command line
+" cnoremap <C-h> <Home>
+" cnoremap <C-l> <End>
+" cnoremap <C-f> <Right>
+" cnoremap <C-b> <Left>
+" cnoremap <C-d> <C-w>
 
 " Switch history search pairs, matching my bash shell
 cnoremap <C-p>  <Up>
@@ -185,6 +185,18 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
+if has('nvim')
+    " movement for terminal in neovim
+    tnoremap <C-h> <C-\><C-N><C-w>h
+    tnoremap <C-j> <C-\><C-N><C-w>j
+    tnoremap <C-k> <C-\><C-N><C-w>k
+    tnoremap <C-l> <C-\><C-N><C-w>l
+    inoremap <C-h> <C-\><C-N><C-w>h
+    inoremap <C-j> <C-\><C-N><C-w>j
+    inoremap <C-k> <C-\><C-N><C-w>k
+    inoremap <C-l> <C-\><C-N><C-w>l
+endif
+    
 " " Wrapped lines goes down/up to next row, rather than next line in file.
 " " provide hjkl movements in Insert mode via the <Alt> modifier key
 " inoremap <A-j> <C-o>b

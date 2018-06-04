@@ -29,7 +29,6 @@ endif
 " gVim Appearance {{{
 " ---------------------------------------------------------
 if has('gui_running')
-	echom "sourcing gvim theme"
 
 	set guifont=Dejavu\ Sans\ Mono\ for\ Powerline:h10
 	
@@ -43,11 +42,7 @@ if has('gui_running')
 
 	" Silent bell
 	autocmd GUIEnter * set vb t_vb=
-	
-elseif exists('g:GuiLoaded')
-	" Neovim-qt Appearance
-	:Guifont! DejaVu\ Sans\ Mono\ for\ Powerline:h10
-	" :Guifont Consolas:h10
+
 endif
 " }}}
 

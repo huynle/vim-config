@@ -38,6 +38,8 @@ function! SetPythonEnv()
     endif
 endfunction
 
+echom "got here to python plugin"
+
 " augroup python_env
 "     autocmd!
 "     autocmd BufEnter * if &ft ==# 'python' | call SetPythonEnv() | endif

@@ -114,8 +114,8 @@
   depends: vim-test
 
 - repo: janko-m/vim-test
-  on_ft: [ python, go]
-  hook_source: |
+  on_ft: [ python, go ]
+  hook_add: |
     let g:test#strategy = {
       \ 'nearest': '',
       \ 'file': 'neomake',
@@ -160,13 +160,14 @@
 # Commands
 # --------
 - repo: scrooloose/nerdtree
-  depends: nerdtree-git-plugin
   on_map: { n: <Plug> }
   hook_post_source: source $VIMPATH/config/plugins/nerdtree.vim
 
+# depends: nerdtree-git-plugin
+  
 - repo: tpope/vim-unimpaired
 
-- { repo: Xuyuanp/nerdtree-git-plugin, on_source: nerdtree }
+# - { repo: Xuyuanp/nerdtree-git-plugin, on_source: nerdtree }
 - { repo: tpope/vim-commentary, on_map: <Plug>Commentary }
 - { repo: t9md/vim-choosewin, on_map: { n: <Plug> }}
 - { repo: Shougo/vinarise.vim, on_cmd: Vinarise }
@@ -200,9 +201,9 @@
     let g:EasyMotion_smartcase = 1
     let g:EasyMotion_use_smartsign_us = 1
 
-- repo: chemzqm/vim-easygit
-  on_cmd: [ Gcd, Glcd, Gcommit, Gblame, Gstatus, Gdiff, Gbrowse, Gstatus, Gpush ]
-  hook_source: let g:easygit_enable_command = 1
+# - repo: chemzqm/vim-easygit
+  # on_cmd: [ Gcd, Glcd, Gcommit, Gblame, Gstatus, Gdiff, Gbrowse, Gstatus, Gpush ]
+  # hook_source: let g:easygit_enable_command = 1
 
 - repo: majutsushi/tagbar
   if: empty($VIM_MINIMAL)
@@ -230,11 +231,14 @@
 - { repo: t9md/vim-quickhl, on_map: { nv: <Plug> }}
 - { repo: rafi/vim-sidemenu, on_map: { nv: <Plug> }}
 
-- repo: airblade/vim-gitgutter
-  on_cmd: [ GitGutter ]
-  hook_source: |
-    let g:gitgutter_map_keys = 0
-    let g:gitgutter_sh = $SHELL
+# - repo: kassio/neoterm
+  # on_cmd: [ T ]
+
+# - repo: airblade/vim-gitgutter
+  # on_cmd: [ GitGutter ]
+  # hook_source: |
+    # let g:gitgutter_map_keys = 0
+    # let g:gitgutter_sh = $SHELL
 
 - repo: nathanaelkane/vim-indent-guides
   on_cmd: [ IndentGuidesEnable, IndentGuidesDisable, IndentGuidesToggle ]
@@ -266,7 +270,6 @@
     let g:bookmark_manage_per_buffer = 1
     let g:bookmark_no_default_key_mappings = 1
     let g:bookmark_disable_ctrlp = 1
-    let g:bookmark_auto_save = 1
     let g:bookmark_center = 1
     let g:bookmark_location_list = 1
 
@@ -548,6 +551,15 @@
 - { repo: AndrewRadev/splitjoin.vim, on_map: { n: <Plug>Splitjoin }}
 - { repo: AndrewRadev/linediff.vim, on_cmd: Linediff }
 
+# - repo: bps/vim-textobj-python
+  # depends: vim-textobj-user
+  # hook_add: let g:textobj_python_no_default_key_mappings = 1
+  
+# - repo: kana/vim-textobj-indent
+  # depends: vim-textobj-user
+  # hook_add: let g:textobj_indent_no_default_key_mappings = 1
+  
+
 - repo: AndrewRadev/dsf.vim
   on_map: { n: <Plug>Dsf }
   hook_add: let g:dsf_no_mappings = 1
@@ -558,7 +570,7 @@
   hook_add: let g:textobj_multiblock_no_default_key_mappings = 1
 
 - repo: kana/vim-textobj-function
-  depends: vim-textobj-user
+  depends: 
   on_map: { ox: <Plug> }
   hook_add: let g:textobj_function_no_default_key_mappings = 1
 
