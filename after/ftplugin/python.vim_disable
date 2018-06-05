@@ -1,4 +1,6 @@
-python << EOF
+echom "loading python after"
+
+python3 << EOF
 import os
 import sys
 import vim

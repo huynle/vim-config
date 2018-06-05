@@ -7,8 +7,8 @@
 
 " General settings " {{{
 " ---
-let g:deoplete#auto_complete_delay = 200 " Default is 50
-let g:deoplete#auto_refresh_delay = 500  " Default is 500
+let g:deoplete#auto_complete_delay = 50 " Default is 50
+let g:deoplete#auto_refresh_delay = 100  " Default is 500
 let g:deoplete#enable_refresh_always = 0
 let g:deoplete#enable_camel_case = 1
 let g:deoplete#max_abbr_width = 35
@@ -94,7 +94,7 @@ call deoplete#custom#source('neosnippet',    'mark', '⌘')
 call deoplete#custom#source('tag',           'mark', '⌦')
 call deoplete#custom#source('around',        'mark', '↻')
 call deoplete#custom#source('buffer',        'mark', 'ℬ')
-call deoplete#custom#source('tmux-complete', 'mark', '⊶')
+" call deoplete#custom#source('tmux-complete', 'mark', '⊶')
 call deoplete#custom#source('syntax',        'mark', '♯')
 call deoplete#custom#source('member',        'mark', '.')
 
@@ -113,7 +113,7 @@ call deoplete#custom#source('tag',           'rank', 400)
 call deoplete#custom#source('around',        'rank', 330)
 call deoplete#custom#source('buffer',        'rank', 320)
 call deoplete#custom#source('dictionary',    'rank', 310)
-call deoplete#custom#source('tmux-complete', 'rank', 300)
+" call deoplete#custom#source('tmux-complete', 'rank', 300)
 call deoplete#custom#source('syntax',        'rank', 200)
 
 " }}}
