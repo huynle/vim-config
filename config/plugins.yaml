@@ -490,10 +490,10 @@
     let g:tern_request_timeout = 1
     let g:tern_show_signature_in_pum = 0
 
-- repo: wellle/tmux-complete.vim
-  if: empty($NVIM) && empty($VIM_MINIMAL)
-  on_i: 1
-  hook_add: let g:tmuxcomplete#trigger = ''
+# - repo: wellle/tmux-complete.vim
+  # if: empty($NVIM) && empty($VIM_MINIMAL)
+  # on_i: 1
+  # hook_add: let g:tmuxcomplete#trigger = ''
 
 - repo: ternjs/tern_for_vim
   build: npm install
