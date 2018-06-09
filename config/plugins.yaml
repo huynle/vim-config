@@ -117,14 +117,14 @@
   on_ft: [ python, go]
   hook_source: |
     let g:test#strategy = {
-      \ 'nearest': '',
-      \ 'file': 'neomake',
-      \ 'suit': 'neomake',
+    \ 'nearest': '',
+    \ 'file': 'neomake',
+    \ 'suit': 'neomake',
     \}
     let g:test#python#runner = 'pytest'
     let g:test#python#pytest#options = {
-      \ 'nearest': '-s --pdb',
-      \ 'file': '-s --pdb',
+    \ 'nearest': '-s --pdb',
+    \ 'file': '-s --pdb',
     \}
 
 - { repo: vim-python/python-syntax, on_ft: python }
