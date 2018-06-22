@@ -40,7 +40,7 @@ call denite#custom#source('z', 'sorters', ['sorter_z'])
 
 " GREPPING
 " make grep interactive
-call denite#custom#source('grep', 'args', ['', '', '!'])
+" call denite#custom#source('grep', 'args', ['', '', '!'])
 
 " CONVERTERS
 " Default is none
@@ -80,6 +80,7 @@ elseif executable('ack')
 	call denite#custom#var('grep', 'default_opts',
 			\ ['--ackrc', $HOME.'/.config/ackrc', '-H',
 			\ '--nopager', '--nocolor', '--nogroup', '--column'])
+
 endif
 
 " KEY MAPPINGS

@@ -61,11 +61,6 @@ xmap <BS> %
 " nmap <Tab>  <C-w>w
 " nmap <S-Tab>  <C-w>W
 
-" Use to exit insert mode for Neovim terminal and get into normal mode
-if has('nvim')
-  tmap <C-o> <C-\><C-n>
-end
-
 "}}}
 " Global niceties {{{
 " ---------------
@@ -185,17 +180,23 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
+
+" movement for terminal in neovim
+
+tnoremap <Esc> <C-\><C-N>
+tnoremap <C-h> <C-\><C-N><C-w>h
+tnoremap <C-j> <C-\><C-N><C-w>j
+tnoremap <C-k> <C-\><C-N><C-w>k
+tnoremap <C-l> <C-\><C-N><C-w>l
+inoremap <C-h> <C-\><C-N><C-w>h
+inoremap <C-j> <C-\><C-N><C-w>j
+inoremap <C-k> <C-\><C-N><C-w>k
+inoremap <C-l> <C-\><C-N><C-w>l
+" Use to exit insert mode for Neovim terminal and get into normal mode
 if has('nvim')
-    " movement for terminal in neovim
-    tnoremap <C-h> <C-\><C-N><C-w>h
-    tnoremap <C-j> <C-\><C-N><C-w>j
-    tnoremap <C-k> <C-\><C-N><C-w>k
-    tnoremap <C-l> <C-\><C-N><C-w>l
-    inoremap <C-h> <C-\><C-N><C-w>h
-    inoremap <C-j> <C-\><C-N><C-w>j
-    inoremap <C-k> <C-\><C-N><C-w>k
-    inoremap <C-l> <C-\><C-N><C-w>l
-endif
+  tmap <C-o> <C-\><C-n>
+end
+
     
 " " Wrapped lines goes down/up to next row, rather than next line in file.
 " " provide hjkl movements in Insert mode via the <Alt> modifier key
