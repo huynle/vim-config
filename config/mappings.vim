@@ -61,11 +61,6 @@ xmap <BS> %
 " nmap <Tab>  <C-w>w
 " nmap <S-Tab>  <C-w>W
 
-" Use to exit insert mode for Neovim terminal and get into normal mode
-if has('nvim')
-  tmap <C-o> <C-\><C-n>
-end
-
 "}}}
 " Global niceties {{{
 " ---------------

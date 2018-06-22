@@ -80,6 +80,7 @@ elseif executable('ack')
 	call denite#custom#var('grep', 'default_opts',
 			\ ['--ackrc', $HOME.'/.config/ackrc', '-H',
 			\ '--nopager', '--nocolor', '--nogroup', '--column'])
+
 endif
 
 " KEY MAPPINGS
