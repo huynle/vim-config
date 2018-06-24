@@ -120,7 +120,7 @@
     \ 'nearest': '',
     \ 'file': 'neomake',
     \ 'suit': 'neomake',
-    \}
+    \ }
     let g:test#python#runner = 'pytest'
     let g:test#python#pytest#options = {
     \ 'nearest': '-s --pdb',
