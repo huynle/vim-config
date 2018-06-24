@@ -114,18 +114,17 @@
   depends: vim-test
 
 - repo: janko-m/vim-test
-  on_ft: [ python, go]
-  hook_source: |
+  on_ft: [ python, go ]
+  hook_add: |
     let g:test#strategy = {
     \ 'nearest': '',
     \ 'file': 'neomake',
     \ 'suit': 'neomake',
-    \ }
+    \}
     let g:test#python#runner = 'pytest'
     let g:test#python#pytest#options = {
     \ 'nearest': '-s --pdb',
-    \ 'file': '-s --pdb',
-    \ }
+    \}
 
 - { repo: vim-python/python-syntax, on_ft: python }
 - { repo: Vimjas/vim-python-pep8-indent, on_ft: python }
@@ -322,6 +321,8 @@
     let g:vimwiki_hl_headers = 1
     let g:vimwiki_hl_cb_checked = 1
     let g:vimwiki_autowriteall = 1
+    let g:vimwiki_html_header_numbering = 1
+    let g:vimwiki_html_header_numbering_sym = '.'
   hook_source: |
     let g:vimwiki_list = [
     \   { 'diary_header': 'Daily',
