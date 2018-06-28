@@ -313,7 +313,7 @@
     let g:calendar_view = 'week'
     let g:calendar_views = [ 'month', 'week', 'day' ]
 
-- repo: huynle/vimwiki
+- repo: vimwiki/vimwiki
   if: empty($VIM_MINIMAL)
   on_map: { n: <Plug> }
   on_cmd: Vimwiki
