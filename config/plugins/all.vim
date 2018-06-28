@@ -32,18 +32,18 @@ if dein#tap('denite.nvim')
 	nnoremap <silent><LocalLeader>; :<C-u>Denite command command_history<CR>
 
 	" chemzqm/denite-git
-	nnoremap <silent> <Leader>gl :<C-u>Denite gitlog:all<CR>
-	nnoremap <silent> <Leader>gs :<C-u>Denite gitstatus<CR>
-	nnoremap <silent> <Leader>gc :<C-u>Denite gitbranch<CR>
+	" nnoremap <silent> <Leader>gl :<C-u>Denite gitlog:all<CR>
+	" nnoremap <silent> <Leader>gs :<C-u>Denite gitstatus<CR>
+	" nnoremap <silent> <Leader>gc :<C-u>Denite gitbranch<CR>
 
 	" Open Denite with word under cursor or selection
-	nnoremap <silent> <Leader>gf :DeniteCursorWord file_rec<CR>
-	nnoremap <silent> <Leader>gg :DeniteCursorWord grep:::<CR>
-	vnoremap <silent> <Leader>gg
-		\ :<C-u>call <SID>get_selection('/')<CR>
-		\ :execute 'Denite grep:::'.@/<CR><CR>
-	nnoremap <silent> <Leader>tt
-		\ :<C-u>DeniteCursorWord -buffer-name=tag tag:include\<CR>
+	" nnoremap <silent> <Leader>gf :DeniteCursorWord file_rec<CR>
+	" nnoremap <silent> <Leader>gg :DeniteCursorWord grep:::<CR>
+	" vnoremap <silent> <Leader>gg
+	" 	\ :<C-u>call <SID>get_selection('/')<CR>
+	" 	\ :execute 'Denite grep:::'.@/<CR><CR>
+	" nnoremap <silent> <Leader>tt
+		" \ :<C-u>DeniteCursorWord -buffer-name=tag tag:include\<CR>
 
 	" nnoremap <silent> <LocalLeader>e :<C-u>Denite tag file_old<CR>
 
@@ -209,6 +209,27 @@ if dein#tap('jedi-vim')
 	let g:jedi#usages_command = '<Leader>n'
 endif
 
+if dein#tap('gutentags_plus')
+  " 0 or s: Find this symbol
+  noremap <silent> <leader>gs :GscopeFind s <C-R><C-W><cr>
+  " 1 or g: Find this definition
+  noremap <silent> <leader>gg :GscopeFind g <C-R><C-W><cr>
+  " 3 or c: Find functions calling this function
+  noremap <silent> <leader>gc :GscopeFind c <C-R><C-W><cr>
+  " 4 or t: Find this text string
+  noremap <silent> <leader>gt :GscopeFind t <C-R><C-W><cr>
+  " 6 or e: Find this egrep pattern
+  noremap <silent> <leader>ge :GscopeFind e <C-R><C-W><cr>
+  " 7 or f: Find this file
+  noremap <silent> <leader>gf :GscopeFind f <C-R>=expand("<cfile>")<cr><cr>
+  " 8 or i: Find files #including this file
+  noremap <silent> <leader>gi :GscopeFind i <C-R>=expand("<cfile>")<cr><cr>
+  " 2 or d: Find functions called by this function
+  noremap <silent> <leader>gd :GscopeFind d <C-R><C-W><cr>
+  " 9 or a: Find places where this symbol is assigned a value
+  noremap <silent> <leader>ga :GscopeFind a <C-R><C-W><cr>
+endif
+
 if dein#tap('python-mode')
 	let g:pymode_breakpoint_bind = '<Leader>b'
 	let g:pymode_rope_rename_bind = '<Leader>R'
@@ -274,9 +295,9 @@ if dein#tap('vimagit')
 endif
 
 if dein#tap('vim-easygit')
-	nnoremap <silent> <leader>gd :Gdiff<CR>
+	" nnoremap <silent> <leader>gd :Gdiff<CR>
 	nnoremap <silent> <leader>gD :Gdiffoff<CR>
-	nnoremap <silent> <leader>gc :Gcommit<CR>
+	" nnoremap <silent> <leader>gc :Gcommit<CR>
 	nnoremap <silent> <leader>gb :Gblame<CR>
 	nnoremap <silent> <leader>gB :Gbrowse<CR>
 	nnoremap <silent> <leader>gS :Gstatus<CR>

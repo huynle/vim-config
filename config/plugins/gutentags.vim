@@ -6,10 +6,17 @@ let g:gutentags_define_advanced_commands = 1
 let g:gutentags_trace = 0
 
 " getting modules to work. default was just ctags
-let g:gutentags_modules = ['ctags', 'cscope']
+let g:gutentags_modules = []
+if executable('ctags')
+	let g:gutentags_modules += ['ctags']
+endif
+if executable('gtags-cscope') && executable('gtags')
+	let g:gutentags_modules += ['gtags_cscope']
+endif
+
 
 " taking out cache_dir in favor of getting tags and cscope to work together
-" let g:gutentags_cache_dir = $VARPATH.'/tags'
+let g:gutentags_cache_dir = $VARPATH.'/tags'
 let g:gutentags_resolve_symlinks = 1
 let g:gutentags_generate_on_write = 1
 let g:gutentags_generate_on_missing = 0
@@ -42,3 +49,9 @@ let g:gutentags_ctags_exclude = [
 let g:gutentags_auto_add_cscope = 1
 let g:gutentags_scopefile = '.project/cscope.big'
 
+
+" settings project gtags
+let g:gutentags_auto_add_gtags_cscope = 1
+
+" Disabling keymapping for gutentag_plus
+let g:gutentags_plus_nomap = 1
