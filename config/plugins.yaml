@@ -375,6 +375,11 @@
   on_path: .*
   hook_source: source $VIMPATH/config/plugins/gutentags.vim
 
+# - repo: skywind3000/gutentags_plus
+#   depends: [ vim-gutentags ]
+#   if: executable('gtags') && empty($VIM_MINIMAL)
+#   on_path: .*
+
 - repo: mattn/emmet-vim
   if: empty($VIM_MINIMAL)
   on_i: 1
