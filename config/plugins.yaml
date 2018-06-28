@@ -315,7 +315,6 @@
 
 - repo: huynle/vimwiki
   if: empty($VIM_MINIMAL)
-  rev: 7a7e6ff6b10d0902dd
   on_map: { n: <Plug> }
   on_cmd: Vimwiki
   hook_add: |

@@ -3,3 +3,4 @@ function! g:LoadPluginScript ()
 endfunction
 
 autocmd VimEnter * call LoadPluginScript()
+let g:workspace_loaded = 1
