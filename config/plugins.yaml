@@ -314,9 +314,8 @@
     let g:calendar_view = 'week'
     let g:calendar_views = [ 'month', 'week', 'day' ]
 
-- repo: huynle/vimwiki
+- repo: vimwiki/vimwiki
   if: empty($VIM_MINIMAL)
-  rev: 7a7e6ff6b10d0902dd
   on_map: { n: <Plug> }
   on_cmd: Vimwiki
   hook_add: |
@@ -378,9 +377,9 @@
   on_path: .*
   hook_source: source $VIMPATH/config/plugins/gutentags.vim
 
-- repo: skywind3000/gutentags_plus
-  depends: [ vim-gutentags ]
-  if: executable('gtags') && empty($VIM_MINIMAL)
+# - repo: skywind3000/gutentags_plus
+  # depends: [ vim-gutentags ]
+  # if: executable('gtags') && empty($VIM_MINIMAL)
 
 - repo: mattn/emmet-vim
   if: empty($VIM_MINIMAL)
