@@ -19,6 +19,7 @@ augroup MyAutoCmd " {{{
 	" Check if file changed when its window is focus, more eager than 'autoread'
 	" use `:e` to reload file, a little faster for Neovim on windows
 	" autocmd WinEnter,FocusGained * checktime
+	autocmd WinEnter * ReloadBackground
 
 	autocmd Syntax * if 5000 < line('$') | syntax sync minlines=200 | endif
 
