@@ -117,12 +117,12 @@ vnoremap K :m '<-2<CR>gv=gv
 " Select last paste
 nnoremap <expr> gp '`['.strpart(getregtype(), 0, 1).'`]'
 
-" Navigation in command line
-cnoremap <C-h> <Home>
-cnoremap <C-l> <End>
-cnoremap <C-f> <Right>
-cnoremap <C-b> <Left>
-cnoremap <C-d> <C-w>
+" " Navigation in command line
+" cnoremap <C-h> <Home>
+" cnoremap <C-l> <End>
+" cnoremap <C-f> <Right>
+" cnoremap <C-b> <Left>
+" cnoremap <C-d> <C-w>
 
 " Switch history search pairs, matching my bash shell
 cnoremap <C-p>  <Up>

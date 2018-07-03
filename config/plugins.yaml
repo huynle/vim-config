@@ -114,8 +114,8 @@
   depends: vim-test
 
 - repo: janko-m/vim-test
-  on_ft: [ python, go ]
-  hook_add: |
+  on_ft: [ python, go]
+  hook_source: |
     let g:test#strategy = {
     \ 'nearest': '',
     \ 'file': 'neomake',
@@ -124,6 +124,7 @@
     let g:test#python#runner = 'pytest'
     let g:test#python#pytest#options = {
     \ 'nearest': '-s --pdb',
+      \ 'file': '-s --pdb',
     \}
 
 - { repo: vim-python/python-syntax, on_ft: python }
@@ -313,7 +314,7 @@
     let g:calendar_view = 'week'
     let g:calendar_views = [ 'month', 'week', 'day' ]
 
-- repo: vimwiki/vimwiki
+- repo: huynle/vimwiki
   if: empty($VIM_MINIMAL)
   on_map: { n: <Plug> }
   on_cmd: Vimwiki
@@ -574,7 +575,7 @@
   hook_add: let g:textobj_multiblock_no_default_key_mappings = 1
 
 - repo: kana/vim-textobj-function
-  depends: 
+  depends: vim-textobj-user
   on_map: { ox: <Plug> }
   hook_add: let g:textobj_function_no_default_key_mappings = 1
 
