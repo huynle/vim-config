@@ -68,10 +68,27 @@ if ! exists('g:colors_name')
 endif
 
 
+function! s:reloadBackground()
+	let l:saved_bg = filereadable(s:cache) ? readfile(s:cache)[1] : 'dark'
+	if l:saved_bg != &background
+		echom "reloading bg"
+		execute 'set background='.l:saved_bg
+		call s:theme_reload(g:theme_name)
+	endif
+endfunction
+
+
+function! ToggleBg()
+    if &background ==? 'dark'
+        set background=light
+        execute "silent !tmux source-file " . shellescape(expand('~/.tmux/themes/huy-light.sh'))
+    else
+        set background=dark
+        execute "silent !tmux source-file " . shellescape(expand('~/.tmux/themes/huy-dark.sh'))
+    endif
 		call s:theme_reload(g:theme_name)
     " silent !osascript -e 'tell app "System Events" to keystroke "s" using {shift down, option down, control down}'
 endfunction
-
 command! ToggleBackground call ToggleBg()
 command! ReloadBackground call s:reloadBackground()
 
