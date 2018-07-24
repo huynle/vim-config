@@ -226,7 +226,7 @@ if dein#tap('gutentags_plus')
   " 8 or i: Find files #including this file
   noremap <silent> <leader>fi :GscopeFind i <C-R>=expand("<cfile>")<cr><cr>
   " 2 or d: Find functions called by this function
-  noremap <silent> <leader>fd :GscopeFind d <C-R><C-W><cr>
+  noremap <silent> <leader>fu :GscopeFind d <C-R><C-W><cr>
   " 9 or a: Find places where this symbol is assigned a value
   noremap <silent> <leader>fa :GscopeFind a <C-R><C-W><cr>
 endif
