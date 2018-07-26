@@ -72,7 +72,6 @@ if dein#tap('tagbar')
 	let g:tagbar_map_openfold = ['l', '+', 'zo']
 endif
 
-
 if dein#tap('nerdtree')
 	let g:NERDTreeMapOpenSplit = 'sg'
 	let g:NERDTreeMapOpenVSplit = 'sv'
