@@ -381,6 +381,13 @@
   # depends: [ vim-gutentags ]
   # if: executable('gtags') && empty($VIM_MINIMAL)
 
+- repo: autozimu/LanguageClient-neovim
+  if: empty($NVIM) && empty($VIM_MINIMAL)
+  rev: next
+  on_path: .*
+  hook_add: let g:LanguageClient_autoStart = 1
+  hook_source: source $VIMPATH/config/plugins/lsp.vim
+  
 - repo: mattn/emmet-vim
   if: empty($VIM_MINIMAL)
   on_i: 1
