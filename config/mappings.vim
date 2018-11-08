@@ -192,8 +192,10 @@ inoremap <C-h> <C-\><C-N><C-w>h
 inoremap <C-j> <C-\><C-N><C-w>j
 inoremap <C-k> <C-\><C-N><C-w>k
 inoremap <C-l> <C-\><C-N><C-w>l
+
 " Use to exit insert mode for Neovim terminal and get into normal mode
 if has('nvim')
+  " ESC works too
   tmap <C-o> <C-\><C-n>
 end
 

@@ -2,8 +2,28 @@
 """"""" getting vimdiff to work.. it needs bash for to do the diff
 " why cant it use diff in the VIMRUMTIME folder?
 
+if has('win32')
+    let $SHELL="bash"
+endif
+    
 if ! empty($NVIM) && has('win32')
-  set shell=c:\cygwin64\bin\bash.exe
+" if has('win32')
+    " Makes bash open in the working directory
+    let $CHERE_INVOKING=1
+
+    " Default path for Cygwin 64-bit, change accordingly
+    set shell=C:\cygwin64\bin\bash.exe
+    " let $SHELL=expand('C:\cygwin64\bin\bash.exe')
+
+
+    " Without --login, Cygwin won't mount some directories such as /usr/bin/
+    " set shellcmdflag=--login\ -c
+
+    " Default value is (, but bash needs "
+    set shellxquote=\"
+
+    " Paths will use / instead of \
+    set shellslash
 endif
 
 

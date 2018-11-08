@@ -38,7 +38,7 @@ function! SetPythonEnv()
     endif
 endfunction
 
-echom "got here to python plugin"
+" echom "got here to python plugin"
 
 " augroup python_env
 "     autocmd!
