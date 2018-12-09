@@ -1,6 +1,8 @@
 
 " Key-mappings
 "---------------------------------------------------------
+" NOTE: Make this mapping portable with other Vim. Make it plugin independent
+" All pluging depedent mapping should be saved to the 'plugins.yml' file.
 
 " Non-standard {{{
 " ------------
@@ -49,8 +51,10 @@ nnoremap <leader>a =ip
 " Toggle fold
 nnoremap <CR> za
 
-" Focus the current fold by closing all others
-nnoremap <S-z> zMzvzz
+" " NOTE: 12/9/18 - Take out in favor of using "ZZ" to exit. which is the
+" " behavior.
+" " Focus the current fold by closing all others
+" nnoremap <S-z> zMzvzz
 " Go to line and fold everything else, nice for debugging
 " nnoremap gg GzMzvzz
 
@@ -158,7 +162,7 @@ cmap W!! w !sudo tee % >/dev/null
 " ---------
 
 " I like to :quit with 'q', shrug.
-nnoremap <silent> q :<C-u>:quit<CR>
+nnoremap <silent> <leader>q :<C-u>:quit<CR>
 
 
 autocmd MyAutoCmd FileType man nnoremap <silent><buffer> q :<C-u>:quit<CR>
@@ -175,9 +179,10 @@ nnoremap gQ @q
 " getting out of insert mode fast!
 imap jk <Esc>
 
-" Binding to record j/k to the jumplist
-nnoremap <expr> k (v:count >1 ? "m'" . v:count : '') . 'gk'
-nnoremap <expr> j (v:count >1 ? "m'" . v:count : '') . 'gj'
+" " NOTE: 12/9/19 - might not be the best since jumping is use
+" " Binding to record j/k to the jumplist
+" nnoremap <expr> k (v:count >1 ? "m'" . v:count : '') . 'gk'
+" nnoremap <expr> j (v:count >1 ? "m'" . v:count : '') . 'gj'
 
 " Quicker window movement
 nnoremap <C-j> <C-w>j
@@ -188,18 +193,18 @@ nnoremap <C-l> <C-w>l
 
 " movement for terminal in neovim
 
-tnoremap <Esc> <C-\><C-N>
-tnoremap <C-h> <C-\><C-N><C-w>h
-tnoremap <C-j> <C-\><C-N><C-w>j
-tnoremap <C-k> <C-\><C-N><C-w>k
-tnoremap <C-l> <C-\><C-N><C-w>l
-inoremap <C-h> <C-\><C-N><C-w>h
-inoremap <C-j> <C-\><C-N><C-w>j
-inoremap <C-k> <C-\><C-N><C-w>k
-inoremap <C-l> <C-\><C-N><C-w>l
 " Use to exit insert mode for Neovim terminal and get into normal mode
 if has('nvim')
   tmap <C-o> <C-\><C-n>
+  tnoremap <Esc> <C-\><C-N>
+  tnoremap <C-h> <C-\><C-N><C-w>h
+  tnoremap <C-j> <C-\><C-N><C-w>j
+  tnoremap <C-k> <C-\><C-N><C-w>k
+  tnoremap <C-l> <C-\><C-N><C-w>l
+  inoremap <C-h> <C-\><C-N><C-w>h
+  inoremap <C-j> <C-\><C-N><C-w>j
+  inoremap <C-k> <C-\><C-N><C-w>k
+  inoremap <C-l> <C-\><C-N><C-w>l
 end
 
     
@@ -352,9 +357,9 @@ nnoremap <Leader>y :let @+=expand("%")<CR>:echo 'Relative path copied to clipboa
 nnoremap <Leader>Y :let @+=expand("%:p")<CR>:echo 'Absolute path copied to clipboard.'<CR>
 
 " Yanking to registers
-nnoremap y "*y
+" nnoremap y "*y
 " nnoremap Y V"*y
-nnoremap yy V"*y
+" nnoremap yy V"*y
 
 
 " Drag current line/s vertically and auto-indent
@@ -373,12 +378,6 @@ if !empty(glob("$HOME/.crouton-clipboard/data.txt"))
 	nnoremap "*p :r !cat $HOME/.crouton-clipboard/data.txt<CR>
 	vnoremap "*y :'<,'>w! $HOME/.crouton-clipboard/data.txt<CR>
 endif
-
-
-"" Session management shortcuts
-nmap <silent> <Leader>se :<C-u>SessionSaveCwd<CR>
-nmap <silent> <Leader>os :<C-u>SessionLoadCwd<CR>
-nnoremap <silent> <Leader>qq :<C-u>SessionSaveCwd<CR>:wqa!<CR>
 
 if has('mac')
 	" Open the macOS dictionary on current word

@@ -2,6 +2,11 @@
 " Session Management
 " ---
 
+"" Session management shortcuts
+nmap <silent> <Leader>se :<C-u>SessionSaveCwd<CR>
+nmap <silent> <Leader>os :<C-u>SessionLoadCwd<CR>
+nnoremap <silent> <Leader>zz :<C-u>SessionSaveCwd<CR>:wqa!<CR>
+" autocmd VimEnter * SessionLoadCwd
 
 let g:session_directory = $VARPATH.'/session'
 
@@ -49,7 +54,12 @@ function! s:session_load(name) abort
 endfunction
 
 function! s:session_load_cwd()
-	execute 'source '.g:session_directory.'/'.fnamemodify(resolve(getcwd()), ':p:gs?[\\/:-]?_?').'.vim'
+	let file_path = g:session_directory.'/'.fnamemodify(resolve(getcwd()), ':p:gs?[\\/:-]?_?').'.vim'
+	if filereadable(file_path)
+		execute 'source '.file_path
+	else
+		echo 'Previous session not available to load.'
+	endif
 endfunction
 
 function! s:session_save_cwd()
