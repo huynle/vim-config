@@ -162,19 +162,14 @@ cmap W!! w !sudo tee % >/dev/null
 " ---------
 
 " I like to :quit with 'q', shrug.
-nnoremap <silent> <leader>q :<C-u>:quit<CR>
-
-
-autocmd MyAutoCmd FileType man nnoremap <silent><buffer> q :<C-u>:quit<CR>
-
-" Macros
+nnoremap <silent> q :<C-u>:quit<CR>
+" Macros for recording, since q is being used for quiting
 nnoremap Q q
 nnoremap gQ @q
 
-" " exit insert, dd line, enter insert
-" " inoremap <c-d> <esc>ddi
-" noremap H ^
-" noremap L g_
+autocmd MyAutoCmd FileType man nnoremap <silent><buffer> q :<C-u>:quit<CR>
+
+
 
 " getting out of insert mode fast!
 imap jk <Esc>
