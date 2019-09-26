@@ -1,0 +1,6 @@
+
+" Note: Skip initialization for vim-tiny or vim-small.
+if 1
+	let $VIM_MINIMAL = 1
+	execute 'source' fnamemodify(expand('<sfile>'), ':h').'/.vim/config/vimrc'
+endif
