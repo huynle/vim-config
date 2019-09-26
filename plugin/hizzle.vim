@@ -2,9 +2,9 @@
 """"""" getting vimdiff to work.. it needs bash for to do the diff
 " why cant it use diff in the VIMRUMTIME folder?
 
-if has('win32')
-    let $SHELL="bash"
-endif
+"if has('win32')
+"    let $SHELL="bash"
+"endif
     
 if ! empty($NVIM) && has('win32')
 " if has('win32')

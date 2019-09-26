@@ -27,7 +27,8 @@ nnoremap <Left> :vertical resize -5<CR>
 " Double leader key for toggling visual-line mode
 " nmap <silent> <Leader><Leader> V
 " vmap <Leader><Leader> <Esc>
-nmap <Leader><Leader> :sb<SPACE>
+" nmap <Leader><Leader> :sb<SPACE>
+nmap <Leader><Leader> :ls<Enter>:sb<SPACE>
 
 " Change current word in a repeatable manner
 nnoremap cn *``cgn
@@ -77,7 +78,7 @@ cnoreabbrev Bd bd
 cnoreabbrev bD bd
 
 " Start new line from any cursor position
-inoremap <S-Return> <C-o>o
+" inoremap <S-Return> <C-o>o
 
 " Quick substitute within selected area
 xnoremap s :s//g<Left><Left>
@@ -138,8 +139,8 @@ cnoremap <Down> <C-n>
 map <Leader>cd :lcd %:p:h<CR>:pwd<CR>
 
 " Fast saving
-nnoremap <silent><Leader>w :write<CR>
-vnoremap <silent><Leader>w <Esc>:write<CR>
+" nnoremap <silent><Leader>w :write<CR>
+" vnoremap <silent><Leader>w <Esc>:write<CR>
 " nnoremap <silent><C-s> :<C-u>write<CR>
 " vnoremap <silent><C-s> :<C-u>write<CR>
 " cnoremap <silent><C-s> :<C-u>write<CR>
@@ -171,8 +172,8 @@ nnoremap gQ @q
 imap jk <Esc>
 
 " Binding to record j/k to the jumplist
-nnoremap <expr> k (v:count >1 ? "m'" . v:count : '') . 'gk'
-nnoremap <expr> j (v:count >1 ? "m'" . v:count : '') . 'gj'
+" nnoremap <expr> k (v:count >1 ? "m'" . v:count : '') . 'gk'
+" nnoremap <expr> j (v:count >1 ? "m'" . v:count : '') . 'gj'
 
 " Quicker window movement
 nnoremap <C-j> <C-w>j
@@ -188,10 +189,10 @@ tnoremap <C-h> <C-\><C-N><C-w>h
 tnoremap <C-j> <C-\><C-N><C-w>j
 tnoremap <C-k> <C-\><C-N><C-w>k
 tnoremap <C-l> <C-\><C-N><C-w>l
-inoremap <C-h> <C-\><C-N><C-w>h
-inoremap <C-j> <C-\><C-N><C-w>j
-inoremap <C-k> <C-\><C-N><C-w>k
-inoremap <C-l> <C-\><C-N><C-w>l
+" inoremap <C-h> <C-\><C-N><C-w>h
+" inoremap <C-j> <C-\><C-N><C-w>j
+" inoremap <C-k> <C-\><C-N><C-w>k
+" inoremap <C-l> <C-\><C-N><C-w>l
 
 " Use to exit insert mode for Neovim terminal and get into normal mode
 if has('nvim')
@@ -208,7 +209,7 @@ end
 " inoremap <A-k> <C-o>w
 
 " delete whole word in insert mode
-inoremap <c-h> <c-w>
+" inoremap <c-h> <c-w>
 
 " " move to the end of line. This helps get out of parenthesis
 " inoremap <C-e> <C-o>A
@@ -349,7 +350,7 @@ nnoremap <Leader>y :let @+=expand("%")<CR>:echo 'Relative path copied to clipboa
 nnoremap <Leader>Y :let @+=expand("%:p")<CR>:echo 'Absolute path copied to clipboard.'<CR>
 
 " Yanking to registers
-nnoremap y "*y
+" nnoremap y "*y
 " nnoremap Y V"*y
 nnoremap yy V"*y
 

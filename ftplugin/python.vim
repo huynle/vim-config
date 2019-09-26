@@ -19,23 +19,23 @@ function! SetPythonEnv()
     let l:venv_local = fnamemodify(getcwd(), ':p').'venv'
 
     if isdirectory(l:venv_local)
-	echomsg 'Setting local python: ' . l:venv_local
-	let g:virtualenv_directory = getcwd()
+        echomsg 'Setting local python: ' . l:venv_local
+        let g:virtualenv_directory = getcwd()
         call virtualenv#activate('venv')
-	echomsg 'success setting virtualenv'
-	" let l:run_cmd = 'source ' . 'l:venv_local' . 'bin/activate'
-	" echomsg l:run_cmd
+        echomsg 'success setting virtualenv'
+        " let l:run_cmd = 'source ' . 'l:venv_local' . 'bin/activate'
+        " echomsg l:run_cmd
     elseif isdirectory(l:venv_path)
-	echomsg 'Setting python from .virtualenv'
+        echomsg 'Setting python from .virtualenv'
         call virtualenv#activate(l:venv)
     endif
 
-    " set jedi's python version to match the project
-    PythonJedi vim.command("let l:jedi_py_version = %s" % int(sys.version.split('.')[0]))
-    python vim.command("let l:venv_py_version = %s" % int(sys.version.split('.')[0]))
-    if l:jedi_py_version != l:venv_py_version
-        call jedi#force_py_version(l:venv_py_version)
-    endif
+"    " set jedi's python version to match the project
+"    PythonJedi vim.command("let l:jedi_py_version = %s" % int(sys.version.split('.')[0]))
+"    python vim.command("let l:venv_py_version = %s" % int(sys.version.split('.')[0]))
+"    if l:jedi_py_version != l:venv_py_version
+"        call jedi#force_py_version(l:venv_py_version)
+"    endif
 endfunction
 
 " echom "got here to python plugin"

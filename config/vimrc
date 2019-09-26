@@ -6,16 +6,10 @@
 " Runtime and Plugins
 " -------------------------------------------------
 
-
 if &compatible
 	set nocompatible
 endif
 
-" has to be there for Windows Dein
-if has('win16') || has('win32') || has('win64') && 0
-	set runtimepath+=~/.vim
-endif
-	
 " To use for loading plugins with dein on windows using cygwin
 " this is to turn on NVIM regardless of operating system
 if ! has('nvim')
@@ -38,6 +32,10 @@ let $VIMPATH = fnamemodify(resolve(expand('<sfile>:p')), ':h:h')
 let $VARPATH = expand(($XDG_CACHE_HOME ? $XDG_CACHE_HOME : '~/.cache').'/vim')
 let $VIMRC = expand($VIMPATH.'/config/vimrc')
 
+" has to be there for Windows Dein
+if has('win16') || has('win32') || has('win64') && 1
+	set runtimepath+=$VIMPATH
+endif
 
 let g:dein#install_max_processes = 16
 let g:dein#install_progress_type = 'echo'

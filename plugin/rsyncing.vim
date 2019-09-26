@@ -9,7 +9,8 @@ function! RemoteSync (sync_type)
 	" r for recursive
 	" p for preserving permission
 	if a:sync_type == "write"
-		let rsync_command = "rsync -au --exclude-from=".b:rsync_local."/".b:rsync_exclude." ".b:rsync_local."/ ".b:rsync_server.":".b:rsync_remote." &"
+		let rsync_command = "rsync -au --chmod=go=rx --exclude-from=".b:rsync_local."/".b:rsync_exclude." ".b:rsync_local."/ ".b:rsync_server.":".b:rsync_remote." &"
+		" let rsync_command = "rsync -Z --no-p --no-g --chmod=ugo=rwX --exclude-from=".b:rsync_local."/".b:rsync_exclude." ".b:rsync_local."/ ".b:rsync_server.":".b:rsync_remote." &"
 	elseif a:sync_type == "read"
 		let rsync_command = "rsync -au --exclude-from=".b:rsync_local."/".b:rsync_exclude." ".b:rsync_server.":".b:rsync_remote."/* ".b:rsync_local." &"
 	endif

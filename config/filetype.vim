@@ -2,10 +2,10 @@
 " File Types
 "-------------------------------------------------
 
-" Reload vim config automatically {{{
-execute 'autocmd MyAutoCmd BufWritePost '.$VIMPATH.'/config/*,vimrc nested'
-	\ .' source $MYVIMRC | redraw | silent doautocmd ColorScheme'
-" }}}
+" " Reload vim config automatically {{{
+" execute 'autocmd MyAutoCmd BufWritePost '.$VIMPATH.'/config/*,vimrc nested'
+" 	\ .' source $VIMRC | redraw | silent doautocmd ColorScheme'
+" " }}}
 
 augroup MyAutoCmd " {{{
 
