@@ -368,11 +368,6 @@ noremap  mj :m+<CR>
 vnoremap [<space>  :<c-u>put! =repeat(nr2char(10), v:count1)<cr>
 vnoremap ]<space>  :<c-u>put =repeat(nr2char(10), v:count1)<cr>
 
-" Copying and Pasting on ChromeOS
-if !empty(glob("$HOME/.crouton-clipboard/data.txt"))
-	nnoremap "*p :r !cat $HOME/.crouton-clipboard/data.txt<CR>
-	vnoremap "*y :'<,'>w! $HOME/.crouton-clipboard/data.txt<CR>
-endif
 
 if has('mac')
 	" Open the macOS dictionary on current word
