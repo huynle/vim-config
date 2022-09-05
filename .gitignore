@@ -1,0 +1,39 @@
+plugged/
+vimspector-config/gadgets/linux/download
+vim-lsp-settings/
+plugin/packer_compiled.lua
+
+# Swap
+
+!*.svg  # comment out if you don't need vector files
+[._]*.sw[a-p]
+[._]sw[a-p]
+
+# Session
+Session.vim
+Sessionx.vim
+
+# Temporary
+.netrwhist
+*~
+# Auto-generated tag files
+tags
+# Persistent undo
+[._]*.un~
+
+# Ignore tags created by etags, ctags, gtags (GNU global) and cscope
+TAGS
+.TAGS
+!TAGS/
+tags
+.tags
+!tags/
+gtags.files
+GTAGS
+GRTAGS
+GPATH
+GSYMS
+cscope.files
+cscope.out
+cscope.in.out
+cscope.po.out
